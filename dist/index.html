@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StitchLink - Embroidery Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'slide-in': 'slideIn 0.3s ease-out forwards',
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'blob': 'blob 7s infinite',
+            'ken-burns': 'ken-burns 20s ease-in-out infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'scale-up': 'scaleUp 0.6s ease-out forwards',
+            'draw-stroke': 'drawStroke 2s ease-in-out infinite alternate',
+            'stack-slide': 'stackSlide 1s ease-out infinite alternate',
+            'grid-reveal': 'gridReveal 1.5s ease-out forwards',
+            'drive-right': 'driveRight 2s ease-in-out infinite',
+            'flash-pulse': 'flash 1s steps(2) infinite',
+            'check-scale': 'checkScale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate',
+            'scan-down': 'scanDown 3s linear infinite',
+            'pan-diagonal': 'panDiagonal 10s linear infinite',
+            'spin-slow': 'spinSlow 20s linear infinite',
+            'gradient-wave': 'gradientWave 15s ease-in-out infinite',
+            'grid-pulse': 'gridPulse 3s ease-in-out infinite',
+            'float-up': 'floatUp 8s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+            'thread-float': 'threadFloat 20s linear infinite',
+            'thread-dash': 'threadDash 3s linear infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'slide-up': 'slideUp 0.5s ease-out forwards',
+            'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+            'stream': 'stream 20s linear infinite',
+            'fall': 'fall 10s linear infinite',
+          },
+          keyframes: {
+            slideIn: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            'ken-burns': {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.1)' },
+              '100%': { transform: 'scale(1)' },
+            },
+            scaleUp: {
+              '0%': { transform: 'scale(0.8)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            drawStroke: {
+              '0%': { strokeDasharray: '0 100' },
+              '100%': { strokeDasharray: '100 0' },
+            },
+            stackSlide: {
+              '0%': { transform: 'translateY(10px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            gridReveal: {
+              '0%': { clipPath: 'inset(50% 50% 50% 50%)' },
+              '100%': { clipPath: 'inset(0 0 0 0)' },
+            },
+            driveRight: {
+              '0%': { transform: 'translateX(-20px)' },
+              '50%': { transform: 'translateX(5px)' },
+              '100%': { transform: 'translateX(0)' },
+            },
+            flash: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.5', color: '#facc15' }, // Yellow flash
+            },
+            checkScale: {
+              '0%': { transform: 'scale(0)' },
+              '80%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+            scanDown: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(500%)' },
+            },
+            panDiagonal: {
+              '0%': { backgroundPosition: '0% 0%' },
+              '100%': { backgroundPosition: '100% 100%' },
+            },
+            spinSlow: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' },
+            },
+            gradientWave: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            gridPulse: {
+              '0%, 100%': { opacity: '0.3' },
+              '50%': { opacity: '0.6' },
+            },
+            floatUp: {
+              '0%': { transform: 'translateY(0) translateX(0)', opacity: '0' },
+              '10%': { opacity: '1' },
+              '90%': { opacity: '1' },
+              '100%': { transform: 'translateY(-100vh) translateX(20px)', opacity: '0' },
+            },
+            pulseGlow: {
+              '0%, 100%': { transform: 'scale(1)', opacity: '0.3' },
+              '50%': { transform: 'scale(1.2)', opacity: '0.6' },
+            },
+            threadFloat: {
+              '0%': { transform: 'translate(0, 0)' },
+              '100%': { transform: 'translate(100px, -100px)' },
+            },
+            threadDash: {
+              '0%': { strokeDashoffset: '1000' },
+              '100%': { strokeDashoffset: '0' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            fadeInUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            stream: {
+              '0%': { backgroundPosition: '0% 0%' },
+              '100%': { backgroundPosition: '0% 100%' },
+            },
+            fall: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100vh)' }
+            }
+          },
+          animationDelay: {
+            '2000': '2s',
+            '4000': '4s',
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Custom scrollbar for better aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.5.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CesoPcXq.js"></script>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200">
+  <div id="root"></div>
+</body>
+
+</html>
