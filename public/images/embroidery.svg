@@ -1,0 +1,16 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="10" fill="#fb7185" opacity="0.5"/>
+      <path d="M0 0L40 40M40 0L0 40" stroke="#f43f5e" stroke-width="2"/>
+    </pattern>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff1f2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe4e6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#grad)"/>
+  <rect width="800" height="600" fill="url(#pattern)"/>
+  <text x="50%" y="50%" font-family="sans-serif" font-size="40" fill="#be123c" text-anchor="middle" dy=".3em">Embroidery Design</text>
+  <rect x="50" y="50" width="700" height="500" rx="20" fill="none" stroke="#be123c" stroke-width="5" stroke-dasharray="10,10"/>
+</svg>
