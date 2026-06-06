@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 import { useTheme } from '../context/ThemeContext';
-import { ShoppingBag, LogOut, Scissors, User, Sun, Moon, Menu, X, ChevronRight, LayoutDashboard, List, Package } from 'lucide-react';
+import { ShoppingBag, LogOut, Scissors, User, Sun, Moon, Menu, X, ChevronRight, LayoutDashboard, List, Package, FileCode2 } from 'lucide-react';
 
 export const Navbar = () => {
   const { currentUser, logout, cart } = useStore();
@@ -76,6 +76,9 @@ export const Navbar = () => {
               <>
                 <Link to="/catalog" className={`text-sm font-medium transition-colors ${isActive('/catalog') ? 'text-rose-500' : 'text-slate-600 dark:text-slate-300 hover:text-rose-400 dark:hover:text-rose-300'}`}>
                   Catalog
+                </Link>
+                <Link to="/dst-upload" className={`text-sm font-medium transition-colors ${isActive('/dst-upload') ? 'text-rose-500' : 'text-slate-600 dark:text-slate-300 hover:text-rose-400 dark:hover:text-rose-300'}`}>
+                  DST Upload
                 </Link>
                 <Link to="/reviews" className={`text-sm font-medium transition-colors ${isActive('/reviews') ? 'text-rose-500' : 'text-slate-600 dark:text-slate-300 hover:text-rose-400 dark:hover:text-rose-300'}`}>
                   Reviews
@@ -205,6 +208,7 @@ export const Navbar = () => {
                   <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest ml-4 mb-2">Shopping</p>
                   <div className="grid gap-2">
                     <MobileNavLink to="/catalog" onClick={closeMenu} isActive={isActive('/catalog')}>Catalog</MobileNavLink>
+                    <MobileNavLink to="/dst-upload" onClick={closeMenu} isActive={isActive('/dst-upload')} icon={<FileCode2 size={20} />}>DST Upload</MobileNavLink>
                     <MobileNavLink to="/reviews" onClick={closeMenu} isActive={isActive('/reviews')}>Reviews</MobileNavLink>
                     <MobileNavLink to="/cart" onClick={closeMenu} isActive={isActive('/cart')}>My Cart</MobileNavLink>
                     <MobileNavLink to="/profile" onClick={closeMenu} isActive={isActive('/profile')}>My Profile</MobileNavLink>

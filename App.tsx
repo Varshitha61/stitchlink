@@ -16,6 +16,7 @@ import { Payment } from './pages/Payment';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { AdminOrders } from './pages/AdminOrders';
 import { AdminInventory } from './pages/AdminInventory';
+import { DSTUpload } from './pages/DSTUpload';
 import { ShoppingBag, Scissors, Twitter, Instagram, Linkedin, Facebook, MapPin } from 'lucide-react';
 
 // Protected Route Wrapper
@@ -189,6 +190,9 @@ const AppContent = () => {
           } />
           <Route path="/reviews" element={
             <ProtectedRoute allowedRole="CUSTOMER"><Reviews /></ProtectedRoute>
+          } />
+          <Route path="/dst-upload" element={
+            <ProtectedRoute allowedRole="CUSTOMER"><DSTUpload /></ProtectedRoute>
           } />
 
           {/* Admin Routes */}
