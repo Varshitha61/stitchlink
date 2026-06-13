@@ -1,0 +1,2777 @@
+{
+  "fetchedAt": "2026-06-13T03:34:41.297Z",
+  "sourceUrl": "https://github.com/Embroidermodder/Embroidermodder",
+  "metadata": {
+    "name": "Embroidermodder",
+    "owner": "Embroidermodder",
+    "description": "Free machine embroidery software supporting a variety of formats.",
+    "stars": 617,
+    "language": "C",
+    "lastUpdated": "2026-06-10T15:09:55Z",
+    "license": {
+      "name": "zlib License",
+      "spdxId": "Zlib",
+      "url": "https://api.github.com/licenses/zlib"
+    },
+    "defaultBranch": "main",
+    "forks": 148,
+    "openIssues": 25,
+    "homepage": "https://www.libembroidery.org"
+  },
+  "readme": {
+    "name": "README.md",
+    "downloadUrl": "https://raw.githubusercontent.com/Embroidermodder/Embroidermodder/main/README.md",
+    "content": "<h1 align=\"center\">\nEmbroidermodder 2\n</h1>\n\n<h4 align=\"center\">\nA graphical user interface for editing machine embroidery files.\n</h4>\n\n<p align=\"center\">\n<code>v2.0.0-alpha1</code>\n<br>\n(Under construction, please wait for v2.0.0 release for any serious use.)\n<br>\nCopyright (c) 2011-2026 Embroidermodder, Jonathan Greig, Josh Varga and all other contributors\n<br>\nhttps://www.libembroidery.org\n</p>\n\nEmbroidermodder is a free machine embroidery software program.\nThe newest version, Embroidermodder 2 can:\n\n- edit and create embroidery designs\n- estimate the amount of thread and machine time needed to stitch a design\n- convert embroidery files to a variety of formats\n- upscale or downscale designs\n- run on Windows, Mac and Linux\n\nFor more information, see [our website](http://www.libembroidery.org).\n\n## Building\n\nGenerally, you should be able to call the automated build script for a first time build with the\nappropriate argument like this:\n\n```bash\n# Choose your system out of:\nbash bin/build.sh Ubuntu\nbash bin/build.sh MacOS\nbash bin/build.sh Windows\n```\n\nWhich will fetch the necessary dependencies. In later builds, calling without an argument is\nsufficient:\n\n```bash\nbash bin/build.sh\n```\n\nFor details on how this works on your system keep on reading.\n\n### Dependencies\n\nTo build Embroidermodder 2 from source you will need at least:\n\n- [This source code](https://github.com/Embroidermodder/Embroidermodder)\n- [Qt](http://www.qt-project.org) (version >= 6.0).\n- [CMake](https://cmake.org)\n\nOptionally, you may want to add:\n\n- [KDE](http://www.kde.org) for thumbnailer\n- [Valgrind](http://www.valgrind.org) for debugging\n\n#### Ubuntu repository packages\n\nThe Qt, KDE and Valgrind build dependencies can be installed easily by opening a terminal and issuing this command:\n\n```bash\nsudo apt-get install git build-essential cmake qt6-base-dev libqt6widgets6 \\\n    libqt6printsupport6 libqt6core6 libgl-dev libgl1-mesa-dev libglx-dev\n```\n\n#### Fedora repository packages (UNTESTED)\n\nThe Qt, KDE and Valgrind build dependencies can be installed easily by opening a terminal and issuing this command:\n\n```bash\nsudo yum install git gdb gcc-c++ qt-devel kdelibs-devel valgrind\n```\n\n#### MacOS\n\n```bash\nbrew install qt6 qwt\n```\n\n### Calling CMake\n\nEmbroidermodder uses a CMake build exclusively. As of Qt6, CMake is well supported and\nyour development environement (such as QtCreator) will likely be able to set up the project\nfrom the `CMakeLists.txt`.\n\nA typical build would consist of these commands:\n\n```bash\nmkdir build\ncd build\ncmake ..\ncmake --build .\n```\n\nFor an accelerated build, on systems with make you can substitute the last line for:\n\n```bash\nmake -j4\n```\n\nwhich builds on 4 cores at once.\n\n## Testing\n\nTesting uses the `--test` or `-t` flag: the coverage script has been set up to allow\nfor testing without human interaction. Call it with:\n\n```bash\n# This has only been designed to run on a linux-based system.\nbash bin/coverage.sh\n```\n\nThis automated testing is ran by `test.yml` so we can assure that basic usage doesn't\ncrash the program. \n\n## Documentation\n\nNew developers should start by reading [CONTRIBUTING.md](./CONTRIBUTING.md) which gives\nan overview of the structure and design of Embroidermodder.\n\n## Sample Files\n\nVarious sample embroidery design files can be found in the `data/samples` folder.\n\n## Install/Uninstall\n\nWARNING: this is untested.\n\n### Linux\n\nTo install, open a terminal in the `build/` subfolder and type:\n\n```bash\nsudo make install\n```\n\nTo uninstall, open a terminal in the `build/` subfolder and type:\n\n```bash\nsudo make uninstall\n```\n",
+    "htmlUrl": "https://github.com/Embroidermodder/Embroidermodder/blob/main/README.md"
+  },
+  "structure": [
+    {
+      "path": ".gitignore",
+      "type": "file",
+      "size": 2773,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/.gitignore"
+    },
+    {
+      "path": ".travis.yml",
+      "type": "file",
+      "size": 2511,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/.travis.yml"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "type": "file",
+      "size": 29732,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/CMakeLists.txt"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "type": "file",
+      "size": 5227,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/CODE_OF_CONDUCT.md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "file",
+      "size": 9651,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/CONTRIBUTING.md"
+    },
+    {
+      "path": "CREDITS.ini",
+      "type": "file",
+      "size": 2020,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/CREDITS.ini"
+    },
+    {
+      "path": "LICENSE.md",
+      "type": "file",
+      "size": 945,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/LICENSE.md"
+    },
+    {
+      "path": "README.md",
+      "type": "file",
+      "size": 3589,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/README.md"
+    },
+    {
+      "path": "TO_DO.md",
+      "type": "file",
+      "size": 6279,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/TO_DO.md"
+    },
+    {
+      "path": "bin",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin"
+    },
+    {
+      "path": "bin/build.sh",
+      "type": "file",
+      "size": 668,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/build.sh"
+    },
+    {
+      "path": "bin/coverage.sh",
+      "type": "file",
+      "size": 1322,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/coverage.sh"
+    },
+    {
+      "path": "bin/embroidermodder2-generate-todo",
+      "type": "file",
+      "size": 1962,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/embroidermodder2-generate-todo"
+    },
+    {
+      "path": "bin/embroidermodder2-valgrind",
+      "type": "file",
+      "size": 926,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/embroidermodder2-valgrind"
+    },
+    {
+      "path": "bin/libembroidery-convert-generate-todo",
+      "type": "file",
+      "size": 1962,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/libembroidery-convert-generate-todo"
+    },
+    {
+      "path": "bin/libembroidery-convert-valgrind",
+      "type": "file",
+      "size": 931,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/libembroidery-convert-valgrind"
+    },
+    {
+      "path": "bin/libembroidery-generate-todo",
+      "type": "file",
+      "size": 1962,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/libembroidery-generate-todo"
+    },
+    {
+      "path": "bin/libembroidery-test-valgrind",
+      "type": "file",
+      "size": 928,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/libembroidery-test-valgrind"
+    },
+    {
+      "path": "bin/style.sh",
+      "type": "file",
+      "size": 708,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/bin/style.sh"
+    },
+    {
+      "path": "changelog.md",
+      "type": "file",
+      "size": 51,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/changelog.md"
+    },
+    {
+      "path": "cmake",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake"
+    },
+    {
+      "path": "cmake/README.md",
+      "type": "file",
+      "size": 426,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/README.md"
+    },
+    {
+      "path": "cmake/debian",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/debian"
+    },
+    {
+      "path": "cmake/debian/control",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/debian/control"
+    },
+    {
+      "path": "cmake/debian/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/debian/data"
+    },
+    {
+      "path": "cmake/nsis",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis"
+    },
+    {
+      "path": "cmake/nsis/LICENSE",
+      "type": "file",
+      "size": 861,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/LICENSE"
+    },
+    {
+      "path": "cmake/nsis/checkboxes.bmp",
+      "type": "file",
+      "size": 2512,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/checkboxes.bmp"
+    },
+    {
+      "path": "cmake/nsis/embroidermodder2-installer.nsi",
+      "type": "file",
+      "size": 4631,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/embroidermodder2-installer.nsi"
+    },
+    {
+      "path": "cmake/nsis/embroidermodder2.ico",
+      "type": "file",
+      "size": 67646,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/embroidermodder2.ico"
+    },
+    {
+      "path": "cmake/nsis/header-install.bmp",
+      "type": "file",
+      "size": 9744,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/header-install.bmp"
+    },
+    {
+      "path": "cmake/nsis/header-uninstall.bmp",
+      "type": "file",
+      "size": 9744,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/header-uninstall.bmp"
+    },
+    {
+      "path": "cmake/nsis/install.bmp",
+      "type": "file",
+      "size": 52576,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/install.bmp"
+    },
+    {
+      "path": "cmake/nsis/uninstall.bmp",
+      "type": "file",
+      "size": 52576,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/nsis/uninstall.bmp"
+    },
+    {
+      "path": "cmake/osx",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/osx"
+    },
+    {
+      "path": "cmake/osx/README.md",
+      "type": "file",
+      "size": 406,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/osx/README.md"
+    },
+    {
+      "path": "cmake/valgrind-supp",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/valgrind-supp"
+    },
+    {
+      "path": "cmake/valgrind-supp/valgrind-create-suppressions.sh",
+      "type": "file",
+      "size": 3363,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/valgrind-supp/valgrind-create-suppressions.sh"
+    },
+    {
+      "path": "cmake/valgrind-supp/valgrind-misc.supp",
+      "type": "file",
+      "size": 3461,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/valgrind-supp/valgrind-misc.supp"
+    },
+    {
+      "path": "cmake/valgrind-supp/valgrind-qt.supp",
+      "type": "file",
+      "size": 2259,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/valgrind-supp/valgrind-qt.supp"
+    },
+    {
+      "path": "cmake/version",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/version"
+    },
+    {
+      "path": "cmake/version/MAJOR.txt",
+      "type": "file",
+      "size": 3,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/version/MAJOR.txt"
+    },
+    {
+      "path": "cmake/version/MINOR.txt",
+      "type": "file",
+      "size": 4,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/version/MINOR.txt"
+    },
+    {
+      "path": "cmake/version/PATCH.txt",
+      "type": "file",
+      "size": 3,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/version/PATCH.txt"
+    },
+    {
+      "path": "cmake/version/README.md",
+      "type": "file",
+      "size": 798,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/cmake/version/README.md"
+    },
+    {
+      "path": "data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data"
+    },
+    {
+      "path": "data/Info.plist",
+      "type": "file",
+      "size": 1795,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/Info.plist"
+    },
+    {
+      "path": "data/commands",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands"
+    },
+    {
+      "path": "data/commands/about",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/about"
+    },
+    {
+      "path": "data/commands/circle",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/circle"
+    },
+    {
+      "path": "data/commands/day",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/day"
+    },
+    {
+      "path": "data/commands/distance",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/distance"
+    },
+    {
+      "path": "data/commands/dolphin",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/dolphin"
+    },
+    {
+      "path": "data/commands/ellipse",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/ellipse"
+    },
+    {
+      "path": "data/commands/erase",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/erase"
+    },
+    {
+      "path": "data/commands/exit",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/exit"
+    },
+    {
+      "path": "data/commands/heart",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/heart"
+    },
+    {
+      "path": "data/commands/help",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/help"
+    },
+    {
+      "path": "data/commands/icon128",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/icon128"
+    },
+    {
+      "path": "data/commands/icon16",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/icon16"
+    },
+    {
+      "path": "data/commands/icon24",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/icon24"
+    },
+    {
+      "path": "data/commands/icon32",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/icon32"
+    },
+    {
+      "path": "data/commands/icon48",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/icon48"
+    },
+    {
+      "path": "data/commands/icon64",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/icon64"
+    },
+    {
+      "path": "data/commands/line",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/line"
+    },
+    {
+      "path": "data/commands/locatepoint",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/locatepoint"
+    },
+    {
+      "path": "data/commands/move",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/move"
+    },
+    {
+      "path": "data/commands/new",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/new"
+    },
+    {
+      "path": "data/commands/night",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/night"
+    },
+    {
+      "path": "data/commands/open",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/open"
+    },
+    {
+      "path": "data/commands/pandown",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/pandown"
+    },
+    {
+      "path": "data/commands/panleft",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/panleft"
+    },
+    {
+      "path": "data/commands/panright",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/panright"
+    },
+    {
+      "path": "data/commands/panup",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/panup"
+    },
+    {
+      "path": "data/commands/path",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/path"
+    },
+    {
+      "path": "data/commands/platform",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/platform"
+    },
+    {
+      "path": "data/commands/point",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/point"
+    },
+    {
+      "path": "data/commands/polygon",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/polygon"
+    },
+    {
+      "path": "data/commands/polyline",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/polyline"
+    },
+    {
+      "path": "data/commands/quickleader",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/quickleader"
+    },
+    {
+      "path": "data/commands/rectangle",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/rectangle"
+    },
+    {
+      "path": "data/commands/redo",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/redo"
+    },
+    {
+      "path": "data/commands/rgb",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/rgb"
+    },
+    {
+      "path": "data/commands/rotate",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/rotate"
+    },
+    {
+      "path": "data/commands/sandbox",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/sandbox"
+    },
+    {
+      "path": "data/commands/scale",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/scale"
+    },
+    {
+      "path": "data/commands/selectall",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/selectall"
+    },
+    {
+      "path": "data/commands/singlelinetext",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/singlelinetext"
+    },
+    {
+      "path": "data/commands/snowflake",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/snowflake"
+    },
+    {
+      "path": "data/commands/star",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/star"
+    },
+    {
+      "path": "data/commands/syswindows",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/syswindows"
+    },
+    {
+      "path": "data/commands/tipoftheday",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/tipoftheday"
+    },
+    {
+      "path": "data/commands/undo",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/undo"
+    },
+    {
+      "path": "data/commands/windowcascade",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/windowcascade"
+    },
+    {
+      "path": "data/commands/windowclose",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/windowclose"
+    },
+    {
+      "path": "data/commands/windowcloseall",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/windowcloseall"
+    },
+    {
+      "path": "data/commands/windownext",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/windownext"
+    },
+    {
+      "path": "data/commands/windowprevious",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/windowprevious"
+    },
+    {
+      "path": "data/commands/windowtile",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/windowtile"
+    },
+    {
+      "path": "data/commands/zoomextents",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/zoomextents"
+    },
+    {
+      "path": "data/commands/zoomin",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/zoomin"
+    },
+    {
+      "path": "data/commands/zoomout",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/commands/zoomout"
+    },
+    {
+      "path": "data/embroidermodder2.icns",
+      "type": "file",
+      "size": 57251,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/embroidermodder2.icns"
+    },
+    {
+      "path": "data/embroidermodder2.ico",
+      "type": "file",
+      "size": 228696,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/embroidermodder2.ico"
+    },
+    {
+      "path": "data/help",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/help"
+    },
+    {
+      "path": "data/help/index.html",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/help/index.html"
+    },
+    {
+      "path": "data/icons",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/icons"
+    },
+    {
+      "path": "data/icons/default",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/icons/default"
+    },
+    {
+      "path": "data/icons/test1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/icons/test1"
+    },
+    {
+      "path": "data/icons/test2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/icons/test2"
+    },
+    {
+      "path": "data/images",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images"
+    },
+    {
+      "path": "data/images/about_embroidermodder.png",
+      "type": "file",
+      "size": 39634,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/about_embroidermodder.png"
+    },
+    {
+      "path": "data/images/did-you-know.png",
+      "type": "file",
+      "size": 11305,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/did-you-know.png"
+    },
+    {
+      "path": "data/images/lightswitch_off.png",
+      "type": "file",
+      "size": 619,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/lightswitch_off.png"
+    },
+    {
+      "path": "data/images/lightswitch_on.png",
+      "type": "file",
+      "size": 555,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/lightswitch_on.png"
+    },
+    {
+      "path": "data/images/logo-large.png",
+      "type": "file",
+      "size": 1073,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/logo-large.png"
+    },
+    {
+      "path": "data/images/logo-quilt.png",
+      "type": "file",
+      "size": 8659,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/logo-quilt.png"
+    },
+    {
+      "path": "data/images/logo-small.png",
+      "type": "file",
+      "size": 37563,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/logo-small.png"
+    },
+    {
+      "path": "data/images/logo-spirals.png",
+      "type": "file",
+      "size": 6956,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/logo-spirals.png"
+    },
+    {
+      "path": "data/images/logo_embroidermodder_2_0.png",
+      "type": "file",
+      "size": 35241,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/logo_embroidermodder_2_0.png"
+    },
+    {
+      "path": "data/images/spool_thread.png",
+      "type": "file",
+      "size": 7369,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/spool_thread.png"
+    },
+    {
+      "path": "data/images/spool_top_bottom.png",
+      "type": "file",
+      "size": 3933,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/spool_top_bottom.png"
+    },
+    {
+      "path": "data/images/text_about.png",
+      "type": "file",
+      "size": 4018,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/text_about.png"
+    },
+    {
+      "path": "data/images/texture-canvas.png",
+      "type": "file",
+      "size": 4607,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/texture-canvas.png"
+    },
+    {
+      "path": "data/images/texture-spirals.png",
+      "type": "file",
+      "size": 144643,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/images/texture-spirals.png"
+    },
+    {
+      "path": "data/manifest.toml",
+      "type": "file",
+      "size": 92,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/manifest.toml"
+    },
+    {
+      "path": "data/samples",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples"
+    },
+    {
+      "path": "data/samples/Embroidermodder-R2000.dxf",
+      "type": "file",
+      "size": 110668,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/Embroidermodder-R2000.dxf"
+    },
+    {
+      "path": "data/samples/Fleur-de-lis-R2004.dxf",
+      "type": "file",
+      "size": 26906,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/Fleur-de-lis-R2004.dxf"
+    },
+    {
+      "path": "data/samples/OSHW-Logo-R2000.dxf",
+      "type": "file",
+      "size": 172378,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/OSHW-Logo-R2000.dxf"
+    },
+    {
+      "path": "data/samples/Omega-R2010.dxf",
+      "type": "file",
+      "size": 39332,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/Omega-R2010.dxf"
+    },
+    {
+      "path": "data/samples/Puzzle-R2007.dxf",
+      "type": "file",
+      "size": 32624,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/Puzzle-R2007.dxf"
+    },
+    {
+      "path": "data/samples/Tux-R2000.dxf",
+      "type": "file",
+      "size": 90994,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/Tux-R2000.dxf"
+    },
+    {
+      "path": "data/samples/shamrockin.dst",
+      "type": "file",
+      "size": 4946,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/shamrockin.dst"
+    },
+    {
+      "path": "data/samples/shamrockin.rgb",
+      "type": "file",
+      "size": 4,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/shamrockin.rgb"
+    },
+    {
+      "path": "data/samples/spiral4.csv",
+      "type": "file",
+      "size": 101000,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/spiral4.csv"
+    },
+    {
+      "path": "data/samples/spiral5.csv",
+      "type": "file",
+      "size": 70789,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/spiral5.csv"
+    },
+    {
+      "path": "data/samples/spiral6.csv",
+      "type": "file",
+      "size": 53722,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/spiral6.csv"
+    },
+    {
+      "path": "data/samples/spiralgrid.csv",
+      "type": "file",
+      "size": 2864711,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/samples/spiralgrid.csv"
+    },
+    {
+      "path": "data/tables",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/tables"
+    },
+    {
+      "path": "data/tables/menus.toml",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/tables/menus.toml"
+    },
+    {
+      "path": "data/tables/tips.toml",
+      "type": "file",
+      "size": 1155,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/tables/tips.toml"
+    },
+    {
+      "path": "data/tables/toolbars.toml",
+      "type": "file",
+      "size": 161,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/tables/toolbars.toml"
+    },
+    {
+      "path": "data/translations",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations"
+    },
+    {
+      "path": "data/translations/afrikaans",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/afrikaans"
+    },
+    {
+      "path": "data/translations/arabic",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/arabic"
+    },
+    {
+      "path": "data/translations/chinese",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/chinese"
+    },
+    {
+      "path": "data/translations/czech",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/czech"
+    },
+    {
+      "path": "data/translations/danish",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/danish"
+    },
+    {
+      "path": "data/translations/dutch",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/dutch"
+    },
+    {
+      "path": "data/translations/english",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/english"
+    },
+    {
+      "path": "data/translations/finnish",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/finnish"
+    },
+    {
+      "path": "data/translations/french",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/french"
+    },
+    {
+      "path": "data/translations/german",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/german"
+    },
+    {
+      "path": "data/translations/greek",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/greek"
+    },
+    {
+      "path": "data/translations/italian",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/italian"
+    },
+    {
+      "path": "data/translations/japanese",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/japanese"
+    },
+    {
+      "path": "data/translations/korean",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/korean"
+    },
+    {
+      "path": "data/translations/latin",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/latin"
+    },
+    {
+      "path": "data/translations/polish",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/polish"
+    },
+    {
+      "path": "data/translations/portuguese",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/portuguese"
+    },
+    {
+      "path": "data/translations/romanian",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/romanian"
+    },
+    {
+      "path": "data/translations/russian",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/russian"
+    },
+    {
+      "path": "data/translations/spanish",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/spanish"
+    },
+    {
+      "path": "data/translations/swedish",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/swedish"
+    },
+    {
+      "path": "data/translations/turkish",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/data/translations/turkish"
+    },
+    {
+      "path": "extern",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern"
+    },
+    {
+      "path": "extern/sds",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds"
+    },
+    {
+      "path": "extern/sds/.gitignore",
+      "type": "file",
+      "size": 9,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/.gitignore"
+    },
+    {
+      "path": "extern/sds/CMakeLists.txt",
+      "type": "file",
+      "size": 176,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/CMakeLists.txt"
+    },
+    {
+      "path": "extern/sds/Changelog",
+      "type": "file",
+      "size": 311,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/Changelog"
+    },
+    {
+      "path": "extern/sds/LICENSE",
+      "type": "file",
+      "size": 1335,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/LICENSE"
+    },
+    {
+      "path": "extern/sds/Makefile",
+      "type": "file",
+      "size": 212,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/Makefile"
+    },
+    {
+      "path": "extern/sds/README.md",
+      "type": "file",
+      "size": 32055,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/README.md"
+    },
+    {
+      "path": "extern/sds/sds.c",
+      "type": "file",
+      "size": 45656,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/sds.c"
+    },
+    {
+      "path": "extern/sds/sds.h",
+      "type": "file",
+      "size": 5395,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/sds.h"
+    },
+    {
+      "path": "extern/sds/sdsalloc.h",
+      "type": "file",
+      "size": 2092,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/sdsalloc.h"
+    },
+    {
+      "path": "extern/sds/testhelp.h",
+      "type": "file",
+      "size": 2431,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/sds/testhelp.h"
+    },
+    {
+      "path": "extern/tomlc99",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99"
+    },
+    {
+      "path": "extern/tomlc99/.editorconfig",
+      "type": "file",
+      "size": 190,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/.editorconfig"
+    },
+    {
+      "path": "extern/tomlc99/CMakeLists.txt",
+      "type": "file",
+      "size": 183,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/CMakeLists.txt"
+    },
+    {
+      "path": "extern/tomlc99/LICENSE",
+      "type": "file",
+      "size": 1091,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/LICENSE"
+    },
+    {
+      "path": "extern/tomlc99/Makefile",
+      "type": "file",
+      "size": 969,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/Makefile"
+    },
+    {
+      "path": "extern/tomlc99/README.md",
+      "type": "file",
+      "size": 4947,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/README.md"
+    },
+    {
+      "path": "extern/tomlc99/libtoml.pc.sample",
+      "type": "file",
+      "size": 248,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/libtoml.pc.sample"
+    },
+    {
+      "path": "extern/tomlc99/sample.toml",
+      "type": "file",
+      "size": 66,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/sample.toml"
+    },
+    {
+      "path": "extern/tomlc99/stdex",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/stdex"
+    },
+    {
+      "path": "extern/tomlc99/test1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/test1"
+    },
+    {
+      "path": "extern/tomlc99/test2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/test2"
+    },
+    {
+      "path": "extern/tomlc99/toml.c",
+      "type": "file",
+      "size": 56470,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/toml.c"
+    },
+    {
+      "path": "extern/tomlc99/toml.h",
+      "type": "file",
+      "size": 6966,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/toml.h"
+    },
+    {
+      "path": "extern/tomlc99/toml_cat.c",
+      "type": "file",
+      "size": 6724,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/toml_cat.c"
+    },
+    {
+      "path": "extern/tomlc99/toml_json.c",
+      "type": "file",
+      "size": 5506,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/toml_json.c"
+    },
+    {
+      "path": "extern/tomlc99/toml_sample.c",
+      "type": "file",
+      "size": 1253,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/toml_sample.c"
+    },
+    {
+      "path": "extern/tomlc99/unittest",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/extern/tomlc99/unittest"
+    },
+    {
+      "path": "src",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src"
+    },
+    {
+      "path": "src/core",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core"
+    },
+    {
+      "path": "src/core/command-table.c",
+      "type": "file",
+      "size": 20589,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/command-table.c"
+    },
+    {
+      "path": "src/core/core.h",
+      "type": "file",
+      "size": 10592,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/core.h"
+    },
+    {
+      "path": "src/core/load.c",
+      "type": "file",
+      "size": 1109,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/load.c"
+    },
+    {
+      "path": "src/core/object-data.c",
+      "type": "file",
+      "size": 32482,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/object-data.c"
+    },
+    {
+      "path": "src/core/object-data.h",
+      "type": "file",
+      "size": 9309,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/object-data.h"
+    },
+    {
+      "path": "src/core/sdsarray.c",
+      "type": "file",
+      "size": 1335,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/sdsarray.c"
+    },
+    {
+      "path": "src/core/settings.c",
+      "type": "file",
+      "size": 33401,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/settings.c"
+    },
+    {
+      "path": "src/core/state.c",
+      "type": "file",
+      "size": 3243,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/core/state.c"
+    },
+    {
+      "path": "src/gui",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui"
+    },
+    {
+      "path": "src/gui/application.cpp",
+      "type": "file",
+      "size": 491,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/application.cpp"
+    },
+    {
+      "path": "src/gui/application.h",
+      "type": "file",
+      "size": 493,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/application.h"
+    },
+    {
+      "path": "src/gui/cmdprompt.cpp",
+      "type": "file",
+      "size": 26372,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/cmdprompt.cpp"
+    },
+    {
+      "path": "src/gui/cmdprompt.h",
+      "type": "file",
+      "size": 6378,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/cmdprompt.h"
+    },
+    {
+      "path": "src/gui/commands.cpp",
+      "type": "file",
+      "size": 6047,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/commands.cpp"
+    },
+    {
+      "path": "src/gui/embdetails-dialog.cpp",
+      "type": "file",
+      "size": 14350,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/embdetails-dialog.cpp"
+    },
+    {
+      "path": "src/gui/embdetails-dialog.h",
+      "type": "file",
+      "size": 796,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/embdetails-dialog.h"
+    },
+    {
+      "path": "src/gui/imagewidget.cpp",
+      "type": "file",
+      "size": 921,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/imagewidget.cpp"
+    },
+    {
+      "path": "src/gui/imagewidget.h",
+      "type": "file",
+      "size": 573,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/imagewidget.h"
+    },
+    {
+      "path": "src/gui/layer-manager.cpp",
+      "type": "file",
+      "size": 3497,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/layer-manager.cpp"
+    },
+    {
+      "path": "src/gui/layer-manager.h",
+      "type": "file",
+      "size": 971,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/layer-manager.h"
+    },
+    {
+      "path": "src/gui/main.cpp",
+      "type": "file",
+      "size": 3202,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/main.cpp"
+    },
+    {
+      "path": "src/gui/mainwindow-commands.cpp",
+      "type": "file",
+      "size": 47030,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mainwindow-commands.cpp"
+    },
+    {
+      "path": "src/gui/mainwindow.cpp",
+      "type": "file",
+      "size": 55258,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mainwindow.cpp"
+    },
+    {
+      "path": "src/gui/mainwindow.h",
+      "type": "file",
+      "size": 12316,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mainwindow.h"
+    },
+    {
+      "path": "src/gui/mdiarea.cpp",
+      "type": "file",
+      "size": 2604,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mdiarea.cpp"
+    },
+    {
+      "path": "src/gui/mdiarea.h",
+      "type": "file",
+      "size": 1021,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mdiarea.h"
+    },
+    {
+      "path": "src/gui/mdiwindow.cpp",
+      "type": "file",
+      "size": 18580,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mdiwindow.cpp"
+    },
+    {
+      "path": "src/gui/mdiwindow.h",
+      "type": "file",
+      "size": 2936,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/mdiwindow.h"
+    },
+    {
+      "path": "src/gui/native-scripting.cpp",
+      "type": "file",
+      "size": 32539,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/native-scripting.cpp"
+    },
+    {
+      "path": "src/gui/native-scripting.h",
+      "type": "file",
+      "size": 7030,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/native-scripting.h"
+    },
+    {
+      "path": "src/gui/object-arc.cpp",
+      "type": "file",
+      "size": 10551,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-arc.cpp"
+    },
+    {
+      "path": "src/gui/object-arc.h",
+      "type": "file",
+      "size": 2778,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-arc.h"
+    },
+    {
+      "path": "src/gui/object-base.cpp",
+      "type": "file",
+      "size": 4580,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-base.cpp"
+    },
+    {
+      "path": "src/gui/object-base.h",
+      "type": "file",
+      "size": 3332,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-base.h"
+    },
+    {
+      "path": "src/gui/object-circle.cpp",
+      "type": "file",
+      "size": 8661,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-circle.cpp"
+    },
+    {
+      "path": "src/gui/object-circle.h",
+      "type": "file",
+      "size": 2257,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-circle.h"
+    },
+    {
+      "path": "src/gui/object-dimleader.cpp",
+      "type": "file",
+      "size": 9600,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-dimleader.cpp"
+    },
+    {
+      "path": "src/gui/object-dimleader.h",
+      "type": "file",
+      "size": 2587,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-dimleader.h"
+    },
+    {
+      "path": "src/gui/object-ellipse.cpp",
+      "type": "file",
+      "size": 10132,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-ellipse.cpp"
+    },
+    {
+      "path": "src/gui/object-ellipse.h",
+      "type": "file",
+      "size": 2372,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-ellipse.h"
+    },
+    {
+      "path": "src/gui/object-image.cpp",
+      "type": "file",
+      "size": 6239,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-image.cpp"
+    },
+    {
+      "path": "src/gui/object-image.h",
+      "type": "file",
+      "size": 1380,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-image.h"
+    },
+    {
+      "path": "src/gui/object-line.cpp",
+      "type": "file",
+      "size": 6591,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-line.cpp"
+    },
+    {
+      "path": "src/gui/object-line.h",
+      "type": "file",
+      "size": 2099,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-line.h"
+    },
+    {
+      "path": "src/gui/object-path.cpp",
+      "type": "file",
+      "size": 3458,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-path.cpp"
+    },
+    {
+      "path": "src/gui/object-path.h",
+      "type": "file",
+      "size": 1588,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-path.h"
+    },
+    {
+      "path": "src/gui/object-point.cpp",
+      "type": "file",
+      "size": 3228,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-point.cpp"
+    },
+    {
+      "path": "src/gui/object-point.h",
+      "type": "file",
+      "size": 1340,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-point.h"
+    },
+    {
+      "path": "src/gui/object-polygon.cpp",
+      "type": "file",
+      "size": 9627,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-polygon.cpp"
+    },
+    {
+      "path": "src/gui/object-polygon.h",
+      "type": "file",
+      "size": 1576,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-polygon.h"
+    },
+    {
+      "path": "src/gui/object-polyline.cpp",
+      "type": "file",
+      "size": 7512,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-polyline.cpp"
+    },
+    {
+      "path": "src/gui/object-polyline.h",
+      "type": "file",
+      "size": 1584,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-polyline.h"
+    },
+    {
+      "path": "src/gui/object-rect.cpp",
+      "type": "file",
+      "size": 8760,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-rect.cpp"
+    },
+    {
+      "path": "src/gui/object-rect.h",
+      "type": "file",
+      "size": 1473,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-rect.h"
+    },
+    {
+      "path": "src/gui/object-save.cpp",
+      "type": "file",
+      "size": 13944,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-save.cpp"
+    },
+    {
+      "path": "src/gui/object-save.h",
+      "type": "file",
+      "size": 2657,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-save.h"
+    },
+    {
+      "path": "src/gui/object-textsingle.cpp",
+      "type": "file",
+      "size": 12325,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-textsingle.cpp"
+    },
+    {
+      "path": "src/gui/object-textsingle.h",
+      "type": "file",
+      "size": 3222,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/object-textsingle.h"
+    },
+    {
+      "path": "src/gui/preview-dialog.cpp",
+      "type": "file",
+      "size": 1238,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/preview-dialog.cpp"
+    },
+    {
+      "path": "src/gui/preview-dialog.h",
+      "type": "file",
+      "size": 524,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/preview-dialog.h"
+    },
+    {
+      "path": "src/gui/property-editor.cpp",
+      "type": "file",
+      "size": 42776,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/property-editor.cpp"
+    },
+    {
+      "path": "src/gui/property-editor.h",
+      "type": "file",
+      "size": 2942,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/property-editor.h"
+    },
+    {
+      "path": "src/gui/selectbox.cpp",
+      "type": "file",
+      "size": 1790,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/selectbox.cpp"
+    },
+    {
+      "path": "src/gui/selectbox.h",
+      "type": "file",
+      "size": 806,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/selectbox.h"
+    },
+    {
+      "path": "src/gui/settings-dialog.cpp",
+      "type": "file",
+      "size": 149624,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/settings-dialog.cpp"
+    },
+    {
+      "path": "src/gui/settings-dialog.h",
+      "type": "file",
+      "size": 6289,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/settings-dialog.h"
+    },
+    {
+      "path": "src/gui/statusbar-button.cpp",
+      "type": "file",
+      "size": 8038,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/statusbar-button.cpp"
+    },
+    {
+      "path": "src/gui/statusbar-button.h",
+      "type": "file",
+      "size": 1082,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/statusbar-button.h"
+    },
+    {
+      "path": "src/gui/statusbar.cpp",
+      "type": "file",
+      "size": 1870,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/statusbar.cpp"
+    },
+    {
+      "path": "src/gui/statusbar.h",
+      "type": "file",
+      "size": 850,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/statusbar.h"
+    },
+    {
+      "path": "src/gui/undo-commands.cpp",
+      "type": "file",
+      "size": 7297,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/undo-commands.cpp"
+    },
+    {
+      "path": "src/gui/undo-commands.h",
+      "type": "file",
+      "size": 3144,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/undo-commands.h"
+    },
+    {
+      "path": "src/gui/undo-editor.cpp",
+      "type": "file",
+      "size": 1631,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/undo-editor.cpp"
+    },
+    {
+      "path": "src/gui/undo-editor.h",
+      "type": "file",
+      "size": 800,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/undo-editor.h"
+    },
+    {
+      "path": "src/gui/view.cpp",
+      "type": "file",
+      "size": 77861,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/view.cpp"
+    },
+    {
+      "path": "src/gui/view.h",
+      "type": "file",
+      "size": 5853,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/gui/view.h"
+    },
+    {
+      "path": "src/libembroidery",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery"
+    },
+    {
+      "path": "src/libembroidery/CMakeLists.txt",
+      "type": "file",
+      "size": 1935,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/CMakeLists.txt"
+    },
+    {
+      "path": "src/libembroidery/README.md",
+      "type": "file",
+      "size": 925,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/README.md"
+    },
+    {
+      "path": "src/libembroidery/compound-file-difat.c",
+      "type": "file",
+      "size": 2875,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/compound-file-difat.c"
+    },
+    {
+      "path": "src/libembroidery/compound-file-directory.c",
+      "type": "file",
+      "size": 4009,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/compound-file-directory.c"
+    },
+    {
+      "path": "src/libembroidery/compound-file-fat.c",
+      "type": "file",
+      "size": 1029,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/compound-file-fat.c"
+    },
+    {
+      "path": "src/libembroidery/compound-file-header.c",
+      "type": "file",
+      "size": 1710,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/compound-file-header.c"
+    },
+    {
+      "path": "src/libembroidery/compound-file.c",
+      "type": "file",
+      "size": 4472,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/compound-file.c"
+    },
+    {
+      "path": "src/libembroidery/emb-arc.c",
+      "type": "file",
+      "size": 2342,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-arc.c"
+    },
+    {
+      "path": "src/libembroidery/emb-circle.c",
+      "type": "file",
+      "size": 3462,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-circle.c"
+    },
+    {
+      "path": "src/libembroidery/emb-color.c",
+      "type": "file",
+      "size": 1378,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-color.c"
+    },
+    {
+      "path": "src/libembroidery/emb-compress.c",
+      "type": "file",
+      "size": 32006,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-compress.c"
+    },
+    {
+      "path": "src/libembroidery/emb-ellipse.c",
+      "type": "file",
+      "size": 4072,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-ellipse.c"
+    },
+    {
+      "path": "src/libembroidery/emb-file.c",
+      "type": "file",
+      "size": 2990,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-file.c"
+    },
+    {
+      "path": "src/libembroidery/emb-flag.c",
+      "type": "file",
+      "size": 1780,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-flag.c"
+    },
+    {
+      "path": "src/libembroidery/emb-format.c",
+      "type": "file",
+      "size": 16214,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-format.c"
+    },
+    {
+      "path": "src/libembroidery/emb-hoop.c",
+      "type": "file",
+      "size": 312,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-hoop.c"
+    },
+    {
+      "path": "src/libembroidery/emb-layer.c",
+      "type": "file",
+      "size": 114,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-layer.c"
+    },
+    {
+      "path": "src/libembroidery/emb-line.c",
+      "type": "file",
+      "size": 5657,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-line.c"
+    },
+    {
+      "path": "src/libembroidery/emb-logging.c",
+      "type": "file",
+      "size": 969,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-logging.c"
+    },
+    {
+      "path": "src/libembroidery/emb-outline.c",
+      "type": "file",
+      "size": 17726,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-outline.c"
+    },
+    {
+      "path": "src/libembroidery/emb-path.c",
+      "type": "file",
+      "size": 3432,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-path.c"
+    },
+    {
+      "path": "src/libembroidery/emb-pattern.c",
+      "type": "file",
+      "size": 37243,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-pattern.c"
+    },
+    {
+      "path": "src/libembroidery/emb-point.c",
+      "type": "file",
+      "size": 5093,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-point.c"
+    },
+    {
+      "path": "src/libembroidery/emb-polygon.c",
+      "type": "file",
+      "size": 3379,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-polygon.c"
+    },
+    {
+      "path": "src/libembroidery/emb-polyline.c",
+      "type": "file",
+      "size": 3443,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-polyline.c"
+    },
+    {
+      "path": "src/libembroidery/emb-reader-writer.c",
+      "type": "file",
+      "size": 26681,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-reader-writer.c"
+    },
+    {
+      "path": "src/libembroidery/emb-rect.c",
+      "type": "file",
+      "size": 4450,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-rect.c"
+    },
+    {
+      "path": "src/libembroidery/emb-satin-line.c",
+      "type": "file",
+      "size": 5516,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-satin-line.c"
+    },
+    {
+      "path": "src/libembroidery/emb-settings.c",
+      "type": "file",
+      "size": 616,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-settings.c"
+    },
+    {
+      "path": "src/libembroidery/emb-spline.c",
+      "type": "file",
+      "size": 345,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-spline.c"
+    },
+    {
+      "path": "src/libembroidery/emb-stitch.c",
+      "type": "file",
+      "size": 2091,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-stitch.c"
+    },
+    {
+      "path": "src/libembroidery/emb-thread.c",
+      "type": "file",
+      "size": 3895,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-thread.c"
+    },
+    {
+      "path": "src/libembroidery/emb-time.c",
+      "type": "file",
+      "size": 778,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-time.c"
+    },
+    {
+      "path": "src/libembroidery/emb-vector.c",
+      "type": "file",
+      "size": 2390,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/emb-vector.c"
+    },
+    {
+      "path": "src/libembroidery/embroidery.h",
+      "type": "file",
+      "size": 51078,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/embroidery.h"
+    },
+    {
+      "path": "src/libembroidery/examples",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/examples"
+    },
+    {
+      "path": "src/libembroidery/format-100.c",
+      "type": "file",
+      "size": 2367,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-100.c"
+    },
+    {
+      "path": "src/libembroidery/format-10o.c",
+      "type": "file",
+      "size": 2700,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-10o.c"
+    },
+    {
+      "path": "src/libembroidery/format-art.c",
+      "type": "file",
+      "size": 1363,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-art.c"
+    },
+    {
+      "path": "src/libembroidery/format-bmc.c",
+      "type": "file",
+      "size": 1430,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-bmc.c"
+    },
+    {
+      "path": "src/libembroidery/format-bro.c",
+      "type": "file",
+      "size": 3272,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-bro.c"
+    },
+    {
+      "path": "src/libembroidery/format-cnd.c",
+      "type": "file",
+      "size": 1363,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-cnd.c"
+    },
+    {
+      "path": "src/libembroidery/format-col.c",
+      "type": "file",
+      "size": 3037,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-col.c"
+    },
+    {
+      "path": "src/libembroidery/format-csd.c",
+      "type": "file",
+      "size": 8010,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-csd.c"
+    },
+    {
+      "path": "src/libembroidery/format-csv.c",
+      "type": "file",
+      "size": 12387,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-csv.c"
+    },
+    {
+      "path": "src/libembroidery/format-dat.c",
+      "type": "file",
+      "size": 2828,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-dat.c"
+    },
+    {
+      "path": "src/libembroidery/format-dem.c",
+      "type": "file",
+      "size": 1363,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-dem.c"
+    },
+    {
+      "path": "src/libembroidery/format-dsb.c",
+      "type": "file",
+      "size": 2838,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-dsb.c"
+    },
+    {
+      "path": "src/libembroidery/format-dst.c",
+      "type": "file",
+      "size": 17364,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-dst.c"
+    },
+    {
+      "path": "src/libembroidery/format-dsz.c",
+      "type": "file",
+      "size": 2720,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-dsz.c"
+    },
+    {
+      "path": "src/libembroidery/format-dxf.c",
+      "type": "file",
+      "size": 20030,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-dxf.c"
+    },
+    {
+      "path": "src/libembroidery/format-edr.c",
+      "type": "file",
+      "size": 2370,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-edr.c"
+    },
+    {
+      "path": "src/libembroidery/format-emd.c",
+      "type": "file",
+      "size": 3482,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-emd.c"
+    },
+    {
+      "path": "src/libembroidery/format-exp.c",
+      "type": "file",
+      "size": 5754,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-exp.c"
+    },
+    {
+      "path": "src/libembroidery/format-exy.c",
+      "type": "file",
+      "size": 3527,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-exy.c"
+    },
+    {
+      "path": "src/libembroidery/format-eys.c",
+      "type": "file",
+      "size": 1364,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-eys.c"
+    },
+    {
+      "path": "src/libembroidery/format-fxy.c",
+      "type": "file",
+      "size": 2759,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-fxy.c"
+    },
+    {
+      "path": "src/libembroidery/format-gc.c",
+      "type": "file",
+      "size": 1372,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-gc.c"
+    },
+    {
+      "path": "src/libembroidery/format-gnc.c",
+      "type": "file",
+      "size": 1364,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-gnc.c"
+    },
+    {
+      "path": "src/libembroidery/format-gt.c",
+      "type": "file",
+      "size": 2745,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-gt.c"
+    },
+    {
+      "path": "src/libembroidery/format-hus.c",
+      "type": "file",
+      "size": 13226,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-hus.c"
+    },
+    {
+      "path": "src/libembroidery/format-inb.c",
+      "type": "file",
+      "size": 3841,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-inb.c"
+    },
+    {
+      "path": "src/libembroidery/format-inf.c",
+      "type": "file",
+      "size": 3472,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-inf.c"
+    },
+    {
+      "path": "src/libembroidery/format-jef.c",
+      "type": "file",
+      "size": 15586,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-jef.c"
+    },
+    {
+      "path": "src/libembroidery/format-ksm.c",
+      "type": "file",
+      "size": 3837,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-ksm.c"
+    },
+    {
+      "path": "src/libembroidery/format-max.c",
+      "type": "file",
+      "size": 4872,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-max.c"
+    },
+    {
+      "path": "src/libembroidery/format-mit.c",
+      "type": "file",
+      "size": 3123,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-mit.c"
+    },
+    {
+      "path": "src/libembroidery/format-new.c",
+      "type": "file",
+      "size": 2966,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-new.c"
+    },
+    {
+      "path": "src/libembroidery/format-ofm.c",
+      "type": "file",
+      "size": 10170,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-ofm.c"
+    },
+    {
+      "path": "src/libembroidery/format-pcd.c",
+      "type": "file",
+      "size": 5877,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pcd.c"
+    },
+    {
+      "path": "src/libembroidery/format-pcm.c",
+      "type": "file",
+      "size": 3847,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pcm.c"
+    },
+    {
+      "path": "src/libembroidery/format-pcq.c",
+      "type": "file",
+      "size": 5873,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pcq.c"
+    },
+    {
+      "path": "src/libembroidery/format-pcs.c",
+      "type": "file",
+      "size": 6110,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pcs.c"
+    },
+    {
+      "path": "src/libembroidery/format-pec.c",
+      "type": "file",
+      "size": 22107,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pec.c"
+    },
+    {
+      "path": "src/libembroidery/format-pel.c",
+      "type": "file",
+      "size": 1364,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pel.c"
+    },
+    {
+      "path": "src/libembroidery/format-pem.c",
+      "type": "file",
+      "size": 1364,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pem.c"
+    },
+    {
+      "path": "src/libembroidery/format-pes.c",
+      "type": "file",
+      "size": 8006,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-pes.c"
+    },
+    {
+      "path": "src/libembroidery/format-phb.c",
+      "type": "file",
+      "size": 3038,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-phb.c"
+    },
+    {
+      "path": "src/libembroidery/format-phc.c",
+      "type": "file",
+      "size": 2956,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-phc.c"
+    },
+    {
+      "path": "src/libembroidery/format-plt.c",
+      "type": "file",
+      "size": 3471,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-plt.c"
+    },
+    {
+      "path": "src/libembroidery/format-rgb.c",
+      "type": "file",
+      "size": 2330,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-rgb.c"
+    },
+    {
+      "path": "src/libembroidery/format-sew.c",
+      "type": "file",
+      "size": 5867,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-sew.c"
+    },
+    {
+      "path": "src/libembroidery/format-shv.c",
+      "type": "file",
+      "size": 8680,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-shv.c"
+    },
+    {
+      "path": "src/libembroidery/format-sst.c",
+      "type": "file",
+      "size": 2823,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-sst.c"
+    },
+    {
+      "path": "src/libembroidery/format-stx.c",
+      "type": "file",
+      "size": 9868,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-stx.c"
+    },
+    {
+      "path": "src/libembroidery/format-svg.c",
+      "type": "file",
+      "size": 68068,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-svg.c"
+    },
+    {
+      "path": "src/libembroidery/format-t01.c",
+      "type": "file",
+      "size": 6254,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-t01.c"
+    },
+    {
+      "path": "src/libembroidery/format-t09.c",
+      "type": "file",
+      "size": 2439,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-t09.c"
+    },
+    {
+      "path": "src/libembroidery/format-tap.c",
+      "type": "file",
+      "size": 6254,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-tap.c"
+    },
+    {
+      "path": "src/libembroidery/format-thr.c",
+      "type": "file",
+      "size": 9158,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-thr.c"
+    },
+    {
+      "path": "src/libembroidery/format-txt.c",
+      "type": "file",
+      "size": 1909,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-txt.c"
+    },
+    {
+      "path": "src/libembroidery/format-u00.c",
+      "type": "file",
+      "size": 3052,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-u00.c"
+    },
+    {
+      "path": "src/libembroidery/format-u01.c",
+      "type": "file",
+      "size": 2450,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-u01.c"
+    },
+    {
+      "path": "src/libembroidery/format-vip.c",
+      "type": "file",
+      "size": 15575,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-vip.c"
+    },
+    {
+      "path": "src/libembroidery/format-vp3.c",
+      "type": "file",
+      "size": 16547,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-vp3.c"
+    },
+    {
+      "path": "src/libembroidery/format-xxx.c",
+      "type": "file",
+      "size": 8590,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-xxx.c"
+    },
+    {
+      "path": "src/libembroidery/format-zsk.c",
+      "type": "file",
+      "size": 3357,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/format-zsk.c"
+    },
+    {
+      "path": "src/libembroidery/geom-arc.c",
+      "type": "file",
+      "size": 9428,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/geom-arc.c"
+    },
+    {
+      "path": "src/libembroidery/geom-circle.c",
+      "type": "file",
+      "size": 6099,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/geom-circle.c"
+    },
+    {
+      "path": "src/libembroidery/geom-line.c",
+      "type": "file",
+      "size": 914,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/geom-line.c"
+    },
+    {
+      "path": "src/libembroidery/helpers-binary.c",
+      "type": "file",
+      "size": 4968,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/helpers-binary.c"
+    },
+    {
+      "path": "src/libembroidery/helpers-misc.c",
+      "type": "file",
+      "size": 3809,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/helpers-misc.c"
+    },
+    {
+      "path": "src/libembroidery/libembroidery-undocumented.doxyfile",
+      "type": "file",
+      "size": 80529,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/libembroidery-undocumented.doxyfile"
+    },
+    {
+      "path": "src/libembroidery/libembroidery.dox",
+      "type": "file",
+      "size": 329,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/libembroidery.dox"
+    },
+    {
+      "path": "src/libembroidery/libembroidery.doxyfile",
+      "type": "file",
+      "size": 80529,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/libembroidery.doxyfile"
+    },
+    {
+      "path": "src/libembroidery/sew.c",
+      "type": "file",
+      "size": 10097,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/sew.c"
+    },
+    {
+      "path": "src/libembroidery/svg-data.c",
+      "type": "file",
+      "size": 33845,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/svg-data.c"
+    },
+    {
+      "path": "src/libembroidery/thread-color.c",
+      "type": "file",
+      "size": 215318,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/thread-color.c"
+    },
+    {
+      "path": "src/libembroidery/utility",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/libembroidery/utility"
+    },
+    {
+      "path": "src/thumbnailer-kde4",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4"
+    },
+    {
+      "path": "src/thumbnailer-kde4/README.md",
+      "type": "file",
+      "size": 255,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4/README.md"
+    },
+    {
+      "path": "src/thumbnailer-kde4/libembroidery-thumbnailer-kde4.cpp",
+      "type": "file",
+      "size": 3033,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4/libembroidery-thumbnailer-kde4.cpp"
+    },
+    {
+      "path": "src/thumbnailer-kde4/libembroidery-thumbnailer-kde4.desktop",
+      "type": "file",
+      "size": 211,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4/libembroidery-thumbnailer-kde4.desktop"
+    },
+    {
+      "path": "src/thumbnailer-kde4/libembroidery-thumbnailer-kde4.h",
+      "type": "file",
+      "size": 415,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4/libembroidery-thumbnailer-kde4.h"
+    },
+    {
+      "path": "src/thumbnailer-kde4/thumbnailer-kde4.pro",
+      "type": "file",
+      "size": 1728,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4/thumbnailer-kde4.pro"
+    },
+    {
+      "path": "src/thumbnailer-kde4/x-embroidermodder.xml",
+      "type": "file",
+      "size": 1991,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/src/thumbnailer-kde4/x-embroidermodder.xml"
+    },
+    {
+      "path": "test",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test"
+    },
+    {
+      "path": "test/EMBROIDERMODDER.TBF",
+      "type": "file",
+      "size": 12094,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/EMBROIDERMODDER.TBF"
+    },
+    {
+      "path": "test/Embroidermodder.CSD",
+      "type": "file",
+      "size": 10347,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.CSD"
+    },
+    {
+      "path": "test/Embroidermodder.CT0",
+      "type": "file",
+      "size": 1536,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.CT0"
+    },
+    {
+      "path": "test/Embroidermodder.DSB",
+      "type": "file",
+      "size": 11004,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.DSB"
+    },
+    {
+      "path": "test/Embroidermodder.DST",
+      "type": "file",
+      "size": 10977,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.DST"
+    },
+    {
+      "path": "test/Embroidermodder.DSZ",
+      "type": "file",
+      "size": 11004,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.DSZ"
+    },
+    {
+      "path": "test/Embroidermodder.DXF",
+      "type": "file",
+      "size": 168350,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.DXF"
+    },
+    {
+      "path": "test/Embroidermodder.EXP",
+      "type": "file",
+      "size": 7120,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.EXP"
+    },
+    {
+      "path": "test/Embroidermodder.HUS",
+      "type": "file",
+      "size": 4714,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.HUS"
+    },
+    {
+      "path": "test/Embroidermodder.NPF",
+      "type": "file",
+      "size": 256,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.NPF"
+    },
+    {
+      "path": "test/Embroidermodder.PAT",
+      "type": "file",
+      "size": 17615,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.PAT"
+    },
+    {
+      "path": "test/Embroidermodder.PEC",
+      "type": "file",
+      "size": 7589,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.PEC"
+    },
+    {
+      "path": "test/Embroidermodder.PES",
+      "type": "file",
+      "size": 21816,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.PES"
+    },
+    {
+      "path": "test/Embroidermodder.SHV",
+      "type": "file",
+      "size": 13019,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.SHV"
+    },
+    {
+      "path": "test/Embroidermodder.T15",
+      "type": "file",
+      "size": 16728,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.T15"
+    },
+    {
+      "path": "test/Embroidermodder.XXX",
+      "type": "file",
+      "size": 8963,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.XXX"
+    },
+    {
+      "path": "test/Embroidermodder.pxf",
+      "type": "file",
+      "size": 53341,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Embroidermodder.pxf"
+    },
+    {
+      "path": "test/README.md",
+      "type": "file",
+      "size": 242,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/README.md"
+    },
+    {
+      "path": "test/STAR.TBF",
+      "type": "file",
+      "size": 9112,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/STAR.TBF"
+    },
+    {
+      "path": "test/Star.00O",
+      "type": "file",
+      "size": 214,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.00O"
+    },
+    {
+      "path": "test/Star.100",
+      "type": "file",
+      "size": 10236,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.100"
+    },
+    {
+      "path": "test/Star.10O",
+      "type": "file",
+      "size": 7647,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.10O"
+    },
+    {
+      "path": "test/Star.BRO",
+      "type": "file",
+      "size": 5304,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.BRO"
+    },
+    {
+      "path": "test/Star.CSD",
+      "type": "file",
+      "size": 7704,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.CSD"
+    },
+    {
+      "path": "test/Star.CSD.wcn",
+      "type": "file",
+      "size": 3132,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.CSD.wcn"
+    },
+    {
+      "path": "test/Star.CT0",
+      "type": "file",
+      "size": 1536,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.CT0"
+    },
+    {
+      "path": "test/Star.DSB",
+      "type": "file",
+      "size": 7860,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.DSB"
+    },
+    {
+      "path": "test/Star.DST",
+      "type": "file",
+      "size": 8213,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.DST"
+    },
+    {
+      "path": "test/Star.DSZ",
+      "type": "file",
+      "size": 7860,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.DSZ"
+    },
+    {
+      "path": "test/Star.EMB",
+      "type": "file",
+      "size": 46080,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.EMB"
+    },
+    {
+      "path": "test/Star.EXP",
+      "type": "file",
+      "size": 5124,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.EXP"
+    },
+    {
+      "path": "test/Star.HUS",
+      "type": "file",
+      "size": 2674,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.HUS"
+    },
+    {
+      "path": "test/Star.JEF",
+      "type": "file",
+      "size": 5232,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.JEF"
+    },
+    {
+      "path": "test/Star.MON",
+      "type": "file",
+      "size": 1024,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.MON"
+    },
+    {
+      "path": "test/Star.NPF",
+      "type": "file",
+      "size": 256,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.NPF"
+    },
+    {
+      "path": "test/Star.PAT",
+      "type": "file",
+      "size": 12765,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PAT"
+    },
+    {
+      "path": "test/Star.PCM",
+      "type": "file",
+      "size": 22103,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PCM"
+    },
+    {
+      "path": "test/Star.PCS",
+      "type": "file",
+      "size": 23074,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PCS"
+    },
+    {
+      "path": "test/Star.PMU",
+      "type": "file",
+      "size": 23376,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PMU"
+    },
+    {
+      "path": "test/Star.POF",
+      "type": "file",
+      "size": 45540,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.POF"
+    },
+    {
+      "path": "test/Star.PSF",
+      "type": "file",
+      "size": 8031,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PSF"
+    },
+    {
+      "path": "test/Star.PUM",
+      "type": "file",
+      "size": 8069,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PUM"
+    },
+    {
+      "path": "test/Star.PXF",
+      "type": "file",
+      "size": 37878,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.PXF"
+    },
+    {
+      "path": "test/Star.SEW",
+      "type": "file",
+      "size": 12660,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.SEW"
+    },
+    {
+      "path": "test/Star.SHV",
+      "type": "file",
+      "size": 7214,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.SHV"
+    },
+    {
+      "path": "test/Star.STX",
+      "type": "file",
+      "size": 5648,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.STX"
+    },
+    {
+      "path": "test/Star.T15",
+      "type": "file",
+      "size": 11892,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.T15"
+    },
+    {
+      "path": "test/Star.TAP",
+      "type": "file",
+      "size": 7644,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.TAP"
+    },
+    {
+      "path": "test/Star.VIP",
+      "type": "file",
+      "size": 2678,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.VIP"
+    },
+    {
+      "path": "test/Star.XXX",
+      "type": "file",
+      "size": 7234,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.XXX"
+    },
+    {
+      "path": "test/Star.Z01",
+      "type": "file",
+      "size": 8234,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.Z01"
+    },
+    {
+      "path": "test/Star.cem",
+      "type": "file",
+      "size": 5090,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.cem"
+    },
+    {
+      "path": "test/Star.dat",
+      "type": "file",
+      "size": 7638,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.dat"
+    },
+    {
+      "path": "test/Star.eys",
+      "type": "file",
+      "size": 7629,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.eys"
+    },
+    {
+      "path": "test/Star.inb",
+      "type": "file",
+      "size": 15857,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.inb"
+    },
+    {
+      "path": "test/Star.ksm",
+      "type": "file",
+      "size": 8150,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.ksm"
+    },
+    {
+      "path": "test/Star.m3",
+      "type": "file",
+      "size": 5167,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.m3"
+    },
+    {
+      "path": "test/Star.pes",
+      "type": "file",
+      "size": 7367,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.pes"
+    },
+    {
+      "path": "test/Star.phb",
+      "type": "file",
+      "size": 5850,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.phb"
+    },
+    {
+      "path": "test/Star.phc",
+      "type": "file",
+      "size": 5805,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.phc"
+    },
+    {
+      "path": "test/Star.plt",
+      "type": "file",
+      "size": 47995,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.plt"
+    },
+    {
+      "path": "test/Star.sst",
+      "type": "file",
+      "size": 7801,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.sst"
+    },
+    {
+      "path": "test/Star.u01",
+      "type": "file",
+      "size": 7906,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/Star.u01"
+    },
+    {
+      "path": "test/geom-arc.dxf",
+      "type": "file",
+      "size": 11943,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/geom-arc.dxf"
+    },
+    {
+      "path": "test/geom-circle.dxf",
+      "type": "file",
+      "size": 16479,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/geom-circle.dxf"
+    },
+    {
+      "path": "test/test01.csv",
+      "type": "file",
+      "size": 1528,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/test01.csv"
+    },
+    {
+      "path": "test/test02.csv",
+      "type": "file",
+      "size": 1491,
+      "url": "https://github.com/Embroidermodder/Embroidermodder/blob/main/test/test02.csv"
+    }
+  ]
+}

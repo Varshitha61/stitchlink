@@ -1,0 +1,1643 @@
+{
+  "fetchedAt": "2026-06-13T03:34:42.751Z",
+  "sourceUrl": "https://github.com/CreativeInquiry/PEmbroider",
+  "metadata": {
+    "name": "PEmbroider",
+    "owner": "CreativeInquiry",
+    "description": "Embroidery Library for Processing",
+    "stars": 579,
+    "language": "Java",
+    "lastUpdated": "2025-06-13T05:05:44Z",
+    "license": {
+      "name": "Other",
+      "spdxId": "NOASSERTION",
+      "url": null
+    },
+    "defaultBranch": "master",
+    "forks": 35,
+    "openIssues": 29,
+    "homepage": ""
+  },
+  "readme": {
+    "name": "README.md",
+    "downloadUrl": "https://raw.githubusercontent.com/CreativeInquiry/PEmbroider/master/README.md",
+    "content": "# PEmbroider\n\n![](images/pembroider_banner.jpg)\n\n**PEmbroider is an open library for computational embroidery with [Processing](http://processing.org).** PEmbroider was developed during Endless March 2020 at the CMU [Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org) by Golan Levin, Lingdong Huang, and Tatyana Mustakos, with generous support from an anonymous donor and the [Clinic for Open Source Arts](https://www.du.edu/ahss/opensourcearts/) (COSA) at the University of Denver. For questions, please contact [Golan Levin](https://twitter.com/golan). If you found this project useful, please consider [making a donation](https://studioforcreativeinquiry.org/donate).\n\n![](images/cosa-and-sfci-logos.jpg)\n\nPEmbroider includes file-writing code adapted from the EmbroidePy [EmbroideryIO](https://github.com/EmbroidePy/EmbroideryIO) project, under EmbroidePy's MIT License. Additional thanks to our beta-test community; Chris Coleman, and the Processing Foundation; Huw Messie, Bryce Summers, Lea Albaugh, Dan Moore, and the staff of the STUDIO. \n\nIntended primarily for artists, craftspersons, educators, makers, and schools, PEmbroider is free, open-source software released under *both* the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) (GPLv3) *and* the [Anti-Capitalist Software License](https://anticapitalist.software/) (ACSL 1.4). In short: you are *encouraged* to use PEmbroider to make art; you are *required* to share your improvements to PEmbroider; and you are *expressly forbidden* from using PEmbroider to [profiteer](images/commercial_embroidery_software_is_a_racket.jpg). More information on [PEmbroider's license is below](#license).\n\n\n---\n## TL;DR\n\n* **Download** the PEmbroider library [**.ZIP file** for processing 3](distribution/PEmbroider/download/PEmbroider_for_Processing_3.zip) or [**for processing 4**](distribution/PEmbroider/download/PEmbroider_for_Processing_4.zip)\n* Instructions for [**Getting Started**](#getting-started-with-pembroider-in-processing)\n* Here's a [**Cheat Sheet**](PEmbroider_Cheat_Sheet.md)\n* Here's a [**Tutorial Video**](https://www.youtube.com/watch?v=BDE2Tx6HHLc&t=0)\n* Browse the [**Examples**](examples/README.md)\n* Read the [**Full API**](API.md)\n\n[![Download the PEmbroider Library for Processing](images/download_pembroider_transparent.png)](distribution/PEmbroider/download/PEmbroider_for_Processing_4.zip)\n\n\n---\n## Contents\n\n* [Motivation](#motivation)\n* [Features](#features)\n* [Examples](#examples)\n* [Getting Started with PEmbroider in Processing](#getting-started-with-pembroider-in-processing)\n* [How to Build PEmbroider From Source](#how-to-build-pembroider-from-source)\n* [FAQ](#faq)\n* [License](#licence)\n\n\n---\n## Motivation\n\n[![Commercial embroidery software can cost more than a car.](images/commercial_embroidery_software_is_a_racket.jpg)](images/commercial_embroidery_software_is_a_racket.jpg)\n\n[Existing software](images/commercial_embroidery_software_is_a_racket.jpg) for the creation of custom embroidery designs frequently costs thousands of dollars; is rarely cross-platform; and is almost never open-source. The free and open-source tools which do exist are either full-featured standalone GUI tools (Ink/Stitch, Embroidermodder) or large-scale libraries (EmbroidePy)—neither of which integrate easily with popular \"creative coding\" toolkits, nor easily allow for the creation of generative and computational designs. \n\nPEmbroider, by contrast, is a free, cross-platform, open-source, lightweight Java library for generative embroidery design. It integrates with the popular [Processing](http://processing.org) creative coding framework, providing ready access to a vast and diverse [ecosystem](https://processing.org/reference/libraries/) of functionality including high quality typography, live interaction, motion capture, computer vision, GIS cartography, physics simulation, and much more.\n\n\n---\n## Features\n\nPEmbroider is a embroidery library for the Java flavor of the [Processing](http://processing.org) creative coding environment, suitable for generating embroidery designs computationally. PEmbroider has the following features:\n\n* PEmbroider is structured similarly to other alternative renderers for Processing, providing basic drawing functions (lines, shapes, typography, etc.) that have drop-in compatibility with Processing code. \n* PEmbroider is able to generate embroidery files in .DST, .EXP, .JEF, .PEC, .PES, .VP3, and .XXX file formats, suitable for consumer CNC embroidery machines such as those made by Brother, Janome, or Husqvarna-Viking. \n* PEmbroider is also able to export .PDF, .SVG, .TSV, and .GCODE files for other 2D output devices such as CNC routers, AxiDraw pen plotters, etc. Although PEmbroider has not been *primarily* designed for plotter output, some of our hatching algorithms may be useful for this community.\n* PEmbroider is able to generate embroidery designs from vector (.SVG) and black-and-white bitmap files (.PNG, .GIF). \n* PEmbroider allows a variety of ways of composing shapes (including overlapping, cropping, and merging) using various computer vision and computational geometry algorithms.\n* PEmbroider offers a wide range of embroidery hatching (fill) methods.\n* PEmbroider generates optimized (shortest) paths using a modified Traveling Salesperson Problem solver, dramatically reducing embroidery time and material use.\n\nPEmbroider has been tested on MacOS 10.13.6+ and Windows 10, using the STUDIO's Husqvarna Viking Designer Jade 35 embroidery [machine](https://github.com/CreativeInquiry/STUDIO-Embroidery-Machine).\n\n*Note: PEmbroider provides a visualization of the embroidery files it generates. However, PEmbroider has no functionality for loading or previewing pre-existing embroidery files; this is outside the scope of the project. To preview the contents of a .PES, .VP3, or other embroidery file, you will need to use embroidery viewing software, such as [this](https://htmtopdf.herokuapp.com/embroidery/) or [this](http://www.husqvarnaviking.com/en-US/Support/Complimentary-Software). That said, it is possible to load SVGs and other images in Processing and use PEmbroider to generate embroidery designs from those.*\n\n\n---\n## Examples\n\nPEmbroider comes with a variety of [examples](examples/README.md) which demonstrate how to achieve different sorts of embroidery effects with lines, shapes, typography, images and more. Here are just some of them:\n\n[![Examples](images/examples_photo.jpg)](examples/README.md)\n\n\n---\n## Getting Started with PEmbroider in Processing\n\n[![Tatyana's PEmbroider Tutorial Video](images/tatyana_pembroider_tutorial.jpg)](https://www.youtube.com/watch?v=BDE2Tx6HHLc&t=0)<br />[Here's a half-hour tutorial video by Tatyana](https://www.youtube.com/watch?v=BDE2Tx6HHLc&t=0)!\n\n*This section is primarily intended for end-users who wish to get started using PEmbroider to make embroidery designs.* \n\n* Be sure you have already installed [Processing v.4.0a6](http://processing.org) or higher. \n* [Download](https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/download/PEmbroider_for_Processing_4.zip) the precompiled PEmbroider library .ZIP directly from [here](https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/download/PEmbroider_for_Processing_4.zip). (If you're still on Processing 3, use [this link instead](https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/download/PEmbroider_for_Processing_3.zip)).\n* For an automated install, try using Processing's Contribution Manager. Navigate as follows in the Processing app: *Sketch* → *Import Library* → *PEmbroider*. This will open the Contribution Manager, where you can browse for PEmbroider.\n* For a manual install, Unzip the PEmbroider .ZIP file and install it in your Processing *Libraries* directory. More detailed instructions for doing this can be found [here](https://github.com/processing/processing/wiki/How-to-Install-a-Contributed-Library).\n* Restart Processing. You should now be able to open and run the included example programs, which you can find inside the PEmbroider directory, or [here](examples/README.md).\n* To export embroidery files, make sure that `optimize()` and `endDraw()` are called in your code. The `optimize()` function produces *much, much* more efficient embroidery paths, while `endDraw()` is the code that actually exports the file. Note that `optimize()` may take up to a minute to execute. \n* In the code for your sketch, be sure you have specified the correct file format extension for your embroidery machine. PEmbroider currently supports .DST, .EXP, .JEF, .PEC, .PES, .VP3, and .XXX. If your machine's format is not yet supported, try using [this online converter](https://htmtopdf.herokuapp.com/embroidery/), [Ink/Stitch](https://inkstitch.org/), or [Embird](https://www.embird.net/).\n* PEmbroider provides the `visualize()` function to view the planned stitches. You can also preview and validate your embroidery files with software such as [this online viewer](https://htmtopdf.herokuapp.com/embroidery/), Husqvarna/Viking [PREMIER+ 2](http://www.husqvarnaviking.com/en-US/Support/Complimentary-Software), or Brother [PE-Design](http://www.brother.com/common/hsm/ped10/ped10trial.html).\n* See [here for instructions](https://github.com/CreativeInquiry/STUDIO-Embroidery-Machine) on using the STUDIO's Husqvarna Viking Designer Jade 35 embroidery machine.\n\n![Loading the PEmbroider library in Processing](images/library_in_processing.jpg)\n\n\n---\n## How to Build PEmbroider From Source\n\n*This section is primarily intended for developers who wish to modify, extend, or contribute to the PEmbroider library itself.* \n\nTo compile the library from source: First, open the project in Eclipse; then:\n\nFollow this excerpt from [processing/processing-library-template](https://github.com/processing/processing-library-template):\n \n> * From the Eclipse menu bar, choose *Window* → *Show View* → *Ant*. A tab with the title \"Ant\" will pop up on the right side of your Eclipse editor.\n> * Drag the `resources/build.xml` file in there, and a new item \"ProcessingLibs\" will appear.\n> * Press the \"Play\" button inside the \"Ant\" tab.\n> \n> If BUILD SUCCESSFUL: The Library template will start to compile, control messages will appear in the console window, warnings can be ignored. When finished it should say BUILD SUCCESSFUL. Congratulations, you're set and you can start modifying the library by making changes to the source code in the `src` directory.\n> \n> If BUILD FAILED: In case the compile process fails, check the output in the console, which will give you a closer idea of what went wrong. Errors may have been caused by Incorrect path settings in the `build.properties` file.\n\nHere are the same steps, in screenshots:\n\n![Compilation steps in Eclipse](images/eclipse_steps.png)\n\nIf there are any issues, download a fresh copy of this repository, and try carefully following [Processing's official documentation](https://github.com/processing/processing-library-template).\n\n\n---\n## FAQ\n\n* **Which output file formats are supported?** .DST, .EXP, .JEF, .PEC, .PES, .VP3, and .XXX, as well as .PDF, .SVG, .TSV, and .GCODE.\n* **Which embroidery machine do you recommend?** We cannot recommend which hardware is best for you. However, [this review website](https://bestreviews.com/best-embroidery-machines) has good things to say about the Janome Memory Craft 9850 ($1800, takes .JEF) and the Brother PE800 ($900, takes .PES and .DST). We developed our code using the Viking Jade 35 ($1000) and are pleased. The majority of our beta-testers have different kinds of Brother machines, for which our .DST files appear to behave well.\n* **Why can't PEmbroider read pre-existing embroidery design files?** This is a purposeful limitation of the project's scope. Philosophically, PEmbroider is intended to do one thing well: to allow you to generate new embroidery designs, with code. There is already plenty of software that allows you to load other people's designs. If you would like to manipulate pre-existing embroidery files computationally, we recommend the [EmbroidePy](https://github.com/EmbroidePy/) project.\n* **How can I learn to code in Processing?** There's great documentation at the main [Processing website](http://processing.org), or you can check out Dan Shiffman's amazing [Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw) tutorials on YouTube. \n* **How can I learn to do machine embroidery?** Here are YouTube tutorials for the [Viking Jade 35](https://www.youtube.com/watch?v=h_uhV8DiyXI), the [Brother PE800](https://www.youtube.com/watch?v=DfpJXuBeEPM), and the [Brother SE600](https://www.youtube.com/watch?v=N0yPILKhHVc).\n\n\n---\n## License\n\nPEmbroider is Copyright © 2020, the [Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org) at Carnegie Mellon University. Intended primarily for artists, craftspersons, educators, makers, and schools, PEmbroider is free, open-source software released under *both* the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) (GPLv3) *and* the [Anti-Capitalist Software License](https://anticapitalist.software/) (ACSL v. 1.4). In short: \n\n* you are *encouraged* to use PEmbroider to make art; \n* you are *required* to share your improvements to PEmbroider; \n* and you are *expressly forbidden* from using PEmbroider to profiteer on the backs of artists, craftspersons, educators, makers, and schools. An example of this would be using PEmbroider to make commercial software such as (e.g.) Floriani Total Control Embroidery Software ($3499), DIME Designs in Machine Embroidery ($2999), Viking Premier Plus 2 Ultra ($2979), Hatch Embroidery Digitizer ($1099), Janome Artistic Digitizer Software ($1199), DesignerPlus Full Version ($1874), DRAWings PRO XI ($1299), *etcetera*.\n\n\n#### ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)\n\nThis is anti-capitalist software, released for free use by individuals and organizations that do not operate by capitalist principles.\n\nPermission is hereby granted, free of charge, to any person or organization (the \"User\") obtaining a copy of this software and associated documentation files (the \"Software\"), to use, copy, modify, merge, distribute, and/or sell copies of the Software, subject to the following conditions:\n\n1. The above copyright notice and this permission notice shall be included in all copies or modified versions of the Software.\n2. The User is one of the following:\n\t* a. An individual person, laboring for themselves\n\t* b. A non-profit organization\n\t* c. An educational institution\n\t* d. An organization that seeks shared profit for all of its members, and allows non-members to set the cost of their labor\n3. If the User is an organization with owners, then all owners are workers and all workers are owners with equal equity and/or equal vote.\n4. If the User is an organization, then the User is not law enforcement or military, or working for or under either.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT EXPRESS OR IMPLIED WARRANTY OF ANY KIND, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+    "htmlUrl": "https://github.com/CreativeInquiry/PEmbroider/blob/master/README.md"
+  },
+  "structure": [
+    {
+      "path": ".classpath",
+      "type": "file",
+      "size": 533,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/.classpath"
+    },
+    {
+      "path": ".gitattributes",
+      "type": "file",
+      "size": 481,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/.gitattributes"
+    },
+    {
+      "path": ".gitignore",
+      "type": "file",
+      "size": 31,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/.gitignore"
+    },
+    {
+      "path": ".project",
+      "type": "file",
+      "size": 369,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/.project"
+    },
+    {
+      "path": "API.md",
+      "type": "file",
+      "size": 52286,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/API.md"
+    },
+    {
+      "path": "LICENSE",
+      "type": "file",
+      "size": 37881,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/LICENSE"
+    },
+    {
+      "path": "PEmbroider_Cheat_Sheet.md",
+      "type": "file",
+      "size": 9023,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/PEmbroider_Cheat_Sheet.md"
+    },
+    {
+      "path": "README.md",
+      "type": "file",
+      "size": 15503,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/README.md"
+    },
+    {
+      "path": "data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/data"
+    },
+    {
+      "path": "data/README.txt",
+      "type": "file",
+      "size": 310,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/data/README.txt"
+    },
+    {
+      "path": "distribution",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution"
+    },
+    {
+      "path": "distribution/PEmbroider",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider"
+    },
+    {
+      "path": "distribution/PEmbroider/README.md",
+      "type": "file",
+      "size": 1976,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/README.md"
+    },
+    {
+      "path": "distribution/PEmbroider/download",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/download"
+    },
+    {
+      "path": "distribution/PEmbroider/examples",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/examples"
+    },
+    {
+      "path": "distribution/PEmbroider/index.html",
+      "type": "file",
+      "size": 9933,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/index.html"
+    },
+    {
+      "path": "distribution/PEmbroider/stylesheet.css",
+      "type": "file",
+      "size": 1847,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/distribution/PEmbroider/stylesheet.css"
+    },
+    {
+      "path": "docs",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs"
+    },
+    {
+      "path": "docs/Doxyfile",
+      "type": "file",
+      "size": 112708,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/Doxyfile"
+    },
+    {
+      "path": "docs/xml",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_boolean_shape_graphics_8java.xml",
+      "type": "file",
+      "size": 22050,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_boolean_shape_graphics_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_font_8java.xml",
+      "type": "file",
+      "size": 846427,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_font_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_graphics_8java.xml",
+      "type": "file",
+      "size": 1106411,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_graphics_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_hatch_satin_8java.xml",
+      "type": "file",
+      "size": 201106,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_hatch_satin_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_hatch_spine_8java.xml",
+      "type": "file",
+      "size": 150262,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_hatch_spine_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_t_s_p_8java.xml",
+      "type": "file",
+      "size": 65032,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_t_s_p_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_trace_8java.xml",
+      "type": "file",
+      "size": 135092,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_trace_8java.xml"
+    },
+    {
+      "path": "docs/xml/_p_embroider_writer_8java.xml",
+      "type": "file",
+      "size": 674912,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/_p_embroider_writer_8java.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_boolean_shape_graphics.xml",
+      "type": "file",
+      "size": 25772,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_boolean_shape_graphics.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_font.xml",
+      "type": "file",
+      "size": 40634,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_font.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_graphics.xml",
+      "type": "file",
+      "size": 500670,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_graphics.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_graphics_1_1_b_box.xml",
+      "type": "file",
+      "size": 13273,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_graphics_1_1_b_box.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_graphics_1_1_b_circle.xml",
+      "type": "file",
+      "size": 10423,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_graphics_1_1_b_circle.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_satin.xml",
+      "type": "file",
+      "size": 29383,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_satin.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_satin_1_1_im.xml",
+      "type": "file",
+      "size": 16840,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_satin_1_1_im.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_satin_1_1_pt.xml",
+      "type": "file",
+      "size": 6801,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_satin_1_1_pt.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_spine.xml",
+      "type": "file",
+      "size": 15282,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_hatch_spine.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_t_s_p.xml",
+      "type": "file",
+      "size": 15121,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_t_s_p.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_t_s_p_1_1_edge.xml",
+      "type": "file",
+      "size": 8518,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_t_s_p_1_1_edge.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_trace.xml",
+      "type": "file",
+      "size": 27851,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_trace.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_trace_1_1_distance_transform.xml",
+      "type": "file",
+      "size": 5525,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_trace_1_1_distance_transform.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer.xml",
+      "type": "file",
+      "size": 25434,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_d_s_t.xml",
+      "type": "file",
+      "size": 11338,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_d_s_t.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_e_x_p.xml",
+      "type": "file",
+      "size": 2732,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_e_x_p.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_g_c_o_d_e.xml",
+      "type": "file",
+      "size": 4340,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_g_c_o_d_e.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_j_e_f.xml",
+      "type": "file",
+      "size": 12429,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_j_e_f.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_p_d_f.xml",
+      "type": "file",
+      "size": 4304,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_p_d_f.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_p_e_c.xml",
+      "type": "file",
+      "size": 9645,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_p_e_c.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_p_e_s.xml",
+      "type": "file",
+      "size": 12078,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_p_e_s.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_s_v_g.xml",
+      "type": "file",
+      "size": 4304,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_s_v_g.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_t_s_v.xml",
+      "type": "file",
+      "size": 4304,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_t_s_v.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_v_p3.xml",
+      "type": "file",
+      "size": 2729,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_v_p3.xml"
+    },
+    {
+      "path": "docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_x_x_x.xml",
+      "type": "file",
+      "size": 2738,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/classprocessing_1_1embroider_1_1_p_embroider_writer_1_1_x_x_x.xml"
+    },
+    {
+      "path": "docs/xml/combine.xslt",
+      "type": "file",
+      "size": 646,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/combine.xslt"
+    },
+    {
+      "path": "docs/xml/compound.xsd",
+      "type": "file",
+      "size": 53580,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/compound.xsd"
+    },
+    {
+      "path": "docs/xml/dir_0a512cdfab597aff87e92947a97cc98a.xml",
+      "type": "file",
+      "size": 707,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/dir_0a512cdfab597aff87e92947a97cc98a.xml"
+    },
+    {
+      "path": "docs/xml/dir_68267d1309a1af8e8297ef4c3efbcdba.xml",
+      "type": "file",
+      "size": 675,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/dir_68267d1309a1af8e8297ef4c3efbcdba.xml"
+    },
+    {
+      "path": "docs/xml/dir_9edd8f7ea30d0d00781a89fca766d453.xml",
+      "type": "file",
+      "size": 1289,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/dir_9edd8f7ea30d0d00781a89fca766d453.xml"
+    },
+    {
+      "path": "docs/xml/index.xml",
+      "type": "file",
+      "size": 88256,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/index.xml"
+    },
+    {
+      "path": "docs/xml/index.xsd",
+      "type": "file",
+      "size": 2425,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/index.xsd"
+    },
+    {
+      "path": "docs/xml/interfaceprocessing_1_1embroider_1_1_p_embroider_graphics_1_1_vector_field.xml",
+      "type": "file",
+      "size": 2704,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/interfaceprocessing_1_1embroider_1_1_p_embroider_graphics_1_1_vector_field.xml"
+    },
+    {
+      "path": "docs/xml/namespacejava_1_1io.xml",
+      "type": "file",
+      "size": 566,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/namespacejava_1_1io.xml"
+    },
+    {
+      "path": "docs/xml/namespacejava_1_1util.xml",
+      "type": "file",
+      "size": 566,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/namespacejava_1_1util.xml"
+    },
+    {
+      "path": "docs/xml/namespaceprocessing.xml",
+      "type": "file",
+      "size": 582,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/namespaceprocessing.xml"
+    },
+    {
+      "path": "docs/xml/namespaceprocessing_1_1core.xml",
+      "type": "file",
+      "size": 578,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/namespaceprocessing_1_1core.xml"
+    },
+    {
+      "path": "docs/xml/namespaceprocessing_1_1embroider.xml",
+      "type": "file",
+      "size": 1791,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/docs/xml/namespaceprocessing_1_1embroider.xml"
+    },
+    {
+      "path": "examples",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples"
+    },
+    {
+      "path": "examples/Hello_PEmbroider",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Hello_PEmbroider"
+    },
+    {
+      "path": "examples/Hello_PEmbroider/Hello_PEmbroider.dst",
+      "type": "file",
+      "size": 9329,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Hello_PEmbroider/Hello_PEmbroider.dst"
+    },
+    {
+      "path": "examples/Hello_PEmbroider/Hello_PEmbroider.pde",
+      "type": "file",
+      "size": 2655,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Hello_PEmbroider/Hello_PEmbroider.pde"
+    },
+    {
+      "path": "examples/Hello_PEmbroider/Hello_PEmbroider.png",
+      "type": "file",
+      "size": 89171,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Hello_PEmbroider/Hello_PEmbroider.png"
+    },
+    {
+      "path": "examples/Hello_PEmbroider/Hello_PEmbroider_photo.png",
+      "type": "file",
+      "size": 1086409,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Hello_PEmbroider/Hello_PEmbroider_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_3dmodel",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_3dmodel"
+    },
+    {
+      "path": "examples/PEmbroider_3dmodel/PEmbroider_3dmodel.pde",
+      "type": "file",
+      "size": 4298,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_3dmodel/PEmbroider_3dmodel.pde"
+    },
+    {
+      "path": "examples/PEmbroider_3dmodel/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_3dmodel/data"
+    },
+    {
+      "path": "examples/PEmbroider_Editor",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_Editor"
+    },
+    {
+      "path": "examples/PEmbroider_Editor/PEmbroider_Editor.pde",
+      "type": "file",
+      "size": 17959,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_Editor/PEmbroider_Editor.pde"
+    },
+    {
+      "path": "examples/PEmbroider_Editor/PEmbroider_Editor.png",
+      "type": "file",
+      "size": 950087,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_Editor/PEmbroider_Editor.png"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback/PEmbroider_animated_playback.pde",
+      "type": "file",
+      "size": 2993,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback/PEmbroider_animated_playback.pde"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback/PEmbroider_animated_playback.png",
+      "type": "file",
+      "size": 140490,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback/PEmbroider_animated_playback.png"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback/PEmbroider_animated_playback_CONCENTRIC.gif",
+      "type": "file",
+      "size": 236872,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback/PEmbroider_animated_playback_CONCENTRIC.gif"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback/PEmbroider_animated_playback_PARALLEL.gif",
+      "type": "file",
+      "size": 147155,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback/PEmbroider_animated_playback_PARALLEL.gif"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback/PEmbroider_animated_playback_SATIN_BOUSTROPHEDON.gif",
+      "type": "file",
+      "size": 151131,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback/PEmbroider_animated_playback_SATIN_BOUSTROPHEDON.gif"
+    },
+    {
+      "path": "examples/PEmbroider_animated_playback/PEmbroider_animated_playback_SATIN_ZIGZAG.gif",
+      "type": "file",
+      "size": 274588,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_animated_playback/PEmbroider_animated_playback_SATIN_ZIGZAG.gif"
+    },
+    {
+      "path": "examples/PEmbroider_axidraw_plotter_svg",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_axidraw_plotter_svg"
+    },
+    {
+      "path": "examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg.pde",
+      "type": "file",
+      "size": 2662,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg.pde"
+    },
+    {
+      "path": "examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg.png",
+      "type": "file",
+      "size": 242791,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg.png"
+    },
+    {
+      "path": "examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg.svg",
+      "type": "file",
+      "size": 31638,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg.svg"
+    },
+    {
+      "path": "examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg_output.png",
+      "type": "file",
+      "size": 586039,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_axidraw_plotter_svg/PEmbroider_axidraw_plotter_svg_output.png"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_animation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_animation"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_animation/PEmbroider_bitmap_animation.pde",
+      "type": "file",
+      "size": 2692,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_animation/PEmbroider_bitmap_animation.pde"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_animation/PEmbroider_bitmap_animation.png",
+      "type": "file",
+      "size": 283345,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_animation/PEmbroider_bitmap_animation.png"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_animation/PEmbroider_bitmap_animation_photo.png",
+      "type": "file",
+      "size": 2678221,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_animation/PEmbroider_bitmap_animation_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_animation/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_animation/data"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_animation/gifs",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_animation/gifs"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_1"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_1/PEmbroider_bitmap_image_1.pde",
+      "type": "file",
+      "size": 2821,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_1/PEmbroider_bitmap_image_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_1/PEmbroider_bitmap_image_1.png",
+      "type": "file",
+      "size": 742126,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_1/PEmbroider_bitmap_image_1.png"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_1/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_1/data"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_2"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_2/PEmbroider_bitmap_image_2.pde",
+      "type": "file",
+      "size": 1604,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_2/PEmbroider_bitmap_image_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_2/PEmbroider_bitmap_image_2.png",
+      "type": "file",
+      "size": 102911,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_2/PEmbroider_bitmap_image_2.png"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_2/PEmbroider_bitmap_image_2_photo.png",
+      "type": "file",
+      "size": 815363,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_2/PEmbroider_bitmap_image_2_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_bitmap_image_2/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_bitmap_image_2/data"
+    },
+    {
+      "path": "examples/PEmbroider_hatchAngle_auto",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_hatchAngle_auto"
+    },
+    {
+      "path": "examples/PEmbroider_hatchAngle_auto/PEmbroider_hatchAngle_auto.pde",
+      "type": "file",
+      "size": 942,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_hatchAngle_auto/PEmbroider_hatchAngle_auto.pde"
+    },
+    {
+      "path": "examples/PEmbroider_hatchAngle_auto/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_hatchAngle_auto/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_interactive_demo_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_interactive_demo_1"
+    },
+    {
+      "path": "examples/PEmbroider_interactive_demo_1/PEmbroider_interactive_demo_1.pde",
+      "type": "file",
+      "size": 1801,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_interactive_demo_1/PEmbroider_interactive_demo_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_interactive_demo_1/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_interactive_demo_1/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_interactive_demo_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_interactive_demo_2"
+    },
+    {
+      "path": "examples/PEmbroider_interactive_demo_2/PEmbroider_interactive_demo_2.pde",
+      "type": "file",
+      "size": 2426,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_interactive_demo_2/PEmbroider_interactive_demo_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_interactive_demo_2/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_interactive_demo_2/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_lines_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_lines_1"
+    },
+    {
+      "path": "examples/PEmbroider_lines_1/PEmbroider_lines_1.pde",
+      "type": "file",
+      "size": 2905,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_lines_1/PEmbroider_lines_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_lines_1/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_lines_1/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_lines_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_lines_2"
+    },
+    {
+      "path": "examples/PEmbroider_lines_2/PEmbroider_lines_2.pde",
+      "type": "file",
+      "size": 1802,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_lines_2/PEmbroider_lines_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_lines_2/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_lines_2/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_oneliner",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_oneliner"
+    },
+    {
+      "path": "examples/PEmbroider_oneliner/OneLinerGraph.java",
+      "type": "file",
+      "size": 3356,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_oneliner/OneLinerGraph.java"
+    },
+    {
+      "path": "examples/PEmbroider_oneliner/PEmbroider_oneliner.pde",
+      "type": "file",
+      "size": 2162,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_oneliner/PEmbroider_oneliner.pde"
+    },
+    {
+      "path": "examples/PEmbroider_oneliner/TraceSkeleton.java",
+      "type": "file",
+      "size": 13127,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_oneliner/TraceSkeleton.java"
+    },
+    {
+      "path": "examples/PEmbroider_oneliner/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_oneliner/data"
+    },
+    {
+      "path": "examples/PEmbroider_optimize_per_char",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_optimize_per_char"
+    },
+    {
+      "path": "examples/PEmbroider_optimize_per_char/PEmbroider_optimize_per_char.pde",
+      "type": "file",
+      "size": 1038,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_optimize_per_char/PEmbroider_optimize_per_char.pde"
+    },
+    {
+      "path": "examples/PEmbroider_optimize_per_char/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_optimize_per_char/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_png_image_multicolor",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_png_image_multicolor"
+    },
+    {
+      "path": "examples/PEmbroider_png_image_multicolor/PEmbroider_png_image_multicolor.pde",
+      "type": "file",
+      "size": 2692,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_png_image_multicolor/PEmbroider_png_image_multicolor.pde"
+    },
+    {
+      "path": "examples/PEmbroider_png_image_multicolor/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_png_image_multicolor/data"
+    },
+    {
+      "path": "examples/PEmbroider_png_image_multicolor/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_png_image_multicolor/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_ruler",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_ruler"
+    },
+    {
+      "path": "examples/PEmbroider_ruler/PEmbroider_ruler.pde",
+      "type": "file",
+      "size": 1551,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_ruler/PEmbroider_ruler.pde"
+    },
+    {
+      "path": "examples/PEmbroider_ruler/PEmbroider_ruler.png",
+      "type": "file",
+      "size": 5481,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_ruler/PEmbroider_ruler.png"
+    },
+    {
+      "path": "examples/PEmbroider_ruler/PEmbroider_ruler_photo.png",
+      "type": "file",
+      "size": 762884,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_ruler/PEmbroider_ruler_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_1"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_1/PEmbroider_satin_hatching_1.pde",
+      "type": "file",
+      "size": 1784,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_1/PEmbroider_satin_hatching_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_1/Pembroider_satin_hatching_1.png",
+      "type": "file",
+      "size": 353438,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_1/Pembroider_satin_hatching_1.png"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_1/Pembroider_satin_hatching_1_photo.png",
+      "type": "file",
+      "size": 1212517,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_1/Pembroider_satin_hatching_1_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_1/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_1/data"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_2"
+    },
+    {
+      "path": "examples/PEmbroider_satin_hatching_2/PEmbroider_satin_hatching_2.pde",
+      "type": "file",
+      "size": 1849,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_satin_hatching_2/PEmbroider_satin_hatching_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_culling",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_culling"
+    },
+    {
+      "path": "examples/PEmbroider_shape_culling/PEmbroider_shape_culling.pde",
+      "type": "file",
+      "size": 2216,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_culling/PEmbroider_shape_culling.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_culling/PEmbroider_shape_culling.png",
+      "type": "file",
+      "size": 239390,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_culling/PEmbroider_shape_culling.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_culling/PEmbroider_shape_culling_photo.png",
+      "type": "file",
+      "size": 1769752,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_culling/PEmbroider_shape_culling_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_1"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_1/PEmbroider_shape_hatching_1.pde",
+      "type": "file",
+      "size": 2394,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_1/PEmbroider_shape_hatching_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_1/PEmbroider_shape_hatching_1.png",
+      "type": "file",
+      "size": 152519,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_1/PEmbroider_shape_hatching_1.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_1/PEmbroider_shape_hatching_1_photo.png",
+      "type": "file",
+      "size": 1201279,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_1/PEmbroider_shape_hatching_1_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_2"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_2/PEmbroider_shape_hatching_2.pde",
+      "type": "file",
+      "size": 3202,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_2/PEmbroider_shape_hatching_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_2/PEmbroider_shape_hatching_2.png",
+      "type": "file",
+      "size": 393467,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_2/PEmbroider_shape_hatching_2.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_2/PEmbroider_shape_hatching_2_photo.png",
+      "type": "file",
+      "size": 1328916,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_2/PEmbroider_shape_hatching_2_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_3",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_3"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_3/PEmbroider_shape_hatching_3.pde",
+      "type": "file",
+      "size": 2747,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_3/PEmbroider_shape_hatching_3.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_3/PEmbroider_shape_hatching_3.png",
+      "type": "file",
+      "size": 321378,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_3/PEmbroider_shape_hatching_3.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_3/PEmbroider_shape_hatching_3_photo.png",
+      "type": "file",
+      "size": 1297647,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_3/PEmbroider_shape_hatching_3_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_4",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_4"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_4/PEmbroider_shape_hatching_4.pde",
+      "type": "file",
+      "size": 1956,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_4/PEmbroider_shape_hatching_4.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_experimental",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_experimental"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_experimental/PEmbroider_shape_hatching_experimental.pde",
+      "type": "file",
+      "size": 2602,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_experimental/PEmbroider_shape_hatching_experimental.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_hatching_experimental/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_hatching_experimental/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_shape_merging",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_merging"
+    },
+    {
+      "path": "examples/PEmbroider_shape_merging/PEmbroider_shape_merging.pde",
+      "type": "file",
+      "size": 1650,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_merging/PEmbroider_shape_merging.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shape_merging/PEmbroider_shape_merging.png",
+      "type": "file",
+      "size": 351688,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shape_merging/PEmbroider_shape_merging.png"
+    },
+    {
+      "path": "examples/PEmbroider_shapes",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shapes"
+    },
+    {
+      "path": "examples/PEmbroider_shapes/PEmbroider_shapes.pde",
+      "type": "file",
+      "size": 2310,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shapes/PEmbroider_shapes.pde"
+    },
+    {
+      "path": "examples/PEmbroider_shapes/PEmbroider_shapes.png",
+      "type": "file",
+      "size": 371395,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shapes/PEmbroider_shapes.png"
+    },
+    {
+      "path": "examples/PEmbroider_shapes/PEmbroider_shapes_photo.png",
+      "type": "file",
+      "size": 1245944,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_shapes/PEmbroider_shapes_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_location",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_location"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_location/PEmbroider_stroke_location.pde",
+      "type": "file",
+      "size": 1175,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_location/PEmbroider_stroke_location.pde"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_location/PEmbroider_stroke_location.png",
+      "type": "file",
+      "size": 305067,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_location/PEmbroider_stroke_location.png"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_location/PEmbroider_stroke_location_animated.gif",
+      "type": "file",
+      "size": 3757305,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_location/PEmbroider_stroke_location_animated.gif"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_outlines_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_outlines_1"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_outlines_1/PEmbroider_stroke_outlines_1.pde",
+      "type": "file",
+      "size": 3381,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_outlines_1/PEmbroider_stroke_outlines_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_outlines_1/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_outlines_1/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_outlines_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_outlines_2"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_outlines_2/PEmbroider_stroke_outlines_2.pde",
+      "type": "file",
+      "size": 1555,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_outlines_2/PEmbroider_stroke_outlines_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_stroke_outlines_2/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_stroke_outlines_2/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_strokes_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_strokes_1"
+    },
+    {
+      "path": "examples/PEmbroider_strokes_1/PEmbroider_strokes_1.pde",
+      "type": "file",
+      "size": 3035,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_strokes_1/PEmbroider_strokes_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_strokes_1/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_strokes_1/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_strokes_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_strokes_2"
+    },
+    {
+      "path": "examples/PEmbroider_strokes_2/PEmbroider_strokes_2.pde",
+      "type": "file",
+      "size": 1403,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_strokes_2/PEmbroider_strokes_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_strokes_2/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_strokes_2/documentation"
+    },
+    {
+      "path": "examples/PEmbroider_svg_image",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_svg_image"
+    },
+    {
+      "path": "examples/PEmbroider_svg_image/PEmbroider_svg_image.pde",
+      "type": "file",
+      "size": 1242,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_svg_image/PEmbroider_svg_image.pde"
+    },
+    {
+      "path": "examples/PEmbroider_svg_image/PEmbroider_svg_image.png",
+      "type": "file",
+      "size": 188816,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_svg_image/PEmbroider_svg_image.png"
+    },
+    {
+      "path": "examples/PEmbroider_svg_image/PEmbroider_svg_image_photo.png",
+      "type": "file",
+      "size": 1146758,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_svg_image/PEmbroider_svg_image_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_svg_image/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_svg_image/data"
+    },
+    {
+      "path": "examples/PEmbroider_text_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_1"
+    },
+    {
+      "path": "examples/PEmbroider_text_1/PEmbroider_text_1.pde",
+      "type": "file",
+      "size": 2373,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_1/PEmbroider_text_1.pde"
+    },
+    {
+      "path": "examples/PEmbroider_text_1/PEmbroider_text_1.png",
+      "type": "file",
+      "size": 303122,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_1/PEmbroider_text_1.png"
+    },
+    {
+      "path": "examples/PEmbroider_text_1/PEmbroider_text_1_photo.png",
+      "type": "file",
+      "size": 1318091,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_1/PEmbroider_text_1_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_text_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_2"
+    },
+    {
+      "path": "examples/PEmbroider_text_2/PEmbroider_text_2.pde",
+      "type": "file",
+      "size": 1807,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_2/PEmbroider_text_2.pde"
+    },
+    {
+      "path": "examples/PEmbroider_text_2/PEmbroider_text_2.png",
+      "type": "file",
+      "size": 102847,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_2/PEmbroider_text_2.png"
+    },
+    {
+      "path": "examples/PEmbroider_text_2/PEmbroider_text_2_photo.png",
+      "type": "file",
+      "size": 1520603,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_2/PEmbroider_text_2_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_text_3",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_3"
+    },
+    {
+      "path": "examples/PEmbroider_text_3/PEmbroider_text_3.pde",
+      "type": "file",
+      "size": 2288,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_3/PEmbroider_text_3.pde"
+    },
+    {
+      "path": "examples/PEmbroider_text_3/PEmbroider_text_3.png",
+      "type": "file",
+      "size": 265155,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_3/PEmbroider_text_3.png"
+    },
+    {
+      "path": "examples/PEmbroider_text_3/PEmbroider_text_3_photo.png",
+      "type": "file",
+      "size": 3205608,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_text_3/PEmbroider_text_3_photo.png"
+    },
+    {
+      "path": "examples/PEmbroider_trace_skeleton",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_trace_skeleton"
+    },
+    {
+      "path": "examples/PEmbroider_trace_skeleton/PEmbroider_trace_skeleton.pde",
+      "type": "file",
+      "size": 1487,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_trace_skeleton/PEmbroider_trace_skeleton.pde"
+    },
+    {
+      "path": "examples/PEmbroider_trace_skeleton/TraceSkeleton.java",
+      "type": "file",
+      "size": 13127,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_trace_skeleton/TraceSkeleton.java"
+    },
+    {
+      "path": "examples/PEmbroider_trace_skeleton/data",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_trace_skeleton/data"
+    },
+    {
+      "path": "examples/PEmbroider_trace_skeleton/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/PEmbroider_trace_skeleton/documentation"
+    },
+    {
+      "path": "examples/Pembroider_polygon_gauntlet",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Pembroider_polygon_gauntlet"
+    },
+    {
+      "path": "examples/Pembroider_polygon_gauntlet/POLYGONS.pde",
+      "type": "file",
+      "size": 28894,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Pembroider_polygon_gauntlet/POLYGONS.pde"
+    },
+    {
+      "path": "examples/Pembroider_polygon_gauntlet/Pembroider_polygon_gauntlet.pde",
+      "type": "file",
+      "size": 1426,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Pembroider_polygon_gauntlet/Pembroider_polygon_gauntlet.pde"
+    },
+    {
+      "path": "examples/Pembroider_polygon_gauntlet/documentation",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/Pembroider_polygon_gauntlet/documentation"
+    },
+    {
+      "path": "examples/README.md",
+      "type": "file",
+      "size": 8010,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/README.md"
+    },
+    {
+      "path": "examples/work_in_progress",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress"
+    },
+    {
+      "path": "examples/work_in_progress/OtherTests_1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/OtherTests_1"
+    },
+    {
+      "path": "examples/work_in_progress/OtherTests_2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/OtherTests_2"
+    },
+    {
+      "path": "examples/work_in_progress/PEmbroider_TSP_CMYK",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/PEmbroider_TSP_CMYK"
+    },
+    {
+      "path": "examples/work_in_progress/PEmbroider_TSP_grayscale",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/PEmbroider_TSP_grayscale"
+    },
+    {
+      "path": "examples/work_in_progress/PEmbroider_culling_stitch_stagger",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/PEmbroider_culling_stitch_stagger"
+    },
+    {
+      "path": "examples/work_in_progress/PEmbroider_flower",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/PEmbroider_flower"
+    },
+    {
+      "path": "examples/work_in_progress/PEmbroider_satin_booleanOps_visAnim",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/PEmbroider_satin_booleanOps_visAnim"
+    },
+    {
+      "path": "examples/work_in_progress/PEmbroider_scaling_test",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/PEmbroider_scaling_test"
+    },
+    {
+      "path": "examples/work_in_progress/gallery",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/examples/work_in_progress/gallery"
+    },
+    {
+      "path": "images",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images"
+    },
+    {
+      "path": "images/commercial_embroidery_software_is_a_racket.jpg",
+      "type": "file",
+      "size": 296368,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/commercial_embroidery_software_is_a_racket.jpg"
+    },
+    {
+      "path": "images/cosa-and-sfci-logos.jpg",
+      "type": "file",
+      "size": 73965,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/cosa-and-sfci-logos.jpg"
+    },
+    {
+      "path": "images/download_button.jpg",
+      "type": "file",
+      "size": 17801,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/download_button.jpg"
+    },
+    {
+      "path": "images/download_pembroider.png",
+      "type": "file",
+      "size": 1101263,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/download_pembroider.png"
+    },
+    {
+      "path": "images/download_pembroider_transparent.png",
+      "type": "file",
+      "size": 979474,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/download_pembroider_transparent.png"
+    },
+    {
+      "path": "images/eclipse_steps.png",
+      "type": "file",
+      "size": 1200250,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/eclipse_steps.png"
+    },
+    {
+      "path": "images/examples.png",
+      "type": "file",
+      "size": 820550,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/examples.png"
+    },
+    {
+      "path": "images/examples_photo.jpg",
+      "type": "file",
+      "size": 1057790,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/examples_photo.jpg"
+    },
+    {
+      "path": "images/library_in_processing.jpg",
+      "type": "file",
+      "size": 142105,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/library_in_processing.jpg"
+    },
+    {
+      "path": "images/pembroider_banner.jpg",
+      "type": "file",
+      "size": 589715,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/pembroider_banner.jpg"
+    },
+    {
+      "path": "images/tatyana_pembroider_tutorial.jpg",
+      "type": "file",
+      "size": 129344,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/images/tatyana_pembroider_tutorial.jpg"
+    },
+    {
+      "path": "lib",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/lib"
+    },
+    {
+      "path": "lib/README.txt",
+      "type": "file",
+      "size": 334,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/lib/README.txt"
+    },
+    {
+      "path": "lib/core.jar",
+      "type": "file",
+      "size": 1070963,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/lib/core.jar"
+    },
+    {
+      "path": "license.txt",
+      "type": "file",
+      "size": 37846,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/license.txt"
+    },
+    {
+      "path": "resources",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources"
+    },
+    {
+      "path": "resources/README.md",
+      "type": "file",
+      "size": 1937,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/README.md"
+    },
+    {
+      "path": "resources/build.properties",
+      "type": "file",
+      "size": 6297,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/build.properties"
+    },
+    {
+      "path": "resources/build.xml",
+      "type": "file",
+      "size": 13639,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/build.xml"
+    },
+    {
+      "path": "resources/code",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/code"
+    },
+    {
+      "path": "resources/code/ExampleTaglet.class",
+      "type": "file",
+      "size": 2884,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/code/ExampleTaglet.class"
+    },
+    {
+      "path": "resources/code/ExampleTaglet.java",
+      "type": "file",
+      "size": 7214,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/code/ExampleTaglet.java"
+    },
+    {
+      "path": "resources/code/ant-contrib-1.0b3.jar",
+      "type": "file",
+      "size": 224277,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/code/ant-contrib-1.0b3.jar"
+    },
+    {
+      "path": "resources/library.properties",
+      "type": "file",
+      "size": 2922,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/library.properties"
+    },
+    {
+      "path": "resources/stylesheet.css",
+      "type": "file",
+      "size": 12841,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/resources/stylesheet.css"
+    },
+    {
+      "path": "src",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/src"
+    },
+    {
+      "path": "src/processing",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/src/processing"
+    },
+    {
+      "path": "src/processing/embroider",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/src/processing/embroider"
+    },
+    {
+      "path": "tools",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/tools"
+    },
+    {
+      "path": "tools/make_md_doc.py",
+      "type": "file",
+      "size": 2255,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/tools/make_md_doc.py"
+    },
+    {
+      "path": "web",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/web"
+    },
+    {
+      "path": "web/index.html",
+      "type": "file",
+      "size": 4796,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/web/index.html"
+    },
+    {
+      "path": "web/stylesheet.css",
+      "type": "file",
+      "size": 1847,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/web/stylesheet.css"
+    },
+    {
+      "path": "wip_features",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features"
+    },
+    {
+      "path": "wip_features/optcolch",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/optcolch"
+    },
+    {
+      "path": "wip_features/optcolch/optcolch.pde",
+      "type": "file",
+      "size": 4111,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/optcolch/optcolch.pde"
+    },
+    {
+      "path": "wip_features/satin",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satin"
+    },
+    {
+      "path": "wip_features/satin/PContour.pde",
+      "type": "file",
+      "size": 13149,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satin/PContour.pde"
+    },
+    {
+      "path": "wip_features/satin/satin.pde",
+      "type": "file",
+      "size": 8933,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satin/satin.pde"
+    },
+    {
+      "path": "wip_features/satin/utils.pde",
+      "type": "file",
+      "size": 7097,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satin/utils.pde"
+    },
+    {
+      "path": "wip_features/satinrast",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satinrast"
+    },
+    {
+      "path": "wip_features/satinrast/satinrast.pde",
+      "type": "file",
+      "size": 14601,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satinrast/satinrast.pde"
+    },
+    {
+      "path": "wip_features/satinrastv2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satinrastv2"
+    },
+    {
+      "path": "wip_features/satinrastv2/satinrastv2.pde",
+      "type": "file",
+      "size": 14513,
+      "url": "https://github.com/CreativeInquiry/PEmbroider/blob/master/wip_features/satinrastv2/satinrastv2.pde"
+    }
+  ]
+}

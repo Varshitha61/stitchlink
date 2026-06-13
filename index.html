@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StitchLink - Embroidery Repos Fetcher & Explorer</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Markdown Renderer & Syntax Highlighter (Prism) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="dark-mode">
+  <div class="app-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-logo" viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+          <path d="M12 6v12"></path>
+          <path d="M6 12h12"></path>
+          <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+        </svg>
+        <h1>StitchLink</h1>
+      </div>
+      
+      <div class="section-title">Embroidery Projects</div>
+      <div class="repo-list" id="repo-list">
+        <!-- JS will populate the 4 embroidery projects here -->
+        <div class="loading-placeholder">Loading repositories...</div>
+      </div>
+      
+      <div class="section-title">Explore Any Repository</div>
+      <div class="custom-fetcher-box">
+        <p class="fetcher-desc">Enter a GitHub repository URL or "owner/repo" shorthand to analyze it dynamically.</p>
+        <form id="custom-repo-form">
+          <div class="input-group">
+            <input type="text" id="custom-repo-input" placeholder="e.g. facebook/react" required>
+          </div>
+          <div class="input-group">
+            <input type="password" id="github-token-input" placeholder="GitHub Personal Token (Optional)">
+            <span class="tooltip-info" title="Providing a personal token increases rate limits from 60 to 5000 requests/hour. It is only saved in memory.">?</span>
+          </div>
+          <button type="submit" class="btn btn-primary" id="fetch-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Fetch Repo
+          </button>
+        </form>
+        <div id="fetch-error" class="fetch-error hidden"></div>
+      </div>
+      
+      <div class="sidebar-footer">
+        <p>StitchLink Fetcher v1.0.0</p>
+      </div>
+    </aside>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Stats/Overview Bar -->
+      <section class="repo-header-section glass" id="repo-details-header">
+        <div class="repo-meta-main">
+          <div class="repo-title-wrapper">
+            <span class="owner-name" id="selected-owner">owner</span>
+            <span class="slash">/</span>
+            <h2 class="repo-name" id="selected-name">repository</h2>
+            <span class="language-badge" id="selected-language">Language</span>
+          </div>
+          <p class="repo-desc" id="selected-description">Repository description will be loaded here.</p>
+          <div class="repo-links">
+            <a href="#" target="_blank" id="selected-github-link" class="btn btn-outline btn-sm">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              GitHub Project
+            </a>
+            <a href="#" target="_blank" id="selected-homepage-link" class="btn btn-outline btn-sm hidden">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              Website
+            </a>
+          </div>
+        </div>
+        
+        <div class="repo-metrics">
+          <div class="metric-card">
+            <span class="metric-label">Stars</span>
+            <span class="metric-value" id="metric-stars">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Forks</span>
+            <span class="metric-value" id="metric-forks">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Open Issues</span>
+            <span class="metric-value" id="metric-issues">0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">License</span>
+            <span class="metric-value text-truncate" id="metric-license" title="None">None</span>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Tabs Selector -->
+      <nav class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab-readme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          README.md
+        </button>
+        <button class="tab-btn" data-tab="tab-files">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          File Explorer
+        </button>
+        <button class="tab-btn" data-tab="tab-json">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Structured JSON
+        </button>
+      </nav>
+      
+      <!-- Tab Content Area -->
+      <section class="tab-container glass">
+        
+        <!-- README Tab -->
+        <div class="tab-content active" id="tab-readme">
+          <div class="markdown-body" id="readme-container">
+            <p class="muted">No README available or loaded.</p>
+          </div>
+        </div>
+        
+        <!-- File Explorer Tab -->
+        <div class="tab-content" id="tab-files">
+          <div class="file-explorer-header">
+            <h3>Repository Directory Tree (Depth: 3)</h3>
+            <span class="file-count" id="file-count">0 items loaded</span>
+          </div>
+          <div class="tree-container" id="tree-container">
+            <p class="muted">No files loaded.</p>
+          </div>
+        </div>
+        
+        <!-- JSON Tab -->
+        <div class="tab-content" id="tab-json">
+          <div class="json-header">
+            <h3>Consolidated Output Data</h3>
+            <button class="btn btn-outline btn-sm" id="copy-json-btn">Copy JSON</button>
+          </div>
+          <pre class="json-viewer"><code id="json-container" class="language-json">{}</code></pre>
+        </div>
+        
+      </section>
+      
+      <!-- Info Footer -->
+      <footer class="main-footer">
+        <p>Last sync details: <span id="sync-timestamp">Not synced yet</span></p>
+        <p>Created as a JavaScript Node.js GitHub Repository Fetcher module & Visualizer.</p>
+      </footer>
+    </main>
+  </div>
+  
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

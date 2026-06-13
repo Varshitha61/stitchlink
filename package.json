@@ -1,0 +1,24 @@
+{
+  "name": "stitchlink-fetcher",
+  "version": "1.0.0",
+  "description": "GitHub repository data fetcher for embroidery projects",
+  "type": "module",
+  "main": "github-fetcher.js",
+  "scripts": {
+    "fetch": "node fetch-embroidery-repos.js",
+    "sync": "node sync-to-supabase.js",
+    "start": "npx serve . -p 3000"
+  },
+  "keywords": [
+    "github",
+    "fetcher",
+    "embroidery",
+    "metadata",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.107.0"
+  }
+}

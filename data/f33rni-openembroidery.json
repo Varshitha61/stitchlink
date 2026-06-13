@@ -1,0 +1,557 @@
+{
+  "fetchedAt": "2026-06-13T03:34:44.069Z",
+  "sourceUrl": "https://github.com/F33RNI/OpenEmbroidery",
+  "metadata": {
+    "name": "OpenEmbroidery",
+    "owner": "F33RNI",
+    "description": "Open source embroidery machine project",
+    "stars": 105,
+    "language": "C++",
+    "lastUpdated": "2022-08-14T11:26:49Z",
+    "license": {
+      "name": "Apache License 2.0",
+      "spdxId": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0"
+    },
+    "defaultBranch": "main",
+    "forks": 10,
+    "openIssues": 0,
+    "homepage": ""
+  },
+  "readme": {
+    "name": "README.md",
+    "downloadUrl": "https://raw.githubusercontent.com/F33RNI/OpenEmbroidery/main/README.md",
+    "content": "<h1 align=\"center\">OpenEmbroidery</h1>\n\n<div style=\"width:100%;text-align:center;\">\n    <p align=\"center\">\n        <img src=\"./PHOTOS/main.jpg\" width=\"auto\" height=\"400\">\n    </p>\n</div>\n<div style=\"width:100%;text-align:center;\">\n    <p align=\"center\">\n        <a href=\"https://twitter.com/f33rni\"><img alt=\"Twitter\" src=\"https://img.shields.io/twitter/url?label=My%20twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Ff33rni\" ></a>\n        <img src=\"https://badges.frapsoft.com/os/v1/open-source.png?v=103\" >\n        <img src=\"https://img.shields.io/github/last-commit/XxOinvizioNxX/OpenEmbroidery\" >\n        <a href=\"https://github.com/XxOinvizioNxX/OpenEmbroidery/blob/main/LICENSE\"><img src=\"https://img.shields.io/github/license/XxOinvizioNxX/OpenEmbroidery\" ></a>\n        <a href=\"https://github.com/XxOinvizioNxX/OpenEmbroidery/stargazers\"><img src=\"https://img.shields.io/github/stars/XxOinvizioNxX/OpenEmbroidery\" ></a>\n    </p>\n</div>\n\n----------\n\n## What is it?\n\nOpen Embroidery is an open source project that allows you to turn an ordinary sewing machine into an embroidery machine\n\nThe fabric is fixed in the hoop, which moves with the help of stepper motors. For simplicity and versatility, embroidery patterns are pre-converted to G-Code using application written in Python.  \nThe whole process is controlled by Arduino Mega.  \n\n----------\n\n## Hardware\n\n<div style=\"width:100%;text-align:center;\">\n    <p align=\"center\">\n        <img src=\"./PHOTOS/motors.jpg\" width=\"auto\" height=\"300\">\n        <img src=\"./PHOTOS/main_motor.jpg\" width=\"auto\" height=\"300\">\n    </p>\n</div>\n\nHoop moves by standard NEMA 17 stepper motors (as in 3D printers). As drivers, you can use A4988 or DRV8825\n\n<div style=\"width:100%;text-align:center;\">\n    <p align=\"center\">\n        <img src=\"./PHOTOS/servo_tesioner.jpg\" width=\"auto\" height=\"300\">\n        <img src=\"./PHOTOS/needle_hall_sensor.jpg\" width=\"auto\" height=\"300\">\n    </p>\n</div>\n\nIn order to move the fabric (jump) - it is necessary to loosen the tension of the thread. This is done by a servo connected to the thread tensioner.\n\nThe fabric must be moved when the needle is in a certain position (same as in normal sewing). For synchronization, a hall sensor is used. When the magnet passes near the sensor, the main motor starts to decelerate and the tissue moves\n\n<div style=\"width:100%;text-align:center;\">\n    <p align=\"center\">\n        <img src=\"./PHOTOS/controller.jpg\" width=\"auto\" height=\"300\">\n        <img src=\"./PHOTOS/main_motor_driver.jpg\" width=\"auto\" height=\"300\">\n    </p>\n</div>\n\nG-Code files are read from the memory card. To control the entire system, one single rotary encoder with a button is used. To display information, a 20x4 display connected via the I2C bus is used.\n\n----------\n\n## Examples\n\n<div style=\"width:100%;text-align:center;\">\n    <p align=\"center\">\n        <img src=\"./PHOTOS/pizza.jpg\" width=\"auto\" height=\"300\">\n        <img src=\"./PHOTOS/bee_and_glasses.jpg\" width=\"auto\" height=\"300\">\n    </p>\n    <p align=\"center\">\n        <img src=\"./PHOTOS/sakura.jpg\" width=\"auto\" height=\"300\">\n        <img src=\"./PHOTOS/avocado.jpg\" width=\"auto\" height=\"300\">\n    </p>\n</div>\n\nThis is just a small part of what this project can do...\n\n.DST files can be found in `examples` folder\n\n----------\n\n## How to build this\n\nInstruction is under development...\n\n- At the start, you need to assemble a frame along which the hoop can move freely along two axes (as in the photos). In my case, drawer sliders were used. They are not very accurate, but their rigidity is usually sufficient.\n- For movement, i used stepper motors with belts and racks. You need to move the hoop as quickly as possible, so it is recommended to use belts (used in 3d printers).\n- To assemble the frame, you can find some parts in the 3D folder.\n- Next, you need to assemble the electronics. I use 4 frame motor drivers (DRV8825 or A4988) and a DRV8825 driver at 40 volts to drive the sewing machine.\n- For control panel, you need to connect an I2C display 20x4, a rotary encoder and a slot for a SD card (electronics schematic under development).\n- For motors, set the current close to the maximum. (1.5-1.6A or 0.8V ref on driver for Nema17)\n- After flashing the microcontroller, use OpenEmroidery.py to convert the embroidery template to a .gcode file, save it to a memory card and load it from the menu.\n",
+    "htmlUrl": "https://github.com/F33RNI/OpenEmbroidery/blob/main/README.md"
+  },
+  "structure": [
+    {
+      "path": "3D",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D"
+    },
+    {
+      "path": "3D/angle.ipt",
+      "type": "file",
+      "size": 227328,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/angle.ipt"
+    },
+    {
+      "path": "3D/angle.stl",
+      "type": "file",
+      "size": 1072284,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/angle.stl"
+    },
+    {
+      "path": "3D/angle_back.ipt",
+      "type": "file",
+      "size": 201728,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/angle_back.ipt"
+    },
+    {
+      "path": "3D/angle_back.stl",
+      "type": "file",
+      "size": 960784,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/angle_back.stl"
+    },
+    {
+      "path": "3D/belt_coupler.ipt",
+      "type": "file",
+      "size": 450560,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/belt_coupler.ipt"
+    },
+    {
+      "path": "3D/belt_coupler.stl",
+      "type": "file",
+      "size": 1687384,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/belt_coupler.stl"
+    },
+    {
+      "path": "3D/belt_pulley.ipt",
+      "type": "file",
+      "size": 440320,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/belt_pulley.ipt"
+    },
+    {
+      "path": "3D/belt_pulley.stl",
+      "type": "file",
+      "size": 1254884,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/belt_pulley.stl"
+    },
+    {
+      "path": "3D/foot.ipt",
+      "type": "file",
+      "size": 278016,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/foot.ipt"
+    },
+    {
+      "path": "3D/foot.stl",
+      "type": "file",
+      "size": 1215284,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/foot.stl"
+    },
+    {
+      "path": "3D/hoop_adapter.ipt",
+      "type": "file",
+      "size": 262656,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_adapter.ipt"
+    },
+    {
+      "path": "3D/hoop_adapter.stl",
+      "type": "file",
+      "size": 728484,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_adapter.stl"
+    },
+    {
+      "path": "3D/hoop_holder.stl",
+      "type": "file",
+      "size": 1269484,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_holder.stl"
+    },
+    {
+      "path": "3D/hoop_holder_158mm.ipt",
+      "type": "file",
+      "size": 400896,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_holder_158mm.ipt"
+    },
+    {
+      "path": "3D/hoop_holder_9in.ipt",
+      "type": "file",
+      "size": 400384,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_holder_9in.ipt"
+    },
+    {
+      "path": "3D/hoop_mount.ipt",
+      "type": "file",
+      "size": 253952,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_mount.ipt"
+    },
+    {
+      "path": "3D/hoop_mount.stl",
+      "type": "file",
+      "size": 912584,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/hoop_mount.stl"
+    },
+    {
+      "path": "3D/main_motor_holder.ipt",
+      "type": "file",
+      "size": 331776,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/main_motor_holder.ipt"
+    },
+    {
+      "path": "3D/main_motor_holder.stl",
+      "type": "file",
+      "size": 1575884,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/main_motor_holder.stl"
+    },
+    {
+      "path": "3D/press_foot.ipt",
+      "type": "file",
+      "size": 518144,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/press_foot.ipt"
+    },
+    {
+      "path": "3D/press_foot.stl",
+      "type": "file",
+      "size": 958384,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/press_foot.stl"
+    },
+    {
+      "path": "3D/pulley.ipt",
+      "type": "file",
+      "size": 157184,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/pulley.ipt"
+    },
+    {
+      "path": "3D/pulley.stl",
+      "type": "file",
+      "size": 525984,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/pulley.stl"
+    },
+    {
+      "path": "3D/pulley_part_1.ipt",
+      "type": "file",
+      "size": 182272,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/pulley_part_1.ipt"
+    },
+    {
+      "path": "3D/pulley_part_1.stl",
+      "type": "file",
+      "size": 835984,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/pulley_part_1.stl"
+    },
+    {
+      "path": "3D/pulley_part_2.ipt",
+      "type": "file",
+      "size": 181760,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/pulley_part_2.ipt"
+    },
+    {
+      "path": "3D/pulley_part_2.stl",
+      "type": "file",
+      "size": 835884,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/pulley_part_2.stl"
+    },
+    {
+      "path": "3D/servo_holder.ipt",
+      "type": "file",
+      "size": 239616,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/servo_holder.ipt"
+    },
+    {
+      "path": "3D/servo_holder.stl",
+      "type": "file",
+      "size": 941484,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/servo_holder.stl"
+    },
+    {
+      "path": "3D/side_motor_holder.ipt",
+      "type": "file",
+      "size": 473600,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/side_motor_holder.ipt"
+    },
+    {
+      "path": "3D/side_motor_holder.stl",
+      "type": "file",
+      "size": 1661084,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/side_motor_holder.stl"
+    },
+    {
+      "path": "3D/side_motor_holder_mirrored.stl",
+      "type": "file",
+      "size": 1662884,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/side_motor_holder_mirrored.stl"
+    },
+    {
+      "path": "3D/tensioner_base.ipt",
+      "type": "file",
+      "size": 126464,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/tensioner_base.ipt"
+    },
+    {
+      "path": "3D/tensioner_base.stl",
+      "type": "file",
+      "size": 271284,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/tensioner_base.stl"
+    },
+    {
+      "path": "3D/tensioner_servo.ipt",
+      "type": "file",
+      "size": 172544,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/tensioner_servo.ipt"
+    },
+    {
+      "path": "3D/tensioner_servo.stl",
+      "type": "file",
+      "size": 700684,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/3D/tensioner_servo.stl"
+    },
+    {
+      "path": "GCodeReader.py",
+      "type": "file",
+      "size": 5143,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/GCodeReader.py"
+    },
+    {
+      "path": "LICENSE",
+      "type": "file",
+      "size": 11357,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/LICENSE"
+    },
+    {
+      "path": "OpenEmbroidery.py",
+      "type": "file",
+      "size": 18903,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/OpenEmbroidery.py"
+    },
+    {
+      "path": "PHOTOS",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS"
+    },
+    {
+      "path": "PHOTOS/avocado.jpg",
+      "type": "file",
+      "size": 349668,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/avocado.jpg"
+    },
+    {
+      "path": "PHOTOS/bee_and_glasses.jpg",
+      "type": "file",
+      "size": 271667,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/bee_and_glasses.jpg"
+    },
+    {
+      "path": "PHOTOS/controller.jpg",
+      "type": "file",
+      "size": 106658,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/controller.jpg"
+    },
+    {
+      "path": "PHOTOS/lcd.jpg",
+      "type": "file",
+      "size": 78206,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/lcd.jpg"
+    },
+    {
+      "path": "PHOTOS/main.jpg",
+      "type": "file",
+      "size": 105580,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/main.jpg"
+    },
+    {
+      "path": "PHOTOS/main_motor.jpg",
+      "type": "file",
+      "size": 72269,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/main_motor.jpg"
+    },
+    {
+      "path": "PHOTOS/main_motor_driver.jpg",
+      "type": "file",
+      "size": 75112,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/main_motor_driver.jpg"
+    },
+    {
+      "path": "PHOTOS/motors.jpg",
+      "type": "file",
+      "size": 109118,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/motors.jpg"
+    },
+    {
+      "path": "PHOTOS/needle_hall_sensor.jpg",
+      "type": "file",
+      "size": 80674,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/needle_hall_sensor.jpg"
+    },
+    {
+      "path": "PHOTOS/pizza.jpg",
+      "type": "file",
+      "size": 271334,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/pizza.jpg"
+    },
+    {
+      "path": "PHOTOS/sakura.jpg",
+      "type": "file",
+      "size": 139097,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/sakura.jpg"
+    },
+    {
+      "path": "PHOTOS/servo_tesioner.jpg",
+      "type": "file",
+      "size": 69740,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/PHOTOS/servo_tesioner.jpg"
+    },
+    {
+      "path": "README.md",
+      "type": "file",
+      "size": 4362,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/README.md"
+    },
+    {
+      "path": "examples",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples"
+    },
+    {
+      "path": "examples/avocado.dst",
+      "type": "file",
+      "size": 12666,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/avocado.dst"
+    },
+    {
+      "path": "examples/non_binary_glasses.dst",
+      "type": "file",
+      "size": 7962,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/non_binary_glasses.dst"
+    },
+    {
+      "path": "examples/palm.dst",
+      "type": "file",
+      "size": 17517,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/palm.dst"
+    },
+    {
+      "path": "examples/peace.dst",
+      "type": "file",
+      "size": 2856,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/peace.dst"
+    },
+    {
+      "path": "examples/pizza.dst",
+      "type": "file",
+      "size": 8946,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/pizza.dst"
+    },
+    {
+      "path": "examples/sakura.dst",
+      "type": "file",
+      "size": 8889,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/sakura.dst"
+    },
+    {
+      "path": "examples/tree.dst",
+      "type": "file",
+      "size": 2388,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/examples/tree.dst"
+    },
+    {
+      "path": "gui.ui",
+      "type": "file",
+      "size": 19970,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/gui.ui"
+    },
+    {
+      "path": "include",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include"
+    },
+    {
+      "path": "include/config.hpp",
+      "type": "file",
+      "size": 3482,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/config.hpp"
+    },
+    {
+      "path": "include/datatypes.hpp",
+      "type": "file",
+      "size": 4017,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/datatypes.hpp"
+    },
+    {
+      "path": "include/encoder.hpp",
+      "type": "file",
+      "size": 1233,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/encoder.hpp"
+    },
+    {
+      "path": "include/gcode_handler.hpp",
+      "type": "file",
+      "size": 1636,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/gcode_handler.hpp"
+    },
+    {
+      "path": "include/lcd.hpp",
+      "type": "file",
+      "size": 979,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/lcd.hpp"
+    },
+    {
+      "path": "include/menu.hpp",
+      "type": "file",
+      "size": 988,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/menu.hpp"
+    },
+    {
+      "path": "include/motors.hpp",
+      "type": "file",
+      "size": 1127,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/motors.hpp"
+    },
+    {
+      "path": "include/needle_sensor.hpp",
+      "type": "file",
+      "size": 962,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/needle_sensor.hpp"
+    },
+    {
+      "path": "include/sd_card.hpp",
+      "type": "file",
+      "size": 1542,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/sd_card.hpp"
+    },
+    {
+      "path": "include/servo.hpp",
+      "type": "file",
+      "size": 938,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/servo.hpp"
+    },
+    {
+      "path": "include/speed_controller.hpp",
+      "type": "file",
+      "size": 891,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/include/speed_controller.hpp"
+    },
+    {
+      "path": "platformio.ini",
+      "type": "file",
+      "size": 1064,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/platformio.ini"
+    },
+    {
+      "path": "src",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src"
+    },
+    {
+      "path": "src/encoder.cpp",
+      "type": "file",
+      "size": 4321,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/encoder.cpp"
+    },
+    {
+      "path": "src/gcode_handler.cpp",
+      "type": "file",
+      "size": 11450,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/gcode_handler.cpp"
+    },
+    {
+      "path": "src/lcd.cpp",
+      "type": "file",
+      "size": 6032,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/lcd.cpp"
+    },
+    {
+      "path": "src/main.cpp",
+      "type": "file",
+      "size": 2739,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/main.cpp"
+    },
+    {
+      "path": "src/menu.cpp",
+      "type": "file",
+      "size": 9892,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/menu.cpp"
+    },
+    {
+      "path": "src/motors.cpp",
+      "type": "file",
+      "size": 7183,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/motors.cpp"
+    },
+    {
+      "path": "src/needle_sensor.cpp",
+      "type": "file",
+      "size": 1780,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/needle_sensor.cpp"
+    },
+    {
+      "path": "src/sd_card.cpp",
+      "type": "file",
+      "size": 6912,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/sd_card.cpp"
+    },
+    {
+      "path": "src/servo.cpp",
+      "type": "file",
+      "size": 1484,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/servo.cpp"
+    },
+    {
+      "path": "src/speed_controller.cpp",
+      "type": "file",
+      "size": 1469,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/speed_controller.cpp"
+    },
+    {
+      "path": "src/time_converter.cpp",
+      "type": "file",
+      "size": 1629,
+      "url": "https://github.com/F33RNI/OpenEmbroidery/blob/main/src/time_converter.cpp"
+    }
+  ]
+}

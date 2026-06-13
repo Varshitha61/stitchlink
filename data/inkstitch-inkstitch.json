@@ -1,0 +1,5705 @@
+{
+  "fetchedAt": "2026-06-13T03:34:39.800Z",
+  "sourceUrl": "https://github.com/inkstitch/inkstitch",
+  "metadata": {
+    "name": "inkstitch",
+    "owner": "inkstitch",
+    "description": "Ink/Stitch: an Inkscape extension for machine embroidery design",
+    "stars": 1276,
+    "language": "Python",
+    "lastUpdated": "2026-06-12T16:54:15Z",
+    "license": {
+      "name": "GNU General Public License v3.0",
+      "spdxId": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    },
+    "defaultBranch": "main",
+    "forks": 236,
+    "openIssues": 224,
+    "homepage": "https://inkstitch.org"
+  },
+  "readme": {
+    "name": "README.md",
+    "downloadUrl": "https://raw.githubusercontent.com/inkstitch/inkstitch/main/README.md",
+    "content": "# Ink/Stitch: An open source machine embroidery design platform based on Inkscape\n\nWant to design embroidery pattern files (PES, DST, and many more) using **free, open source software?**\n\n![Ink/Stitch Logo](images/logos/inkstitch_colour_logo.svg)\n\nInk/Stitch aims to be a full-fledged embroidery digitizing platform based entirely on free, open source software.  Our goal is to be approachable for hobbyists while also providing the power needed by professional digitizers.  We also aim to provide a welcoming open source environment where contributing is fun and easy.\n\nWant to learn more?\n\n* Check out our list of [features](https://inkstitch.org/features/)\n* [Quick Install](https://inkstitch.org/docs/install/) on Linux, Windows and Mac\n* See some [photos](https://inkstitch.org/tutorials/inspiration/) showing what Ink/Stitch can do\n* Watch some [videos](https://inkstitch.org/tutorials/video/) of Ink/Stitch in action\n* ...and lots more on our [website](https://inkstitch.org)\n\nNeed help?\n\n* Contact us via the [Inkscape Forum](https://inkscape.org/forums/embroidery/)\n* Join our [chat channel](https://chat.inkscape.org/channel/inkstitch)\n\n# Background and Philosophy\n\n_by @lexelby, an Ink/Stitch programmer_\n\nI received a really wonderful christmas gift for a geeky programmer hacker: an embroidery machine.  It's pretty much a CNC thread-bot... I just had to figure out how to design programs for it.  The problem is, **all free embroidery design software seemed to be terrible**, especially when you add in the requirement of being able to run in Linux, my OS of choice.\n\nI started off hacking on [inkscape-embroidery](http://www.jonh.net/~jonh/inkscape-embroidery/).  It had some of the basic capabilities I needed, and I saw a lot of potential.  I love the idea of using an existing, ultra-powerful SVG editor as the basis for an embroidery design suite.\n\nThings took off from there.  I continued adding features as I needed them, and by this point, very little if any of the original code remains.\n\nThe goal of Ink/Stitch is to provide a powerful embroidery digitizing platform for everyone **completely free**.  I want to open up the field of embroidery design, making it approachable even for those who can't spend hundreds or thousands of dollars on software.  And I want folks like me, who love to combine code with art, to have an open, extensible, and approachable platform to hack on.\n",
+    "htmlUrl": "https://github.com/inkstitch/inkstitch/blob/main/README.md"
+  },
+  "structure": [
+    {
+      "path": ".gitignore",
+      "type": "file",
+      "size": 411,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/.gitignore"
+    },
+    {
+      "path": ".gitmodules",
+      "type": "file",
+      "size": 87,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/.gitmodules"
+    },
+    {
+      "path": ".vscode",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/.vscode"
+    },
+    {
+      "path": ".vscode/launch.json",
+      "type": "file",
+      "size": 296,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/.vscode/launch.json"
+    },
+    {
+      "path": "CNAME",
+      "type": "file",
+      "size": 13,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/CNAME"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "type": "file",
+      "size": 3301,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/CODE_OF_CONDUCT.md"
+    },
+    {
+      "path": "CODING_STYLE.md",
+      "type": "file",
+      "size": 6481,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/CODING_STYLE.md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "file",
+      "size": 1123,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/CONTRIBUTING.md"
+    },
+    {
+      "path": "DEBUG_template.toml",
+      "type": "file",
+      "size": 1563,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/DEBUG_template.toml"
+    },
+    {
+      "path": "LICENSE",
+      "type": "file",
+      "size": 35149,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/LICENSE"
+    },
+    {
+      "path": "LOCALIZATION.md",
+      "type": "file",
+      "size": 2769,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/LOCALIZATION.md"
+    },
+    {
+      "path": "LOGGING_template.toml",
+      "type": "file",
+      "size": 2225,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/LOGGING_template.toml"
+    },
+    {
+      "path": "Makefile",
+      "type": "file",
+      "size": 2140,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/Makefile"
+    },
+    {
+      "path": "README.md",
+      "type": "file",
+      "size": 2405,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/README.md"
+    },
+    {
+      "path": "_config.yml",
+      "type": "file",
+      "size": 27,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/_config.yml"
+    },
+    {
+      "path": "addons",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/addons"
+    },
+    {
+      "path": "addons/symbols",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/addons/symbols"
+    },
+    {
+      "path": "addons/symbols/inkstitch-fill_pattern-library.svg",
+      "type": "file",
+      "size": 659850,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/addons/symbols/inkstitch-fill_pattern-library.svg"
+    },
+    {
+      "path": "addons/symbols/inkstitch-motif-library.svg",
+      "type": "file",
+      "size": 54902,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/addons/symbols/inkstitch-motif-library.svg"
+    },
+    {
+      "path": "babel.conf",
+      "type": "file",
+      "size": 102,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/babel.conf"
+    },
+    {
+      "path": "bin",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin"
+    },
+    {
+      "path": "bin/after-install",
+      "type": "file",
+      "size": 307,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/after-install"
+    },
+    {
+      "path": "bin/before-remove",
+      "type": "file",
+      "size": 209,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/before-remove"
+    },
+    {
+      "path": "bin/build-distribution-archives",
+      "type": "file",
+      "size": 7946,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/build-distribution-archives"
+    },
+    {
+      "path": "bin/build-geos-win.cmd",
+      "type": "file",
+      "size": 969,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/build-geos-win.cmd"
+    },
+    {
+      "path": "bin/build-linux",
+      "type": "file",
+      "size": 1380,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/build-linux"
+    },
+    {
+      "path": "bin/build-linux32-venv",
+      "type": "file",
+      "size": 527,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/build-linux32-venv"
+    },
+    {
+      "path": "bin/build-python",
+      "type": "file",
+      "size": 2672,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/build-python"
+    },
+    {
+      "path": "bin/build-windows-installer",
+      "type": "file",
+      "size": 1451,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/build-windows-installer"
+    },
+    {
+      "path": "bin/compress-fonts",
+      "type": "file",
+      "size": 185,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/compress-fonts"
+    },
+    {
+      "path": "bin/generate-inx-files",
+      "type": "file",
+      "size": 3320,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/generate-inx-files"
+    },
+    {
+      "path": "bin/generate-translation-files",
+      "type": "file",
+      "size": 695,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/generate-translation-files"
+    },
+    {
+      "path": "bin/generate-version-file",
+      "type": "file",
+      "size": 324,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/generate-version-file"
+    },
+    {
+      "path": "bin/git-pre-commit-hook",
+      "type": "file",
+      "size": 561,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/git-pre-commit-hook"
+    },
+    {
+      "path": "bin/import-macos-keys",
+      "type": "file",
+      "size": 805,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/import-macos-keys"
+    },
+    {
+      "path": "bin/inkstitch-fonts-gettext",
+      "type": "file",
+      "size": 554,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/inkstitch-fonts-gettext"
+    },
+    {
+      "path": "bin/inkstitch-tiles-gettext",
+      "type": "file",
+      "size": 742,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/inkstitch-tiles-gettext"
+    },
+    {
+      "path": "bin/linux-sh-installer",
+      "type": "file",
+      "size": 3053,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/linux-sh-installer"
+    },
+    {
+      "path": "bin/pystitch-convert",
+      "type": "file",
+      "size": 94,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/pystitch-convert"
+    },
+    {
+      "path": "bin/pystitch-gettext",
+      "type": "file",
+      "size": 363,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/pystitch-gettext"
+    },
+    {
+      "path": "bin/style-check",
+      "type": "file",
+      "size": 879,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/bin/style-check"
+    },
+    {
+      "path": "crowdin.yml",
+      "type": "file",
+      "size": 158,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/crowdin.yml"
+    },
+    {
+      "path": "dbus",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/dbus"
+    },
+    {
+      "path": "dbus/select_elements.py",
+      "type": "file",
+      "size": 1115,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/dbus/select_elements.py"
+    },
+    {
+      "path": "fonts",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/fonts"
+    },
+    {
+      "path": "icons",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons"
+    },
+    {
+      "path": "icons/backward_command.png",
+      "type": "file",
+      "size": 3550,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/backward_command.png"
+    },
+    {
+      "path": "icons/backward_command.svg",
+      "type": "file",
+      "size": 4183,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/backward_command.svg"
+    },
+    {
+      "path": "icons/backward_command_dark.png",
+      "type": "file",
+      "size": 4056,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/backward_command_dark.png"
+    },
+    {
+      "path": "icons/backward_stitch.png",
+      "type": "file",
+      "size": 3152,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/backward_stitch.png"
+    },
+    {
+      "path": "icons/backward_stitch.svg",
+      "type": "file",
+      "size": 3406,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/backward_stitch.svg"
+    },
+    {
+      "path": "icons/backward_stitch_dark.png",
+      "type": "file",
+      "size": 4342,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/backward_stitch_dark.png"
+    },
+    {
+      "path": "icons/close.png",
+      "type": "file",
+      "size": 3806,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/close.png"
+    },
+    {
+      "path": "icons/close.svg",
+      "type": "file",
+      "size": 7498,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/close.svg"
+    },
+    {
+      "path": "icons/close_dark.png",
+      "type": "file",
+      "size": 5563,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/close_dark.png"
+    },
+    {
+      "path": "icons/color_change.png",
+      "type": "file",
+      "size": 4207,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/color_change.png"
+    },
+    {
+      "path": "icons/color_change.svg",
+      "type": "file",
+      "size": 3451,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/color_change.svg"
+    },
+    {
+      "path": "icons/color_change_dark.png",
+      "type": "file",
+      "size": 4424,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/color_change_dark.png"
+    },
+    {
+      "path": "icons/cursor.png",
+      "type": "file",
+      "size": 1529,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/cursor.png"
+    },
+    {
+      "path": "icons/cursor.svg",
+      "type": "file",
+      "size": 2608,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/cursor.svg"
+    },
+    {
+      "path": "icons/cursor_dark.png",
+      "type": "file",
+      "size": 1480,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/cursor_dark.png"
+    },
+    {
+      "path": "icons/detach_window.png",
+      "type": "file",
+      "size": 2891,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/detach_window.png"
+    },
+    {
+      "path": "icons/detach_window.svg",
+      "type": "file",
+      "size": 2886,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/detach_window.svg"
+    },
+    {
+      "path": "icons/detach_window_dark.png",
+      "type": "file",
+      "size": 2706,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/detach_window_dark.png"
+    },
+    {
+      "path": "icons/direction.png",
+      "type": "file",
+      "size": 3655,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/direction.png"
+    },
+    {
+      "path": "icons/direction.svg",
+      "type": "file",
+      "size": 3959,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/direction.svg"
+    },
+    {
+      "path": "icons/direction_dark.png",
+      "type": "file",
+      "size": 3373,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/direction_dark.png"
+    },
+    {
+      "path": "icons/faster.png",
+      "type": "file",
+      "size": 4230,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/faster.png"
+    },
+    {
+      "path": "icons/faster.svg",
+      "type": "file",
+      "size": 7320,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/faster.svg"
+    },
+    {
+      "path": "icons/faster_dark.png",
+      "type": "file",
+      "size": 5289,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/faster_dark.png"
+    },
+    {
+      "path": "icons/forward_command.png",
+      "type": "file",
+      "size": 3492,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_command.png"
+    },
+    {
+      "path": "icons/forward_command.svg",
+      "type": "file",
+      "size": 4182,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_command.svg"
+    },
+    {
+      "path": "icons/forward_command_dark.png",
+      "type": "file",
+      "size": 4219,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_command_dark.png"
+    },
+    {
+      "path": "icons/forward_dark.png",
+      "type": "file",
+      "size": 3373,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_dark.png"
+    },
+    {
+      "path": "icons/forward_stitch.png",
+      "type": "file",
+      "size": 3129,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_stitch.png"
+    },
+    {
+      "path": "icons/forward_stitch.svg",
+      "type": "file",
+      "size": 3419,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_stitch.svg"
+    },
+    {
+      "path": "icons/forward_stitch_dark.png",
+      "type": "file",
+      "size": 4120,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/forward_stitch_dark.png"
+    },
+    {
+      "path": "icons/info.png",
+      "type": "file",
+      "size": 2044,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/info.png"
+    },
+    {
+      "path": "icons/info.svg",
+      "type": "file",
+      "size": 7202,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/info.svg"
+    },
+    {
+      "path": "icons/info_dark.png",
+      "type": "file",
+      "size": 1948,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/info_dark.png"
+    },
+    {
+      "path": "icons/inkstitch256x256.png",
+      "type": "file",
+      "size": 19440,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inkstitch256x256.png"
+    },
+    {
+      "path": "icons/inkstitch_colour_logo.png",
+      "type": "file",
+      "size": 14644,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inkstitch_colour_logo.png"
+    },
+    {
+      "path": "icons/inkstitch_colour_logo.svg",
+      "type": "file",
+      "size": 5922,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inkstitch_colour_logo.svg"
+    },
+    {
+      "path": "icons/invisible.png",
+      "type": "file",
+      "size": 6975,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/invisible.png"
+    },
+    {
+      "path": "icons/invisible.svg",
+      "type": "file",
+      "size": 3247,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/invisible.svg"
+    },
+    {
+      "path": "icons/inx",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx"
+    },
+    {
+      "path": "icons/inx/anchor_line.svg",
+      "type": "file",
+      "size": 5654,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/anchor_line.svg"
+    },
+    {
+      "path": "icons/inx/apply_attribute.svg",
+      "type": "file",
+      "size": 9503,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/apply_attribute.svg"
+    },
+    {
+      "path": "icons/inx/auto_route.svg",
+      "type": "file",
+      "size": 6257,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/auto_route.svg"
+    },
+    {
+      "path": "icons/inx/break_apart_fill.svg",
+      "type": "file",
+      "size": 6051,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/break_apart_fill.svg"
+    },
+    {
+      "path": "icons/inx/cleanup_document.svg",
+      "type": "file",
+      "size": 7565,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/cleanup_document.svg"
+    },
+    {
+      "path": "icons/inx/color_management.svg",
+      "type": "file",
+      "size": 4927,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/color_management.svg"
+    },
+    {
+      "path": "icons/inx/commands.svg",
+      "type": "file",
+      "size": 5804,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/commands.svg"
+    },
+    {
+      "path": "icons/inx/commands_scale.svg",
+      "type": "file",
+      "size": 7216,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/commands_scale.svg"
+    },
+    {
+      "path": "icons/inx/commands_visibility.svg",
+      "type": "file",
+      "size": 13020,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/commands_visibility.svg"
+    },
+    {
+      "path": "icons/inx/cross_stitch.svg",
+      "type": "file",
+      "size": 5220,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/cross_stitch.svg"
+    },
+    {
+      "path": "icons/inx/cut_satin.svg",
+      "type": "file",
+      "size": 12657,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/cut_satin.svg"
+    },
+    {
+      "path": "icons/inx/cutwork.svg",
+      "type": "file",
+      "size": 8014,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/cutwork.svg"
+    },
+    {
+      "path": "icons/inx/density_map.svg",
+      "type": "file",
+      "size": 9732,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/density_map.svg"
+    },
+    {
+      "path": "icons/inx/duplicate_params.svg",
+      "type": "file",
+      "size": 7249,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/duplicate_params.svg"
+    },
+    {
+      "path": "icons/inx/element_info.svg",
+      "type": "file",
+      "size": 4916,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/element_info.svg"
+    },
+    {
+      "path": "icons/inx/fill_knockdown.svg",
+      "type": "file",
+      "size": 47212,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/fill_knockdown.svg"
+    },
+    {
+      "path": "icons/inx/fill_to_satin.svg",
+      "type": "file",
+      "size": 9727,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/fill_to_satin.svg"
+    },
+    {
+      "path": "icons/inx/fill_to_stroke.svg",
+      "type": "file",
+      "size": 10418,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/fill_to_stroke.svg"
+    },
+    {
+      "path": "icons/inx/flip_satin.svg",
+      "type": "file",
+      "size": 9103,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/flip_satin.svg"
+    },
+    {
+      "path": "icons/inx/font_management.svg",
+      "type": "file",
+      "size": 6535,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/font_management.svg"
+    },
+    {
+      "path": "icons/inx/gradient_blocks.svg",
+      "type": "file",
+      "size": 4888,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/gradient_blocks.svg"
+    },
+    {
+      "path": "icons/inx/guide_line.svg",
+      "type": "file",
+      "size": 5107,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/guide_line.svg"
+    },
+    {
+      "path": "icons/inx/jump_to_stroke.svg",
+      "type": "file",
+      "size": 9372,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/jump_to_stroke.svg"
+    },
+    {
+      "path": "icons/inx/jump_to_trim.svg",
+      "type": "file",
+      "size": 9830,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/jump_to_trim.svg"
+    },
+    {
+      "path": "icons/inx/lettering.svg",
+      "type": "file",
+      "size": 5091,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/lettering.svg"
+    },
+    {
+      "path": "icons/inx/lettering_along_path.svg",
+      "type": "file",
+      "size": 12315,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/lettering_along_path.svg"
+    },
+    {
+      "path": "icons/inx/multicolor_satin.svg",
+      "type": "file",
+      "size": 6681,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/multicolor_satin.svg"
+    },
+    {
+      "path": "icons/inx/outline.svg",
+      "type": "file",
+      "size": 9170,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/outline.svg"
+    },
+    {
+      "path": "icons/inx/pattern.svg",
+      "type": "file",
+      "size": 5274,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/pattern.svg"
+    },
+    {
+      "path": "icons/inx/pdf_export.svg",
+      "type": "file",
+      "size": 11502,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/pdf_export.svg"
+    },
+    {
+      "path": "icons/inx/preferences.svg",
+      "type": "file",
+      "size": 5563,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/preferences.svg"
+    },
+    {
+      "path": "icons/inx/remove_duplicated_points.svg",
+      "type": "file",
+      "size": 6387,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/remove_duplicated_points.svg"
+    },
+    {
+      "path": "icons/inx/remove_embroidery_settings.svg",
+      "type": "file",
+      "size": 6273,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/remove_embroidery_settings.svg"
+    },
+    {
+      "path": "icons/inx/reorder.svg",
+      "type": "file",
+      "size": 5690,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/reorder.svg"
+    },
+    {
+      "path": "icons/inx/satin_to_stroke.svg",
+      "type": "file",
+      "size": 8182,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/satin_to_stroke.svg"
+    },
+    {
+      "path": "icons/inx/select_elements.svg",
+      "type": "file",
+      "size": 7540,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/select_elements.svg"
+    },
+    {
+      "path": "icons/inx/simulator.svg",
+      "type": "file",
+      "size": 8118,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/simulator.svg"
+    },
+    {
+      "path": "icons/inx/stacking_order.svg",
+      "type": "file",
+      "size": 10698,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/stacking_order.svg"
+    },
+    {
+      "path": "icons/inx/stitch_plan_preview.svg",
+      "type": "file",
+      "size": 9139,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/stitch_plan_preview.svg"
+    },
+    {
+      "path": "icons/inx/tartan.svg",
+      "type": "file",
+      "size": 6416,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/tartan.svg"
+    },
+    {
+      "path": "icons/inx/test_swatches.svg",
+      "type": "file",
+      "size": 4924,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/test_swatches.svg"
+    },
+    {
+      "path": "icons/inx/to_satin.svg",
+      "type": "file",
+      "size": 4949,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/to_satin.svg"
+    },
+    {
+      "path": "icons/inx/transform.svg",
+      "type": "file",
+      "size": 11124,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/transform.svg"
+    },
+    {
+      "path": "icons/inx/troubleshoot.svg",
+      "type": "file",
+      "size": 10326,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/troubleshoot.svg"
+    },
+    {
+      "path": "icons/inx/undo_stitch_plan.svg",
+      "type": "file",
+      "size": 9491,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/undo_stitch_plan.svg"
+    },
+    {
+      "path": "icons/inx/unlink_clone.svg",
+      "type": "file",
+      "size": 6938,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/unlink_clone.svg"
+    },
+    {
+      "path": "icons/inx/update_svg.svg",
+      "type": "file",
+      "size": 7348,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/inx/update_svg.svg"
+    },
+    {
+      "path": "icons/jump.png",
+      "type": "file",
+      "size": 5343,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/jump.png"
+    },
+    {
+      "path": "icons/jump.svg",
+      "type": "file",
+      "size": 899,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/jump.svg"
+    },
+    {
+      "path": "icons/jump_dark.png",
+      "type": "file",
+      "size": 7847,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/jump_dark.png"
+    },
+    {
+      "path": "icons/layer.png",
+      "type": "file",
+      "size": 2075,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/layer.png"
+    },
+    {
+      "path": "icons/layer.svg",
+      "type": "file",
+      "size": 2073,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/layer.svg"
+    },
+    {
+      "path": "icons/layers.png",
+      "type": "file",
+      "size": 3858,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/layers.png"
+    },
+    {
+      "path": "icons/layers.svg",
+      "type": "file",
+      "size": 2539,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/layers.svg"
+    },
+    {
+      "path": "icons/npp.png",
+      "type": "file",
+      "size": 3375,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/npp.png"
+    },
+    {
+      "path": "icons/npp.svg",
+      "type": "file",
+      "size": 9193,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/npp.svg"
+    },
+    {
+      "path": "icons/npp_dark.png",
+      "type": "file",
+      "size": 3996,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/npp_dark.png"
+    },
+    {
+      "path": "icons/page.png",
+      "type": "file",
+      "size": 3191,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/page.png"
+    },
+    {
+      "path": "icons/page.svg",
+      "type": "file",
+      "size": 2964,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/page.svg"
+    },
+    {
+      "path": "icons/page_dark.png",
+      "type": "file",
+      "size": 3145,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/page_dark.png"
+    },
+    {
+      "path": "icons/pencil.png",
+      "type": "file",
+      "size": 15456,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/pencil.png"
+    },
+    {
+      "path": "icons/pencil_20x20.png",
+      "type": "file",
+      "size": 734,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/pencil_20x20.png"
+    },
+    {
+      "path": "icons/play.png",
+      "type": "file",
+      "size": 2646,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/play.png"
+    },
+    {
+      "path": "icons/play.svg",
+      "type": "file",
+      "size": 3678,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/play.svg"
+    },
+    {
+      "path": "icons/play_dark.png",
+      "type": "file",
+      "size": 3014,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/play_dark.png"
+    },
+    {
+      "path": "icons/randomize_20x20.png",
+      "type": "file",
+      "size": 697,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/randomize_20x20.png"
+    },
+    {
+      "path": "icons/randomize_20x20_dark.png",
+      "type": "file",
+      "size": 2843,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/randomize_20x20_dark.png"
+    },
+    {
+      "path": "icons/restart.png",
+      "type": "file",
+      "size": 5319,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/restart.png"
+    },
+    {
+      "path": "icons/restart.svg",
+      "type": "file",
+      "size": 5737,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/restart.svg"
+    },
+    {
+      "path": "icons/restart_dark.png",
+      "type": "file",
+      "size": 6213,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/restart_dark.png"
+    },
+    {
+      "path": "icons/settings.png",
+      "type": "file",
+      "size": 6563,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/settings.png"
+    },
+    {
+      "path": "icons/settings.svg",
+      "type": "file",
+      "size": 4118,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/settings.svg"
+    },
+    {
+      "path": "icons/settings_dark.png",
+      "type": "file",
+      "size": 5527,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/settings_dark.png"
+    },
+    {
+      "path": "icons/slower.png",
+      "type": "file",
+      "size": 4391,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/slower.png"
+    },
+    {
+      "path": "icons/slower.svg",
+      "type": "file",
+      "size": 7367,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/slower.svg"
+    },
+    {
+      "path": "icons/slower_dark.png",
+      "type": "file",
+      "size": 5403,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/slower_dark.png"
+    },
+    {
+      "path": "icons/stop.png",
+      "type": "file",
+      "size": 2110,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/stop.png"
+    },
+    {
+      "path": "icons/stop.svg",
+      "type": "file",
+      "size": 475,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/stop.svg"
+    },
+    {
+      "path": "icons/stop_dark.png",
+      "type": "file",
+      "size": 3924,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/stop_dark.png"
+    },
+    {
+      "path": "icons/trim.png",
+      "type": "file",
+      "size": 5815,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/trim.png"
+    },
+    {
+      "path": "icons/trim.svg",
+      "type": "file",
+      "size": 769,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/trim.svg"
+    },
+    {
+      "path": "icons/trim_dark.png",
+      "type": "file",
+      "size": 8179,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/trim_dark.png"
+    },
+    {
+      "path": "icons/visible.png",
+      "type": "file",
+      "size": 6084,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/visible.png"
+    },
+    {
+      "path": "icons/visible.svg",
+      "type": "file",
+      "size": 2444,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/icons/visible.svg"
+    },
+    {
+      "path": "images",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images"
+    },
+    {
+      "path": "images/inkstitch",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/inkstitch"
+    },
+    {
+      "path": "images/inkstitch/mac",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/inkstitch/mac"
+    },
+    {
+      "path": "images/inkstitch/png",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/inkstitch/png"
+    },
+    {
+      "path": "images/inkstitch/win",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/inkstitch/win"
+    },
+    {
+      "path": "images/logos",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/logos"
+    },
+    {
+      "path": "images/logos/README.md",
+      "type": "file",
+      "size": 149,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/logos/README.md"
+    },
+    {
+      "path": "images/logos/inkstitch_branding_quickguide.svg",
+      "type": "file",
+      "size": 370811,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/logos/inkstitch_branding_quickguide.svg"
+    },
+    {
+      "path": "images/logos/inkstitch_colour_logo.svg",
+      "type": "file",
+      "size": 5922,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/logos/inkstitch_colour_logo.svg"
+    },
+    {
+      "path": "images/logos/inkstitch_official_logo.svg",
+      "type": "file",
+      "size": 3542,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/images/logos/inkstitch_official_logo.svg"
+    },
+    {
+      "path": "inkstitch.py",
+      "type": "file",
+      "size": 8101,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/inkstitch.py"
+    },
+    {
+      "path": "installer_scripts",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts"
+    },
+    {
+      "path": "installer_scripts/entitlements.plist",
+      "type": "file",
+      "size": 429,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts/entitlements.plist"
+    },
+    {
+      "path": "installer_scripts/file_version_info.txt",
+      "type": "file",
+      "size": 1552,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts/file_version_info.txt"
+    },
+    {
+      "path": "installer_scripts/scripts",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts/scripts"
+    },
+    {
+      "path": "installer_scripts/scripts/postinstall",
+      "type": "file",
+      "size": 361,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts/scripts/postinstall"
+    },
+    {
+      "path": "installer_scripts/scripts/preinstall",
+      "type": "file",
+      "size": 806,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts/scripts/preinstall"
+    },
+    {
+      "path": "installer_scripts/template.iss",
+      "type": "file",
+      "size": 5454,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/installer_scripts/template.iss"
+    },
+    {
+      "path": "its",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/its"
+    },
+    {
+      "path": "its/inx.its",
+      "type": "file",
+      "size": 2245,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/its/inx.its"
+    },
+    {
+      "path": "lib",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib"
+    },
+    {
+      "path": "lib/__init__.py",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/__init__.py"
+    },
+    {
+      "path": "lib/commands.py",
+      "type": "file",
+      "size": 18304,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/commands.py"
+    },
+    {
+      "path": "lib/debug",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/debug"
+    },
+    {
+      "path": "lib/debug/__init__.py",
+      "type": "file",
+      "size": 144,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/debug/__init__.py"
+    },
+    {
+      "path": "lib/debug/debug.py",
+      "type": "file",
+      "size": 9060,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/debug/debug.py"
+    },
+    {
+      "path": "lib/debug/debugger.py",
+      "type": "file",
+      "size": 7906,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/debug/debugger.py"
+    },
+    {
+      "path": "lib/debug/logging.py",
+      "type": "file",
+      "size": 15404,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/debug/logging.py"
+    },
+    {
+      "path": "lib/debug/utils.py",
+      "type": "file",
+      "size": 13278,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/debug/utils.py"
+    },
+    {
+      "path": "lib/elements",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements"
+    },
+    {
+      "path": "lib/elements/__init__.py",
+      "type": "file",
+      "size": 487,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/__init__.py"
+    },
+    {
+      "path": "lib/elements/clone.py",
+      "type": "file",
+      "size": 14053,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/clone.py"
+    },
+    {
+      "path": "lib/elements/element.py",
+      "type": "file",
+      "size": 31257,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/element.py"
+    },
+    {
+      "path": "lib/elements/empty_d_object.py",
+      "type": "file",
+      "size": 1211,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/empty_d_object.py"
+    },
+    {
+      "path": "lib/elements/fill_stitch.py",
+      "type": "file",
+      "size": 57723,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/fill_stitch.py"
+    },
+    {
+      "path": "lib/elements/image.py",
+      "type": "file",
+      "size": 2720,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/image.py"
+    },
+    {
+      "path": "lib/elements/marker.py",
+      "type": "file",
+      "size": 1165,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/marker.py"
+    },
+    {
+      "path": "lib/elements/satin_column.py",
+      "type": "file",
+      "size": 88350,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/satin_column.py"
+    },
+    {
+      "path": "lib/elements/stroke.py",
+      "type": "file",
+      "size": 34048,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/stroke.py"
+    },
+    {
+      "path": "lib/elements/text.py",
+      "type": "file",
+      "size": 1167,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/text.py"
+    },
+    {
+      "path": "lib/elements/utils",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/utils"
+    },
+    {
+      "path": "lib/elements/validation.py",
+      "type": "file",
+      "size": 1876,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/elements/validation.py"
+    },
+    {
+      "path": "lib/exceptions.py",
+      "type": "file",
+      "size": 2622,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/exceptions.py"
+    },
+    {
+      "path": "lib/extensions",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions"
+    },
+    {
+      "path": "lib/extensions/__init__.py",
+      "type": "file",
+      "size": 5160,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/__init__.py"
+    },
+    {
+      "path": "lib/extensions/about.py",
+      "type": "file",
+      "size": 347,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/about.py"
+    },
+    {
+      "path": "lib/extensions/apply_attribute.py",
+      "type": "file",
+      "size": 1638,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/apply_attribute.py"
+    },
+    {
+      "path": "lib/extensions/apply_palette.py",
+      "type": "file",
+      "size": 2775,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/apply_palette.py"
+    },
+    {
+      "path": "lib/extensions/apply_threadlist.py",
+      "type": "file",
+      "size": 5553,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/apply_threadlist.py"
+    },
+    {
+      "path": "lib/extensions/auto_run.py",
+      "type": "file",
+      "size": 2810,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/auto_run.py"
+    },
+    {
+      "path": "lib/extensions/auto_satin.py",
+      "type": "file",
+      "size": 3028,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/auto_satin.py"
+    },
+    {
+      "path": "lib/extensions/base.py",
+      "type": "file",
+      "size": 4071,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/base.py"
+    },
+    {
+      "path": "lib/extensions/batch_lettering.py",
+      "type": "file",
+      "size": 10306,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/batch_lettering.py"
+    },
+    {
+      "path": "lib/extensions/break_apart.py",
+      "type": "file",
+      "size": 7014,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/break_apart.py"
+    },
+    {
+      "path": "lib/extensions/cleanup.py",
+      "type": "file",
+      "size": 4153,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/cleanup.py"
+    },
+    {
+      "path": "lib/extensions/commands.py",
+      "type": "file",
+      "size": 642,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/commands.py"
+    },
+    {
+      "path": "lib/extensions/commands_scale_symbols.py",
+      "type": "file",
+      "size": 1084,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/commands_scale_symbols.py"
+    },
+    {
+      "path": "lib/extensions/cross_stitch_assistant.py",
+      "type": "file",
+      "size": 10766,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/cross_stitch_assistant.py"
+    },
+    {
+      "path": "lib/extensions/cut_satin.py",
+      "type": "file",
+      "size": 5388,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/cut_satin.py"
+    },
+    {
+      "path": "lib/extensions/cutwork_segmentation.py",
+      "type": "file",
+      "size": 8938,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/cutwork_segmentation.py"
+    },
+    {
+      "path": "lib/extensions/density_map.py",
+      "type": "file",
+      "size": 5903,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/density_map.py"
+    },
+    {
+      "path": "lib/extensions/display_stacking_order.py",
+      "type": "file",
+      "size": 1981,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/display_stacking_order.py"
+    },
+    {
+      "path": "lib/extensions/duplicate_params.py",
+      "type": "file",
+      "size": 1486,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/duplicate_params.py"
+    },
+    {
+      "path": "lib/extensions/element_info.py",
+      "type": "file",
+      "size": 8561,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/element_info.py"
+    },
+    {
+      "path": "lib/extensions/fill_to_satin.py",
+      "type": "file",
+      "size": 32264,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/fill_to_satin.py"
+    },
+    {
+      "path": "lib/extensions/fill_to_stroke.py",
+      "type": "file",
+      "size": 12245,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/fill_to_stroke.py"
+    },
+    {
+      "path": "lib/extensions/flip.py",
+      "type": "file",
+      "size": 885,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/flip.py"
+    },
+    {
+      "path": "lib/extensions/generate_palette.py",
+      "type": "file",
+      "size": 3389,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/generate_palette.py"
+    },
+    {
+      "path": "lib/extensions/global_commands.py",
+      "type": "file",
+      "size": 642,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/global_commands.py"
+    },
+    {
+      "path": "lib/extensions/gradient_blocks.py",
+      "type": "file",
+      "size": 8673,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/gradient_blocks.py"
+    },
+    {
+      "path": "lib/extensions/input.py",
+      "type": "file",
+      "size": 1234,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/input.py"
+    },
+    {
+      "path": "lib/extensions/install.py",
+      "type": "file",
+      "size": 3018,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/install.py"
+    },
+    {
+      "path": "lib/extensions/install_custom_palette.py",
+      "type": "file",
+      "size": 1676,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/install_custom_palette.py"
+    },
+    {
+      "path": "lib/extensions/jump_to_stroke.py",
+      "type": "file",
+      "size": 9356,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/jump_to_stroke.py"
+    },
+    {
+      "path": "lib/extensions/jump_to_trim.py",
+      "type": "file",
+      "size": 3113,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/jump_to_trim.py"
+    },
+    {
+      "path": "lib/extensions/knockdown_fill.py",
+      "type": "file",
+      "size": 7542,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/knockdown_fill.py"
+    },
+    {
+      "path": "lib/extensions/layer_commands.py",
+      "type": "file",
+      "size": 654,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/layer_commands.py"
+    },
+    {
+      "path": "lib/extensions/lettering.py",
+      "type": "file",
+      "size": 2692,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering.py"
+    },
+    {
+      "path": "lib/extensions/lettering_along_path.py",
+      "type": "file",
+      "size": 11353,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_along_path.py"
+    },
+    {
+      "path": "lib/extensions/lettering_custom_font_dir.py",
+      "type": "file",
+      "size": 1497,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_custom_font_dir.py"
+    },
+    {
+      "path": "lib/extensions/lettering_edit_json.py",
+      "type": "file",
+      "size": 1220,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_edit_json.py"
+    },
+    {
+      "path": "lib/extensions/lettering_font_sample.py",
+      "type": "file",
+      "size": 837,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_font_sample.py"
+    },
+    {
+      "path": "lib/extensions/lettering_force_lock_stitches.py",
+      "type": "file",
+      "size": 5654,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_force_lock_stitches.py"
+    },
+    {
+      "path": "lib/extensions/lettering_generate_json.py",
+      "type": "file",
+      "size": 7287,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_generate_json.py"
+    },
+    {
+      "path": "lib/extensions/lettering_organize_glyphs.py",
+      "type": "file",
+      "size": 25051,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_organize_glyphs.py"
+    },
+    {
+      "path": "lib/extensions/lettering_remove_kerning.py",
+      "type": "file",
+      "size": 1272,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_remove_kerning.py"
+    },
+    {
+      "path": "lib/extensions/lettering_set_color_sort_index.py",
+      "type": "file",
+      "size": 1255,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_set_color_sort_index.py"
+    },
+    {
+      "path": "lib/extensions/lettering_svg_font_to_layers.py",
+      "type": "file",
+      "size": 10224,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/lettering_svg_font_to_layers.py"
+    },
+    {
+      "path": "lib/extensions/letters_to_font.py",
+      "type": "file",
+      "size": 5572,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/letters_to_font.py"
+    },
+    {
+      "path": "lib/extensions/object_commands.py",
+      "type": "file",
+      "size": 3136,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/object_commands.py"
+    },
+    {
+      "path": "lib/extensions/object_commands_toggle_visibility.py",
+      "type": "file",
+      "size": 835,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/object_commands_toggle_visibility.py"
+    },
+    {
+      "path": "lib/extensions/outline.py",
+      "type": "file",
+      "size": 3533,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/outline.py"
+    },
+    {
+      "path": "lib/extensions/output.py",
+      "type": "file",
+      "size": 3052,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/output.py"
+    },
+    {
+      "path": "lib/extensions/palette_split_text.py",
+      "type": "file",
+      "size": 2366,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/palette_split_text.py"
+    },
+    {
+      "path": "lib/extensions/palette_to_text.py",
+      "type": "file",
+      "size": 1924,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/palette_to_text.py"
+    },
+    {
+      "path": "lib/extensions/params.py",
+      "type": "file",
+      "size": 33988,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/params.py"
+    },
+    {
+      "path": "lib/extensions/png_realistic.py",
+      "type": "file",
+      "size": 1406,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/png_realistic.py"
+    },
+    {
+      "path": "lib/extensions/png_simple.py",
+      "type": "file",
+      "size": 2866,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/png_simple.py"
+    },
+    {
+      "path": "lib/extensions/preferences.py",
+      "type": "file",
+      "size": 429,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/preferences.py"
+    },
+    {
+      "path": "lib/extensions/print_pdf.py",
+      "type": "file",
+      "size": 16508,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/print_pdf.py"
+    },
+    {
+      "path": "lib/extensions/redwork.py",
+      "type": "file",
+      "size": 11880,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/redwork.py"
+    },
+    {
+      "path": "lib/extensions/remove_duplicated_points.py",
+      "type": "file",
+      "size": 2190,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/remove_duplicated_points.py"
+    },
+    {
+      "path": "lib/extensions/remove_embroidery_settings.py",
+      "type": "file",
+      "size": 5215,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/remove_embroidery_settings.py"
+    },
+    {
+      "path": "lib/extensions/reorder.py",
+      "type": "file",
+      "size": 997,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/reorder.py"
+    },
+    {
+      "path": "lib/extensions/satin_multicolor.py",
+      "type": "file",
+      "size": 1802,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/satin_multicolor.py"
+    },
+    {
+      "path": "lib/extensions/satin_to_stroke.py",
+      "type": "file",
+      "size": 2095,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/satin_to_stroke.py"
+    },
+    {
+      "path": "lib/extensions/select_elements.py",
+      "type": "file",
+      "size": 9996,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/select_elements.py"
+    },
+    {
+      "path": "lib/extensions/selection_to_anchor_line.py",
+      "type": "file",
+      "size": 724,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/selection_to_anchor_line.py"
+    },
+    {
+      "path": "lib/extensions/selection_to_guide_line.py",
+      "type": "file",
+      "size": 721,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/selection_to_guide_line.py"
+    },
+    {
+      "path": "lib/extensions/selection_to_pattern.py",
+      "type": "file",
+      "size": 3367,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/selection_to_pattern.py"
+    },
+    {
+      "path": "lib/extensions/sew_stack_editor.py",
+      "type": "file",
+      "size": 23243,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/sew_stack_editor.py"
+    },
+    {
+      "path": "lib/extensions/simulator.py",
+      "type": "file",
+      "size": 2650,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/simulator.py"
+    },
+    {
+      "path": "lib/extensions/stitch_plan_preview.py",
+      "type": "file",
+      "size": 9264,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/stitch_plan_preview.py"
+    },
+    {
+      "path": "lib/extensions/stitch_plan_preview_undo.py",
+      "type": "file",
+      "size": 1425,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/stitch_plan_preview_undo.py"
+    },
+    {
+      "path": "lib/extensions/stroke_to_lpe_satin.py",
+      "type": "file",
+      "size": 10935,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/stroke_to_lpe_satin.py"
+    },
+    {
+      "path": "lib/extensions/stroke_to_satin.py",
+      "type": "file",
+      "size": 3331,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/stroke_to_satin.py"
+    },
+    {
+      "path": "lib/extensions/tartan.py",
+      "type": "file",
+      "size": 3250,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/tartan.py"
+    },
+    {
+      "path": "lib/extensions/test_swatches.py",
+      "type": "file",
+      "size": 5330,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/test_swatches.py"
+    },
+    {
+      "path": "lib/extensions/thread_list.py",
+      "type": "file",
+      "size": 2544,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/thread_list.py"
+    },
+    {
+      "path": "lib/extensions/transform_elements.py",
+      "type": "file",
+      "size": 4735,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/transform_elements.py"
+    },
+    {
+      "path": "lib/extensions/troubleshoot.py",
+      "type": "file",
+      "size": 11926,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/troubleshoot.py"
+    },
+    {
+      "path": "lib/extensions/unlink_clone.py",
+      "type": "file",
+      "size": 2717,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/unlink_clone.py"
+    },
+    {
+      "path": "lib/extensions/update_svg.py",
+      "type": "file",
+      "size": 1425,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/update_svg.py"
+    },
+    {
+      "path": "lib/extensions/utils",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/utils"
+    },
+    {
+      "path": "lib/extensions/zigzag_line_to_satin.py",
+      "type": "file",
+      "size": 9210,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/zigzag_line_to_satin.py"
+    },
+    {
+      "path": "lib/extensions/zip.py",
+      "type": "file",
+      "size": 7172,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/extensions/zip.py"
+    },
+    {
+      "path": "lib/gui",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui"
+    },
+    {
+      "path": "lib/gui/__init__.py",
+      "type": "file",
+      "size": 302,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/__init__.py"
+    },
+    {
+      "path": "lib/gui/abort_message.py",
+      "type": "file",
+      "size": 1872,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/abort_message.py"
+    },
+    {
+      "path": "lib/gui/about.py",
+      "type": "file",
+      "size": 3250,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/about.py"
+    },
+    {
+      "path": "lib/gui/apply_palette.py",
+      "type": "file",
+      "size": 3638,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/apply_palette.py"
+    },
+    {
+      "path": "lib/gui/cross_stitch_assistant.py",
+      "type": "file",
+      "size": 47208,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/cross_stitch_assistant.py"
+    },
+    {
+      "path": "lib/gui/dialogs.py",
+      "type": "file",
+      "size": 557,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/dialogs.py"
+    },
+    {
+      "path": "lib/gui/edit_json",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/edit_json"
+    },
+    {
+      "path": "lib/gui/element_info.py",
+      "type": "file",
+      "size": 4309,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/element_info.py"
+    },
+    {
+      "path": "lib/gui/lettering",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/lettering"
+    },
+    {
+      "path": "lib/gui/lettering_font_sample.py",
+      "type": "file",
+      "size": 13173,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/lettering_font_sample.py"
+    },
+    {
+      "path": "lib/gui/preferences.py",
+      "type": "file",
+      "size": 12984,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/preferences.py"
+    },
+    {
+      "path": "lib/gui/presets.py",
+      "type": "file",
+      "size": 6759,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/presets.py"
+    },
+    {
+      "path": "lib/gui/request_update_svg_version.py",
+      "type": "file",
+      "size": 2348,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/request_update_svg_version.py"
+    },
+    {
+      "path": "lib/gui/satin_multicolor",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/satin_multicolor"
+    },
+    {
+      "path": "lib/gui/selection_to_pattern.py",
+      "type": "file",
+      "size": 4807,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/selection_to_pattern.py"
+    },
+    {
+      "path": "lib/gui/simulator",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/simulator"
+    },
+    {
+      "path": "lib/gui/tartan",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/tartan"
+    },
+    {
+      "path": "lib/gui/test_swatches.py",
+      "type": "file",
+      "size": 7335,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/test_swatches.py"
+    },
+    {
+      "path": "lib/gui/warnings.py",
+      "type": "file",
+      "size": 1293,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/warnings.py"
+    },
+    {
+      "path": "lib/gui/windows.py",
+      "type": "file",
+      "size": 1187,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/gui/windows.py"
+    },
+    {
+      "path": "lib/i18n.py",
+      "type": "file",
+      "size": 1320,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/i18n.py"
+    },
+    {
+      "path": "lib/inx",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx"
+    },
+    {
+      "path": "lib/inx/__init__.py",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx/__init__.py"
+    },
+    {
+      "path": "lib/inx/extensions.py",
+      "type": "file",
+      "size": 2354,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx/extensions.py"
+    },
+    {
+      "path": "lib/inx/generate.py",
+      "type": "file",
+      "size": 1149,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx/generate.py"
+    },
+    {
+      "path": "lib/inx/inputs.py",
+      "type": "file",
+      "size": 784,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx/inputs.py"
+    },
+    {
+      "path": "lib/inx/outputs.py",
+      "type": "file",
+      "size": 1404,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx/outputs.py"
+    },
+    {
+      "path": "lib/inx/utils.py",
+      "type": "file",
+      "size": 1710,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/inx/utils.py"
+    },
+    {
+      "path": "lib/lettering",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering"
+    },
+    {
+      "path": "lib/lettering/__init__.py",
+      "type": "file",
+      "size": 246,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/__init__.py"
+    },
+    {
+      "path": "lib/lettering/categories.py",
+      "type": "file",
+      "size": 1337,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/categories.py"
+    },
+    {
+      "path": "lib/lettering/font.py",
+      "type": "file",
+      "size": 32339,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/font.py"
+    },
+    {
+      "path": "lib/lettering/font_info.py",
+      "type": "file",
+      "size": 6928,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/font_info.py"
+    },
+    {
+      "path": "lib/lettering/font_variant.py",
+      "type": "file",
+      "size": 11381,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/font_variant.py"
+    },
+    {
+      "path": "lib/lettering/glyph.py",
+      "type": "file",
+      "size": 5604,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/glyph.py"
+    },
+    {
+      "path": "lib/lettering/paths.py",
+      "type": "file",
+      "size": 795,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/paths.py"
+    },
+    {
+      "path": "lib/lettering/utils.py",
+      "type": "file",
+      "size": 1950,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/lettering/utils.py"
+    },
+    {
+      "path": "lib/marker.py",
+      "type": "file",
+      "size": 4458,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/marker.py"
+    },
+    {
+      "path": "lib/metadata.py",
+      "type": "file",
+      "size": 2288,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/metadata.py"
+    },
+    {
+      "path": "lib/output.py",
+      "type": "file",
+      "size": 4061,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/output.py"
+    },
+    {
+      "path": "lib/patterns.py",
+      "type": "file",
+      "size": 4348,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/patterns.py"
+    },
+    {
+      "path": "lib/sew_stack",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/sew_stack"
+    },
+    {
+      "path": "lib/sew_stack/__init__.py",
+      "type": "file",
+      "size": 2678,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/sew_stack/__init__.py"
+    },
+    {
+      "path": "lib/sew_stack/stitch_layers",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/sew_stack/stitch_layers"
+    },
+    {
+      "path": "lib/stitch_plan",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan"
+    },
+    {
+      "path": "lib/stitch_plan/__init__.py",
+      "type": "file",
+      "size": 412,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/__init__.py"
+    },
+    {
+      "path": "lib/stitch_plan/color_block.py",
+      "type": "file",
+      "size": 5983,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/color_block.py"
+    },
+    {
+      "path": "lib/stitch_plan/generate_stitch_plan.py",
+      "type": "file",
+      "size": 2976,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/generate_stitch_plan.py"
+    },
+    {
+      "path": "lib/stitch_plan/lock_stitch.py",
+      "type": "file",
+      "size": 8575,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/lock_stitch.py"
+    },
+    {
+      "path": "lib/stitch_plan/read_file.py",
+      "type": "file",
+      "size": 878,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/read_file.py"
+    },
+    {
+      "path": "lib/stitch_plan/stitch.py",
+      "type": "file",
+      "size": 6941,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/stitch.py"
+    },
+    {
+      "path": "lib/stitch_plan/stitch_group.py",
+      "type": "file",
+      "size": 3528,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/stitch_group.py"
+    },
+    {
+      "path": "lib/stitch_plan/stitch_plan.py",
+      "type": "file",
+      "size": 7798,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitch_plan/stitch_plan.py"
+    },
+    {
+      "path": "lib/stitches",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches"
+    },
+    {
+      "path": "lib/stitches/__init__.py",
+      "type": "file",
+      "size": 595,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/__init__.py"
+    },
+    {
+      "path": "lib/stitches/auto_fill.py",
+      "type": "file",
+      "size": 37403,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/auto_fill.py"
+    },
+    {
+      "path": "lib/stitches/auto_run.py",
+      "type": "file",
+      "size": 11866,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/auto_run.py"
+    },
+    {
+      "path": "lib/stitches/auto_satin.py",
+      "type": "file",
+      "size": 23918,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/auto_satin.py"
+    },
+    {
+      "path": "lib/stitches/circular_fill.py",
+      "type": "file",
+      "size": 7321,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/circular_fill.py"
+    },
+    {
+      "path": "lib/stitches/contour_fill.py",
+      "type": "file",
+      "size": 22103,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/contour_fill.py"
+    },
+    {
+      "path": "lib/stitches/cross_stitch.py",
+      "type": "file",
+      "size": 14990,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/cross_stitch.py"
+    },
+    {
+      "path": "lib/stitches/cross_stitch_half.py",
+      "type": "file",
+      "size": 6478,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/cross_stitch_half.py"
+    },
+    {
+      "path": "lib/stitches/fill.py",
+      "type": "file",
+      "size": 9634,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/fill.py"
+    },
+    {
+      "path": "lib/stitches/guided_fill.py",
+      "type": "file",
+      "size": 33216,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/guided_fill.py"
+    },
+    {
+      "path": "lib/stitches/linear_gradient_fill.py",
+      "type": "file",
+      "size": 14631,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/linear_gradient_fill.py"
+    },
+    {
+      "path": "lib/stitches/meander_fill.py",
+      "type": "file",
+      "size": 8701,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/meander_fill.py"
+    },
+    {
+      "path": "lib/stitches/ripple_stitch.py",
+      "type": "file",
+      "size": 33207,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/ripple_stitch.py"
+    },
+    {
+      "path": "lib/stitches/running_stitch.py",
+      "type": "file",
+      "size": 21700,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/running_stitch.py"
+    },
+    {
+      "path": "lib/stitches/tartan_fill.py",
+      "type": "file",
+      "size": 31827,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/tartan_fill.py"
+    },
+    {
+      "path": "lib/stitches/utils",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/stitches/utils"
+    },
+    {
+      "path": "lib/svg",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg"
+    },
+    {
+      "path": "lib/svg/__init__.py",
+      "type": "file",
+      "size": 554,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/__init__.py"
+    },
+    {
+      "path": "lib/svg/clip.py",
+      "type": "file",
+      "size": 2995,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/clip.py"
+    },
+    {
+      "path": "lib/svg/guides.py",
+      "type": "file",
+      "size": 1440,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/guides.py"
+    },
+    {
+      "path": "lib/svg/path.py",
+      "type": "file",
+      "size": 4367,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/path.py"
+    },
+    {
+      "path": "lib/svg/rendering.py",
+      "type": "file",
+      "size": 9055,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/rendering.py"
+    },
+    {
+      "path": "lib/svg/styles.py",
+      "type": "file",
+      "size": 963,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/styles.py"
+    },
+    {
+      "path": "lib/svg/svg.py",
+      "type": "file",
+      "size": 2404,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/svg.py"
+    },
+    {
+      "path": "lib/svg/tags.py",
+      "type": "file",
+      "size": 5950,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/tags.py"
+    },
+    {
+      "path": "lib/svg/units.py",
+      "type": "file",
+      "size": 3910,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/svg/units.py"
+    },
+    {
+      "path": "lib/tartan",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tartan"
+    },
+    {
+      "path": "lib/tartan/colors.py",
+      "type": "file",
+      "size": 5829,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tartan/colors.py"
+    },
+    {
+      "path": "lib/tartan/fill_element.py",
+      "type": "file",
+      "size": 1091,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tartan/fill_element.py"
+    },
+    {
+      "path": "lib/tartan/palette.py",
+      "type": "file",
+      "size": 10486,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tartan/palette.py"
+    },
+    {
+      "path": "lib/tartan/svg.py",
+      "type": "file",
+      "size": 25187,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tartan/svg.py"
+    },
+    {
+      "path": "lib/tartan/utils.py",
+      "type": "file",
+      "size": 13122,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tartan/utils.py"
+    },
+    {
+      "path": "lib/threads",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/threads"
+    },
+    {
+      "path": "lib/threads/__init__.py",
+      "type": "file",
+      "size": 246,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/threads/__init__.py"
+    },
+    {
+      "path": "lib/threads/catalog.py",
+      "type": "file",
+      "size": 3993,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/threads/catalog.py"
+    },
+    {
+      "path": "lib/threads/color.py",
+      "type": "file",
+      "size": 7024,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/threads/color.py"
+    },
+    {
+      "path": "lib/threads/palette.py",
+      "type": "file",
+      "size": 3078,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/threads/palette.py"
+    },
+    {
+      "path": "lib/tiles.py",
+      "type": "file",
+      "size": 7547,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/tiles.py"
+    },
+    {
+      "path": "lib/update.py",
+      "type": "file",
+      "size": 11841,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/update.py"
+    },
+    {
+      "path": "lib/utils",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils"
+    },
+    {
+      "path": "lib/utils/__init__.py",
+      "type": "file",
+      "size": 308,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/__init__.py"
+    },
+    {
+      "path": "lib/utils/cache.py",
+      "type": "file",
+      "size": 2722,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/cache.py"
+    },
+    {
+      "path": "lib/utils/clamp_path.py",
+      "type": "file",
+      "size": 7290,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/clamp_path.py"
+    },
+    {
+      "path": "lib/utils/dotdict.py",
+      "type": "file",
+      "size": 1536,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/dotdict.py"
+    },
+    {
+      "path": "lib/utils/geometry.py",
+      "type": "file",
+      "size": 11712,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/geometry.py"
+    },
+    {
+      "path": "lib/utils/icons.py",
+      "type": "file",
+      "size": 826,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/icons.py"
+    },
+    {
+      "path": "lib/utils/inkscape.py",
+      "type": "file",
+      "size": 871,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/inkscape.py"
+    },
+    {
+      "path": "lib/utils/io.py",
+      "type": "file",
+      "size": 1135,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/io.py"
+    },
+    {
+      "path": "lib/utils/json.py",
+      "type": "file",
+      "size": 804,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/json.py"
+    },
+    {
+      "path": "lib/utils/list.py",
+      "type": "file",
+      "size": 598,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/list.py"
+    },
+    {
+      "path": "lib/utils/param.py",
+      "type": "file",
+      "size": 316,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/param.py"
+    },
+    {
+      "path": "lib/utils/paths.py",
+      "type": "file",
+      "size": 1785,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/paths.py"
+    },
+    {
+      "path": "lib/utils/pixelate.py",
+      "type": "file",
+      "size": 5336,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/pixelate.py"
+    },
+    {
+      "path": "lib/utils/prng.py",
+      "type": "file",
+      "size": 2284,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/prng.py"
+    },
+    {
+      "path": "lib/utils/settings.py",
+      "type": "file",
+      "size": 3884,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/settings.py"
+    },
+    {
+      "path": "lib/utils/smoothing.py",
+      "type": "file",
+      "size": 2052,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/smoothing.py"
+    },
+    {
+      "path": "lib/utils/string.py",
+      "type": "file",
+      "size": 638,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/string.py"
+    },
+    {
+      "path": "lib/utils/svg_data.py",
+      "type": "file",
+      "size": 337,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/svg_data.py"
+    },
+    {
+      "path": "lib/utils/threading.py",
+      "type": "file",
+      "size": 652,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/threading.py"
+    },
+    {
+      "path": "lib/utils/version.py",
+      "type": "file",
+      "size": 840,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/lib/utils/version.py"
+    },
+    {
+      "path": "mypy.ini",
+      "type": "file",
+      "size": 1142,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/mypy.ini"
+    },
+    {
+      "path": "palettes",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes"
+    },
+    {
+      "path": "palettes/InkStitch ARC Polyester.gpl",
+      "type": "file",
+      "size": 14507,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch ARC Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch ARC Rayon.gpl",
+      "type": "file",
+      "size": 14503,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch ARC Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Admelody Polyester.gpl",
+      "type": "file",
+      "size": 16112,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Admelody Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Admelody Rayon.gpl",
+      "type": "file",
+      "size": 21108,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Admelody Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Anchor.gpl",
+      "type": "file",
+      "size": 21250,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Anchor.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Aurifil Lana.gpl",
+      "type": "file",
+      "size": 5406,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Aurifil Lana.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Aurifil Mako.gpl",
+      "type": "file",
+      "size": 8006,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Aurifil Mako.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Aurifil Polyester.gpl",
+      "type": "file",
+      "size": 10311,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Aurifil Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Aurifil Rayon.gpl",
+      "type": "file",
+      "size": 9107,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Aurifil Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Aurifil Royal.gpl",
+      "type": "file",
+      "size": 25057,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Aurifil Royal.gpl"
+    },
+    {
+      "path": "palettes/InkStitch BFC Polyester.gpl",
+      "type": "file",
+      "size": 16107,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch BFC Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brildor AC.gpl",
+      "type": "file",
+      "size": 6104,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brildor AC.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brildor CO.gpl",
+      "type": "file",
+      "size": 3604,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brildor CO.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brildor MF.gpl",
+      "type": "file",
+      "size": 10604,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brildor MF.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brildor NY.gpl",
+      "type": "file",
+      "size": 9104,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brildor NY.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brildor PB.gpl",
+      "type": "file",
+      "size": 13104,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brildor PB.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brother Country.gpl",
+      "type": "file",
+      "size": 3159,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brother Country.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brother Embroidery.gpl",
+      "type": "file",
+      "size": 3162,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brother Embroidery.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brothread 40.gpl",
+      "type": "file",
+      "size": 2117,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brothread 40.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Brothread 80.gpl",
+      "type": "file",
+      "size": 4017,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Brothread 80.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Coats Alcazar Jazz.gpl",
+      "type": "file",
+      "size": 15312,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Coats Alcazar Jazz.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Coats Alcazar.gpl",
+      "type": "file",
+      "size": 25107,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Coats Alcazar.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Coats Sylko USA.gpl",
+      "type": "file",
+      "size": 15259,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Coats Sylko USA.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Coats Sylko.gpl",
+      "type": "file",
+      "size": 20055,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Coats Sylko.gpl"
+    },
+    {
+      "path": "palettes/InkStitch DMC.gpl",
+      "type": "file",
+      "size": 22997,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch DMC.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Embroidex.gpl",
+      "type": "file",
+      "size": 13003,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Embroidex.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Emmel.gpl",
+      "type": "file",
+      "size": 26150,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Emmel.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Fil-Tec Glide.gpl",
+      "type": "file",
+      "size": 10757,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Fil-Tec Glide.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Floriani Polyester.gpl",
+      "type": "file",
+      "size": 14412,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Floriani Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch FuFu Polyester.gpl",
+      "type": "file",
+      "size": 35758,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch FuFu Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch FuFu Rayon.gpl",
+      "type": "file",
+      "size": 35754,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch FuFu Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Gunold Polyester.gpl",
+      "type": "file",
+      "size": 15110,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Gunold Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Gutermann Creativ Dekor.gpl",
+      "type": "file",
+      "size": 10117,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Gutermann Creativ Dekor.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Hemingworth.gpl",
+      "type": "file",
+      "size": 14805,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Hemingworth.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Isacord Polyester.gpl",
+      "type": "file",
+      "size": 19614,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Isacord Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Isafil Rayon.gpl",
+      "type": "file",
+      "size": 14406,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Isafil Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Isalon Polyester.gpl",
+      "type": "file",
+      "size": 20810,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Isalon Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Janome.gpl",
+      "type": "file",
+      "size": 4000,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Janome.gpl"
+    },
+    {
+      "path": "palettes/InkStitch King Star.gpl",
+      "type": "file",
+      "size": 21603,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch King Star.gpl"
+    },
+    {
+      "path": "palettes/InkStitch MTB - Embroidex.gpl",
+      "type": "file",
+      "size": 5459,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch MTB - Embroidex.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Madeira Burmilana.gpl",
+      "type": "file",
+      "size": 6161,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Madeira Burmilana.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Madeira Matt.gpl",
+      "type": "file",
+      "size": 8156,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Madeira Matt.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Madeira Polyneon.gpl",
+      "type": "file",
+      "size": 17560,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Madeira Polyneon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Madeira Rayon.gpl",
+      "type": "file",
+      "size": 17957,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Madeira Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Magnifico.gpl",
+      "type": "file",
+      "size": 10307,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Magnifico.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Marathon Polyester.gpl",
+      "type": "file",
+      "size": 15162,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Marathon Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Marathon Rayon V3.gpl",
+      "type": "file",
+      "size": 19311,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Marathon Rayon V3.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Marathon Rayon.gpl",
+      "type": "file",
+      "size": 15958,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Marathon Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Metro.gpl",
+      "type": "file",
+      "size": 8499,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Metro.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Mettler Embroidery.gpl",
+      "type": "file",
+      "size": 7712,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Mettler Embroidery.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Mettler Poly Sheen.gpl",
+      "type": "file",
+      "size": 17662,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Mettler Poly Sheen.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Outback Embroidery Rayon.gpl",
+      "type": "file",
+      "size": 5118,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Outback Embroidery Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Poly X40.gpl",
+      "type": "file",
+      "size": 14402,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Poly X40.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Princess.gpl",
+      "type": "file",
+      "size": 6102,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Princess.gpl"
+    },
+    {
+      "path": "palettes/InkStitch RAL.gpl",
+      "type": "file",
+      "size": 9797,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch RAL.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Radiant Rayon.gpl",
+      "type": "file",
+      "size": 5207,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Radiant Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Robison-Anton Polyester.gpl",
+      "type": "file",
+      "size": 22717,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Robison-Anton Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Robison-Anton Rayon.gpl",
+      "type": "file",
+      "size": 21063,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Robison-Anton Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Royal Polyester.gpl",
+      "type": "file",
+      "size": 23759,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Royal Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Royal Viscose Rayon.gpl",
+      "type": "file",
+      "size": 24813,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Royal Viscose Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Sigma.gpl",
+      "type": "file",
+      "size": 7599,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Sigma.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Simthread Glow In The Dark 15 Colors.gpl",
+      "type": "file",
+      "size": 1287,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Simthread Glow In The Dark 15 Colors.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Simthread Polyester 63 Brother Colors.gpl",
+      "type": "file",
+      "size": 4695,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Simthread Polyester 63 Brother Colors.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Simthread Polyester.gpl",
+      "type": "file",
+      "size": 5463,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Simthread Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Simthread Rayon.gpl",
+      "type": "file",
+      "size": 19309,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Simthread Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Sulky Polyester.gpl",
+      "type": "file",
+      "size": 45459,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Sulky Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Sulky Rayon.gpl",
+      "type": "file",
+      "size": 14555,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Sulky Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Swist Rayon.gpl",
+      "type": "file",
+      "size": 11455,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Swist Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Threadart.gpl",
+      "type": "file",
+      "size": 11479,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Threadart.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Tristar Polyester.gpl",
+      "type": "file",
+      "size": 15011,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Tristar Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Tristar Rayon.gpl",
+      "type": "file",
+      "size": 20407,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Tristar Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Viking Palette.gpl",
+      "type": "file",
+      "size": 1558,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Viking Palette.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Vyapar Rayon.gpl",
+      "type": "file",
+      "size": 14506,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Vyapar Rayon.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Wonderfil Polyester.gpl",
+      "type": "file",
+      "size": 8613,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Wonderfil Polyester.gpl"
+    },
+    {
+      "path": "palettes/InkStitch Wonderfil Rayon.gpl",
+      "type": "file",
+      "size": 17209,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/palettes/InkStitch Wonderfil Rayon.gpl"
+    },
+    {
+      "path": "patches.md",
+      "type": "file",
+      "size": 6884,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/patches.md"
+    },
+    {
+      "path": "print",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print"
+    },
+    {
+      "path": "print/resources",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources"
+    },
+    {
+      "path": "print/resources/favicon.ico",
+      "type": "file",
+      "size": 102290,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/favicon.ico"
+    },
+    {
+      "path": "print/resources/fonts",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/fonts"
+    },
+    {
+      "path": "print/resources/inkstitch-logo.svg",
+      "type": "file",
+      "size": 7535,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/inkstitch-logo.svg"
+    },
+    {
+      "path": "print/resources/inkstitch.js",
+      "type": "file",
+      "size": 29241,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/inkstitch.js"
+    },
+    {
+      "path": "print/resources/jquery-3.3.1.min.js",
+      "type": "file",
+      "size": 86927,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/jquery-3.3.1.min.js"
+    },
+    {
+      "path": "print/resources/pingworker.js",
+      "type": "file",
+      "size": 205,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/pingworker.js"
+    },
+    {
+      "path": "print/resources/ru.css",
+      "type": "file",
+      "size": 409,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/ru.css"
+    },
+    {
+      "path": "print/resources/style.css",
+      "type": "file",
+      "size": 23235,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/resources/style.css"
+    },
+    {
+      "path": "print/templates",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates"
+    },
+    {
+      "path": "print/templates/color_swatch.html",
+      "type": "file",
+      "size": 3423,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/color_swatch.html"
+    },
+    {
+      "path": "print/templates/custom-page.html",
+      "type": "file",
+      "size": 3339,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/custom-page.html"
+    },
+    {
+      "path": "print/templates/footer.html",
+      "type": "file",
+      "size": 341,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/footer.html"
+    },
+    {
+      "path": "print/templates/full_page_pattern.html",
+      "type": "file",
+      "size": 660,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/full_page_pattern.html"
+    },
+    {
+      "path": "print/templates/headline.html",
+      "type": "file",
+      "size": 988,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/headline.html"
+    },
+    {
+      "path": "print/templates/index.html",
+      "type": "file",
+      "size": 1785,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/index.html"
+    },
+    {
+      "path": "print/templates/operator_detailedview.html",
+      "type": "file",
+      "size": 3764,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/operator_detailedview.html"
+    },
+    {
+      "path": "print/templates/operator_overview.html",
+      "type": "file",
+      "size": 2010,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/operator_overview.html"
+    },
+    {
+      "path": "print/templates/print_detail.html",
+      "type": "file",
+      "size": 1382,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/print_detail.html"
+    },
+    {
+      "path": "print/templates/print_overview.html",
+      "type": "file",
+      "size": 2197,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/print_overview.html"
+    },
+    {
+      "path": "print/templates/ui.html",
+      "type": "file",
+      "size": 12253,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/ui.html"
+    },
+    {
+      "path": "print/templates/ui_svg_action_buttons.html",
+      "type": "file",
+      "size": 843,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/print/templates/ui_svg_action_buttons.html"
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "file",
+      "size": 2273,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/pyproject.toml"
+    },
+    {
+      "path": "pytest.ini",
+      "type": "file",
+      "size": 30,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/pytest.ini"
+    },
+    {
+      "path": "requirements.txt",
+      "type": "file",
+      "size": 1394,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/requirements.txt"
+    },
+    {
+      "path": "symbols",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/symbols"
+    },
+    {
+      "path": "symbols/inkstitch.svg",
+      "type": "file",
+      "size": 48126,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/symbols/inkstitch.svg"
+    },
+    {
+      "path": "symbols/marker.svg",
+      "type": "file",
+      "size": 7153,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/symbols/marker.svg"
+    },
+    {
+      "path": "templates",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates"
+    },
+    {
+      "path": "templates/about.xml",
+      "type": "file",
+      "size": 646,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/about.xml"
+    },
+    {
+      "path": "templates/apply_attribute.xml",
+      "type": "file",
+      "size": 1582,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/apply_attribute.xml"
+    },
+    {
+      "path": "templates/apply_palette.xml",
+      "type": "file",
+      "size": 867,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/apply_palette.xml"
+    },
+    {
+      "path": "templates/apply_threadlist.xml",
+      "type": "file",
+      "size": 2453,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/apply_threadlist.xml"
+    },
+    {
+      "path": "templates/auto_run.xml",
+      "type": "file",
+      "size": 2136,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/auto_run.xml"
+    },
+    {
+      "path": "templates/auto_satin.xml",
+      "type": "file",
+      "size": 1670,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/auto_satin.xml"
+    },
+    {
+      "path": "templates/batch_lettering.xml",
+      "type": "file",
+      "size": 5395,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/batch_lettering.xml"
+    },
+    {
+      "path": "templates/break_apart.xml",
+      "type": "file",
+      "size": 1882,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/break_apart.xml"
+    },
+    {
+      "path": "templates/cleanup.xml",
+      "type": "file",
+      "size": 2511,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/cleanup.xml"
+    },
+    {
+      "path": "templates/commands_scale_symbols.xml",
+      "type": "file",
+      "size": 969,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/commands_scale_symbols.xml"
+    },
+    {
+      "path": "templates/cross_stitch_assistant.xml",
+      "type": "file",
+      "size": 858,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/cross_stitch_assistant.xml"
+    },
+    {
+      "path": "templates/cut_satin.xml",
+      "type": "file",
+      "size": 776,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/cut_satin.xml"
+    },
+    {
+      "path": "templates/cutwork_segmentation.xml",
+      "type": "file",
+      "size": 3536,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/cutwork_segmentation.xml"
+    },
+    {
+      "path": "templates/density_map.xml",
+      "type": "file",
+      "size": 2471,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/density_map.xml"
+    },
+    {
+      "path": "templates/display_stacking_order.xml",
+      "type": "file",
+      "size": 1433,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/display_stacking_order.xml"
+    },
+    {
+      "path": "templates/duplicate_params.xml",
+      "type": "file",
+      "size": 799,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/duplicate_params.xml"
+    },
+    {
+      "path": "templates/element_info.xml",
+      "type": "file",
+      "size": 825,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/element_info.xml"
+    },
+    {
+      "path": "templates/fill_to_satin.xml",
+      "type": "file",
+      "size": 2161,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/fill_to_satin.xml"
+    },
+    {
+      "path": "templates/fill_to_stroke.xml",
+      "type": "file",
+      "size": 2305,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/fill_to_stroke.xml"
+    },
+    {
+      "path": "templates/flip.xml",
+      "type": "file",
+      "size": 702,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/flip.xml"
+    },
+    {
+      "path": "templates/generate_palette.xml",
+      "type": "file",
+      "size": 1984,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/generate_palette.xml"
+    },
+    {
+      "path": "templates/global_commands.xml",
+      "type": "file",
+      "size": 1082,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/global_commands.xml"
+    },
+    {
+      "path": "templates/gradient_blocks.xml",
+      "type": "file",
+      "size": 1751,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/gradient_blocks.xml"
+    },
+    {
+      "path": "templates/input.xml",
+      "type": "file",
+      "size": 796,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/input.xml"
+    },
+    {
+      "path": "templates/install.xml",
+      "type": "file",
+      "size": 1720,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/install.xml"
+    },
+    {
+      "path": "templates/install_custom_palette.xml",
+      "type": "file",
+      "size": 1606,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/install_custom_palette.xml"
+    },
+    {
+      "path": "templates/jump_to_stroke.xml",
+      "type": "file",
+      "size": 2924,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/jump_to_stroke.xml"
+    },
+    {
+      "path": "templates/jump_to_trim.xml",
+      "type": "file",
+      "size": 1933,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/jump_to_trim.xml"
+    },
+    {
+      "path": "templates/knockdown_fill.xml",
+      "type": "file",
+      "size": 3008,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/knockdown_fill.xml"
+    },
+    {
+      "path": "templates/layer_commands.xml",
+      "type": "file",
+      "size": 1015,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/layer_commands.xml"
+    },
+    {
+      "path": "templates/lettering.xml",
+      "type": "file",
+      "size": 818,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering.xml"
+    },
+    {
+      "path": "templates/lettering_along_path.xml",
+      "type": "file",
+      "size": 2337,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_along_path.xml"
+    },
+    {
+      "path": "templates/lettering_custom_font_dir.xml",
+      "type": "file",
+      "size": 1554,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_custom_font_dir.xml"
+    },
+    {
+      "path": "templates/lettering_edit_json.xml",
+      "type": "file",
+      "size": 871,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_edit_json.xml"
+    },
+    {
+      "path": "templates/lettering_font_sample.xml",
+      "type": "file",
+      "size": 861,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_font_sample.xml"
+    },
+    {
+      "path": "templates/lettering_force_lock_stitches.xml",
+      "type": "file",
+      "size": 2933,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_force_lock_stitches.xml"
+    },
+    {
+      "path": "templates/lettering_generate_json.xml",
+      "type": "file",
+      "size": 7724,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_generate_json.xml"
+    },
+    {
+      "path": "templates/lettering_organize_glyphs.xml",
+      "type": "file",
+      "size": 2305,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_organize_glyphs.xml"
+    },
+    {
+      "path": "templates/lettering_remove_kerning.xml",
+      "type": "file",
+      "size": 1687,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_remove_kerning.xml"
+    },
+    {
+      "path": "templates/lettering_set_color_sort_index.xml",
+      "type": "file",
+      "size": 1652,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_set_color_sort_index.xml"
+    },
+    {
+      "path": "templates/lettering_svg_font_to_layers.xml",
+      "type": "file",
+      "size": 1001,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/lettering_svg_font_to_layers.xml"
+    },
+    {
+      "path": "templates/letters_to_font.xml",
+      "type": "file",
+      "size": 3074,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/letters_to_font.xml"
+    },
+    {
+      "path": "templates/object_commands.xml",
+      "type": "file",
+      "size": 1340,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/object_commands.xml"
+    },
+    {
+      "path": "templates/object_commands_toggle_visibility.xml",
+      "type": "file",
+      "size": 829,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/object_commands_toggle_visibility.xml"
+    },
+    {
+      "path": "templates/outline.xml",
+      "type": "file",
+      "size": 2271,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/outline.xml"
+    },
+    {
+      "path": "templates/output.xml",
+      "type": "file",
+      "size": 999,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/output.xml"
+    },
+    {
+      "path": "templates/output_params_gcode.xml",
+      "type": "file",
+      "size": 3621,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/output_params_gcode.xml"
+    },
+    {
+      "path": "templates/palette_split_text.xml",
+      "type": "file",
+      "size": 816,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/palette_split_text.xml"
+    },
+    {
+      "path": "templates/palette_to_text.xml",
+      "type": "file",
+      "size": 1510,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/palette_to_text.xml"
+    },
+    {
+      "path": "templates/params.xml",
+      "type": "file",
+      "size": 669,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/params.xml"
+    },
+    {
+      "path": "templates/png_realistic.xml",
+      "type": "file",
+      "size": 1362,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/png_realistic.xml"
+    },
+    {
+      "path": "templates/png_simple.xml",
+      "type": "file",
+      "size": 1472,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/png_simple.xml"
+    },
+    {
+      "path": "templates/preferences.xml",
+      "type": "file",
+      "size": 657,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/preferences.xml"
+    },
+    {
+      "path": "templates/print.xml",
+      "type": "file",
+      "size": 721,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/print.xml"
+    },
+    {
+      "path": "templates/redwork.xml",
+      "type": "file",
+      "size": 2787,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/redwork.xml"
+    },
+    {
+      "path": "templates/remove_duplicated_points.xml",
+      "type": "file",
+      "size": 1853,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/remove_duplicated_points.xml"
+    },
+    {
+      "path": "templates/remove_embroidery_settings.xml",
+      "type": "file",
+      "size": 12105,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/remove_embroidery_settings.xml"
+    },
+    {
+      "path": "templates/reorder.xml",
+      "type": "file",
+      "size": 705,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/reorder.xml"
+    },
+    {
+      "path": "templates/satin_multicolor.xml",
+      "type": "file",
+      "size": 824,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/satin_multicolor.xml"
+    },
+    {
+      "path": "templates/satin_to_stroke.xml",
+      "type": "file",
+      "size": 1321,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/satin_to_stroke.xml"
+    },
+    {
+      "path": "templates/select_elements.xml",
+      "type": "file",
+      "size": 6895,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/select_elements.xml"
+    },
+    {
+      "path": "templates/selection_to_anchor_line.xml",
+      "type": "file",
+      "size": 798,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/selection_to_anchor_line.xml"
+    },
+    {
+      "path": "templates/selection_to_guide_line.xml",
+      "type": "file",
+      "size": 793,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/selection_to_guide_line.xml"
+    },
+    {
+      "path": "templates/selection_to_pattern.xml",
+      "type": "file",
+      "size": 826,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/selection_to_pattern.xml"
+    },
+    {
+      "path": "templates/sew_stack_editor.xml",
+      "type": "file",
+      "size": 594,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/sew_stack_editor.xml"
+    },
+    {
+      "path": "templates/simulator.xml",
+      "type": "file",
+      "size": 746,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/simulator.xml"
+    },
+    {
+      "path": "templates/stitch_plan_preview.xml",
+      "type": "file",
+      "size": 3336,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/stitch_plan_preview.xml"
+    },
+    {
+      "path": "templates/stitch_plan_preview_undo.xml",
+      "type": "file",
+      "size": 750,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/stitch_plan_preview_undo.xml"
+    },
+    {
+      "path": "templates/stroke_to_lpe_satin.xml",
+      "type": "file",
+      "size": 2951,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/stroke_to_lpe_satin.xml"
+    },
+    {
+      "path": "templates/stroke_to_satin.xml",
+      "type": "file",
+      "size": 707,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/stroke_to_satin.xml"
+    },
+    {
+      "path": "templates/tartan.xml",
+      "type": "file",
+      "size": 775,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/tartan.xml"
+    },
+    {
+      "path": "templates/test_swatches.xml",
+      "type": "file",
+      "size": 722,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/test_swatches.xml"
+    },
+    {
+      "path": "templates/thread_list.xml",
+      "type": "file",
+      "size": 694,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/thread_list.xml"
+    },
+    {
+      "path": "templates/transform_elements.xml",
+      "type": "file",
+      "size": 1626,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/transform_elements.xml"
+    },
+    {
+      "path": "templates/troubleshoot.xml",
+      "type": "file",
+      "size": 2270,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/troubleshoot.xml"
+    },
+    {
+      "path": "templates/unlink_clone.xml",
+      "type": "file",
+      "size": 1415,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/unlink_clone.xml"
+    },
+    {
+      "path": "templates/update_svg.xml",
+      "type": "file",
+      "size": 1565,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/update_svg.xml"
+    },
+    {
+      "path": "templates/zigzag_line_to_satin.xml",
+      "type": "file",
+      "size": 2063,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/zigzag_line_to_satin.xml"
+    },
+    {
+      "path": "templates/zip.xml",
+      "type": "file",
+      "size": 3678,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/templates/zip.xml"
+    },
+    {
+      "path": "tests",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests"
+    },
+    {
+      "path": "tests/__init__.py",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/__init__.py"
+    },
+    {
+      "path": "tests/conftest.py",
+      "type": "file",
+      "size": 272,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/conftest.py"
+    },
+    {
+      "path": "tests/lettering",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/lettering"
+    },
+    {
+      "path": "tests/lettering/__init__.py",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/lettering/__init__.py"
+    },
+    {
+      "path": "tests/lettering/fonts",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/lettering/fonts"
+    },
+    {
+      "path": "tests/lettering/test_font.py",
+      "type": "file",
+      "size": 2287,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/lettering/test_font.py"
+    },
+    {
+      "path": "tests/style_cascade_and_inheritance.svg",
+      "type": "file",
+      "size": 3415,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/style_cascade_and_inheritance.svg"
+    },
+    {
+      "path": "tests/test_clone.py",
+      "type": "file",
+      "size": 25250,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/test_clone.py"
+    },
+    {
+      "path": "tests/test_elements_utils.py",
+      "type": "file",
+      "size": 1955,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/test_elements_utils.py"
+    },
+    {
+      "path": "tests/test_lib_svg_svg.py",
+      "type": "file",
+      "size": 1053,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/test_lib_svg_svg.py"
+    },
+    {
+      "path": "tests/test_output.py",
+      "type": "file",
+      "size": 1886,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/test_output.py"
+    },
+    {
+      "path": "tests/test_threads_color.py",
+      "type": "file",
+      "size": 4252,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/test_threads_color.py"
+    },
+    {
+      "path": "tests/utils.py",
+      "type": "file",
+      "size": 168,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tests/utils.py"
+    },
+    {
+      "path": "tiles",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles"
+    },
+    {
+      "path": "tiles/N3-11a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-11a"
+    },
+    {
+      "path": "tiles/N3-11a/preview.png",
+      "type": "file",
+      "size": 6980,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-11a/preview.png"
+    },
+    {
+      "path": "tiles/N3-11a/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-11a/tile.json"
+    },
+    {
+      "path": "tiles/N3-11a/tile.svg",
+      "type": "file",
+      "size": 3783,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-11a/tile.svg"
+    },
+    {
+      "path": "tiles/N3-12",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-12"
+    },
+    {
+      "path": "tiles/N3-12/preview.png",
+      "type": "file",
+      "size": 6415,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-12/preview.png"
+    },
+    {
+      "path": "tiles/N3-12/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-12/tile.json"
+    },
+    {
+      "path": "tiles/N3-12/tile.svg",
+      "type": "file",
+      "size": 2816,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-12/tile.svg"
+    },
+    {
+      "path": "tiles/N3-16a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-16a"
+    },
+    {
+      "path": "tiles/N3-16a/preview.png",
+      "type": "file",
+      "size": 7110,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-16a/preview.png"
+    },
+    {
+      "path": "tiles/N3-16a/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-16a/tile.json"
+    },
+    {
+      "path": "tiles/N3-16a/tile.svg",
+      "type": "file",
+      "size": 2847,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-16a/tile.svg"
+    },
+    {
+      "path": "tiles/N3-17",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-17"
+    },
+    {
+      "path": "tiles/N3-17/preview.png",
+      "type": "file",
+      "size": 8396,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-17/preview.png"
+    },
+    {
+      "path": "tiles/N3-17/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-17/tile.json"
+    },
+    {
+      "path": "tiles/N3-17/tile.svg",
+      "type": "file",
+      "size": 2081,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-17/tile.svg"
+    },
+    {
+      "path": "tiles/N3-18-modified",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18-modified"
+    },
+    {
+      "path": "tiles/N3-18-modified/preview.png",
+      "type": "file",
+      "size": 6754,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18-modified/preview.png"
+    },
+    {
+      "path": "tiles/N3-18-modified/tile.json",
+      "type": "file",
+      "size": 78,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18-modified/tile.json"
+    },
+    {
+      "path": "tiles/N3-18-modified/tile.svg",
+      "type": "file",
+      "size": 3410,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18-modified/tile.svg"
+    },
+    {
+      "path": "tiles/N3-18",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18"
+    },
+    {
+      "path": "tiles/N3-18/preview.png",
+      "type": "file",
+      "size": 7151,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18/preview.png"
+    },
+    {
+      "path": "tiles/N3-18/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18/tile.json"
+    },
+    {
+      "path": "tiles/N3-18/tile.svg",
+      "type": "file",
+      "size": 3417,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-18/tile.svg"
+    },
+    {
+      "path": "tiles/N3-20",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-20"
+    },
+    {
+      "path": "tiles/N3-20/preview.png",
+      "type": "file",
+      "size": 6664,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-20/preview.png"
+    },
+    {
+      "path": "tiles/N3-20/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-20/tile.json"
+    },
+    {
+      "path": "tiles/N3-20/tile.svg",
+      "type": "file",
+      "size": 3571,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-20/tile.svg"
+    },
+    {
+      "path": "tiles/N3-23b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-23b"
+    },
+    {
+      "path": "tiles/N3-23b/preview.png",
+      "type": "file",
+      "size": 7517,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-23b/preview.png"
+    },
+    {
+      "path": "tiles/N3-23b/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-23b/tile.json"
+    },
+    {
+      "path": "tiles/N3-23b/tile.svg",
+      "type": "file",
+      "size": 3703,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-23b/tile.svg"
+    },
+    {
+      "path": "tiles/N3-25c",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-25c"
+    },
+    {
+      "path": "tiles/N3-25c/preview.png",
+      "type": "file",
+      "size": 7598,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-25c/preview.png"
+    },
+    {
+      "path": "tiles/N3-25c/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-25c/tile.json"
+    },
+    {
+      "path": "tiles/N3-25c/tile.svg",
+      "type": "file",
+      "size": 3652,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-25c/tile.svg"
+    },
+    {
+      "path": "tiles/N3-26b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-26b"
+    },
+    {
+      "path": "tiles/N3-26b/preview.png",
+      "type": "file",
+      "size": 27456,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-26b/preview.png"
+    },
+    {
+      "path": "tiles/N3-26b/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-26b/tile.json"
+    },
+    {
+      "path": "tiles/N3-26b/tile.svg",
+      "type": "file",
+      "size": 3870,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-26b/tile.svg"
+    },
+    {
+      "path": "tiles/N3-27",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-27"
+    },
+    {
+      "path": "tiles/N3-27/preview.png",
+      "type": "file",
+      "size": 8061,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-27/preview.png"
+    },
+    {
+      "path": "tiles/N3-27/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-27/tile.json"
+    },
+    {
+      "path": "tiles/N3-27/tile.svg",
+      "type": "file",
+      "size": 3962,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-27/tile.svg"
+    },
+    {
+      "path": "tiles/N3-30a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-30a"
+    },
+    {
+      "path": "tiles/N3-30a/preview.png",
+      "type": "file",
+      "size": 7796,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-30a/preview.png"
+    },
+    {
+      "path": "tiles/N3-30a/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-30a/tile.json"
+    },
+    {
+      "path": "tiles/N3-30a/tile.svg",
+      "type": "file",
+      "size": 5404,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-30a/tile.svg"
+    },
+    {
+      "path": "tiles/N3-51b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-51b"
+    },
+    {
+      "path": "tiles/N3-51b/preview.png",
+      "type": "file",
+      "size": 7525,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-51b/preview.png"
+    },
+    {
+      "path": "tiles/N3-51b/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-51b/tile.json"
+    },
+    {
+      "path": "tiles/N3-51b/tile.svg",
+      "type": "file",
+      "size": 4406,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-51b/tile.svg"
+    },
+    {
+      "path": "tiles/N3-57f-modified",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-57f-modified"
+    },
+    {
+      "path": "tiles/N3-57f-modified/preview.png",
+      "type": "file",
+      "size": 5768,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-57f-modified/preview.png"
+    },
+    {
+      "path": "tiles/N3-57f-modified/tile.json",
+      "type": "file",
+      "size": 80,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-57f-modified/tile.json"
+    },
+    {
+      "path": "tiles/N3-57f-modified/tile.svg",
+      "type": "file",
+      "size": 2893,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-57f-modified/tile.svg"
+    },
+    {
+      "path": "tiles/N3-58b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-58b"
+    },
+    {
+      "path": "tiles/N3-58b/preview.png",
+      "type": "file",
+      "size": 8664,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-58b/preview.png"
+    },
+    {
+      "path": "tiles/N3-58b/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-58b/tile.json"
+    },
+    {
+      "path": "tiles/N3-58b/tile.svg",
+      "type": "file",
+      "size": 5076,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-58b/tile.svg"
+    },
+    {
+      "path": "tiles/N3-6",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-6"
+    },
+    {
+      "path": "tiles/N3-6/preview.png",
+      "type": "file",
+      "size": 6180,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-6/preview.png"
+    },
+    {
+      "path": "tiles/N3-6/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-6/tile.json"
+    },
+    {
+      "path": "tiles/N3-6/tile.svg",
+      "type": "file",
+      "size": 2325,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-6/tile.svg"
+    },
+    {
+      "path": "tiles/N3-7",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-7"
+    },
+    {
+      "path": "tiles/N3-7/preview.png",
+      "type": "file",
+      "size": 7415,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-7/preview.png"
+    },
+    {
+      "path": "tiles/N3-7/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-7/tile.json"
+    },
+    {
+      "path": "tiles/N3-7/tile.svg",
+      "type": "file",
+      "size": 2825,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-7/tile.svg"
+    },
+    {
+      "path": "tiles/N3-8a-modified",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a-modified"
+    },
+    {
+      "path": "tiles/N3-8a-modified/preview.png",
+      "type": "file",
+      "size": 5982,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a-modified/preview.png"
+    },
+    {
+      "path": "tiles/N3-8a-modified/tile.json",
+      "type": "file",
+      "size": 78,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a-modified/tile.json"
+    },
+    {
+      "path": "tiles/N3-8a-modified/tile.svg",
+      "type": "file",
+      "size": 1660,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a-modified/tile.svg"
+    },
+    {
+      "path": "tiles/N3-8a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a"
+    },
+    {
+      "path": "tiles/N3-8a/preview.png",
+      "type": "file",
+      "size": 7295,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a/preview.png"
+    },
+    {
+      "path": "tiles/N3-8a/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a/tile.json"
+    },
+    {
+      "path": "tiles/N3-8a/tile.svg",
+      "type": "file",
+      "size": 2069,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8a/tile.svg"
+    },
+    {
+      "path": "tiles/N3-8b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8b"
+    },
+    {
+      "path": "tiles/N3-8b/preview.png",
+      "type": "file",
+      "size": 7436,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8b/preview.png"
+    },
+    {
+      "path": "tiles/N3-8b/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8b/tile.json"
+    },
+    {
+      "path": "tiles/N3-8b/tile.svg",
+      "type": "file",
+      "size": 2874,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N3-8b/tile.svg"
+    },
+    {
+      "path": "tiles/N4-13b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13b"
+    },
+    {
+      "path": "tiles/N4-13b/preview.png",
+      "type": "file",
+      "size": 8405,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13b/preview.png"
+    },
+    {
+      "path": "tiles/N4-13b/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13b/tile.json"
+    },
+    {
+      "path": "tiles/N4-13b/tile.svg",
+      "type": "file",
+      "size": 3652,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13b/tile.svg"
+    },
+    {
+      "path": "tiles/N4-13c",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13c"
+    },
+    {
+      "path": "tiles/N4-13c/preview.png",
+      "type": "file",
+      "size": 8493,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13c/preview.png"
+    },
+    {
+      "path": "tiles/N4-13c/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13c/tile.json"
+    },
+    {
+      "path": "tiles/N4-13c/tile.svg",
+      "type": "file",
+      "size": 3564,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13c/tile.svg"
+    },
+    {
+      "path": "tiles/N4-13d",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13d"
+    },
+    {
+      "path": "tiles/N4-13d/preview.png",
+      "type": "file",
+      "size": 7662,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13d/preview.png"
+    },
+    {
+      "path": "tiles/N4-13d/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13d/tile.json"
+    },
+    {
+      "path": "tiles/N4-13d/tile.svg",
+      "type": "file",
+      "size": 5597,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13d/tile.svg"
+    },
+    {
+      "path": "tiles/N4-13e",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13e"
+    },
+    {
+      "path": "tiles/N4-13e/preview.png",
+      "type": "file",
+      "size": 7826,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13e/preview.png"
+    },
+    {
+      "path": "tiles/N4-13e/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13e/tile.json"
+    },
+    {
+      "path": "tiles/N4-13e/tile.svg",
+      "type": "file",
+      "size": 4011,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13e/tile.svg"
+    },
+    {
+      "path": "tiles/N4-13f",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13f"
+    },
+    {
+      "path": "tiles/N4-13f/preview.png",
+      "type": "file",
+      "size": 7801,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13f/preview.png"
+    },
+    {
+      "path": "tiles/N4-13f/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13f/tile.json"
+    },
+    {
+      "path": "tiles/N4-13f/tile.svg",
+      "type": "file",
+      "size": 3692,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-13f/tile.svg"
+    },
+    {
+      "path": "tiles/N4-16a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-16a"
+    },
+    {
+      "path": "tiles/N4-16a/preview.png",
+      "type": "file",
+      "size": 6942,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-16a/preview.png"
+    },
+    {
+      "path": "tiles/N4-16a/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-16a/tile.json"
+    },
+    {
+      "path": "tiles/N4-16a/tile.svg",
+      "type": "file",
+      "size": 4703,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-16a/tile.svg"
+    },
+    {
+      "path": "tiles/N4-19",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-19"
+    },
+    {
+      "path": "tiles/N4-19/preview.png",
+      "type": "file",
+      "size": 8615,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-19/preview.png"
+    },
+    {
+      "path": "tiles/N4-19/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-19/tile.json"
+    },
+    {
+      "path": "tiles/N4-19/tile.svg",
+      "type": "file",
+      "size": 4093,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-19/tile.svg"
+    },
+    {
+      "path": "tiles/N4-20",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-20"
+    },
+    {
+      "path": "tiles/N4-20/preview.png",
+      "type": "file",
+      "size": 7640,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-20/preview.png"
+    },
+    {
+      "path": "tiles/N4-20/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-20/tile.json"
+    },
+    {
+      "path": "tiles/N4-20/tile.svg",
+      "type": "file",
+      "size": 5324,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-20/tile.svg"
+    },
+    {
+      "path": "tiles/N4-21c",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-21c"
+    },
+    {
+      "path": "tiles/N4-21c/preview.png",
+      "type": "file",
+      "size": 7168,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-21c/preview.png"
+    },
+    {
+      "path": "tiles/N4-21c/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-21c/tile.json"
+    },
+    {
+      "path": "tiles/N4-21c/tile.svg",
+      "type": "file",
+      "size": 3642,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-21c/tile.svg"
+    },
+    {
+      "path": "tiles/N4-22",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-22"
+    },
+    {
+      "path": "tiles/N4-22/preview.png",
+      "type": "file",
+      "size": 7744,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-22/preview.png"
+    },
+    {
+      "path": "tiles/N4-22/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-22/tile.json"
+    },
+    {
+      "path": "tiles/N4-22/tile.svg",
+      "type": "file",
+      "size": 3915,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-22/tile.svg"
+    },
+    {
+      "path": "tiles/N4-23a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23a"
+    },
+    {
+      "path": "tiles/N4-23a/preview.png",
+      "type": "file",
+      "size": 6591,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23a/preview.png"
+    },
+    {
+      "path": "tiles/N4-23a/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23a/tile.json"
+    },
+    {
+      "path": "tiles/N4-23a/tile.svg",
+      "type": "file",
+      "size": 5610,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23a/tile.svg"
+    },
+    {
+      "path": "tiles/N4-23c",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23c"
+    },
+    {
+      "path": "tiles/N4-23c/preview.png",
+      "type": "file",
+      "size": 7061,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23c/preview.png"
+    },
+    {
+      "path": "tiles/N4-23c/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23c/tile.json"
+    },
+    {
+      "path": "tiles/N4-23c/tile.svg",
+      "type": "file",
+      "size": 3903,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-23c/tile.svg"
+    },
+    {
+      "path": "tiles/N4-27",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-27"
+    },
+    {
+      "path": "tiles/N4-27/preview.png",
+      "type": "file",
+      "size": 7978,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-27/preview.png"
+    },
+    {
+      "path": "tiles/N4-27/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-27/tile.json"
+    },
+    {
+      "path": "tiles/N4-27/tile.svg",
+      "type": "file",
+      "size": 4781,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-27/tile.svg"
+    },
+    {
+      "path": "tiles/N4-29e",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29e"
+    },
+    {
+      "path": "tiles/N4-29e/preview.png",
+      "type": "file",
+      "size": 8646,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29e/preview.png"
+    },
+    {
+      "path": "tiles/N4-29e/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29e/tile.json"
+    },
+    {
+      "path": "tiles/N4-29e/tile.svg",
+      "type": "file",
+      "size": 3180,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29e/tile.svg"
+    },
+    {
+      "path": "tiles/N4-29f",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29f"
+    },
+    {
+      "path": "tiles/N4-29f/preview.png",
+      "type": "file",
+      "size": 8491,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29f/preview.png"
+    },
+    {
+      "path": "tiles/N4-29f/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29f/tile.json"
+    },
+    {
+      "path": "tiles/N4-29f/tile.svg",
+      "type": "file",
+      "size": 3953,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-29f/tile.svg"
+    },
+    {
+      "path": "tiles/N4-31",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-31"
+    },
+    {
+      "path": "tiles/N4-31/preview.png",
+      "type": "file",
+      "size": 7067,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-31/preview.png"
+    },
+    {
+      "path": "tiles/N4-31/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-31/tile.json"
+    },
+    {
+      "path": "tiles/N4-31/tile.svg",
+      "type": "file",
+      "size": 2758,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-31/tile.svg"
+    },
+    {
+      "path": "tiles/N4-38",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-38"
+    },
+    {
+      "path": "tiles/N4-38/preview.png",
+      "type": "file",
+      "size": 7425,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-38/preview.png"
+    },
+    {
+      "path": "tiles/N4-38/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-38/tile.json"
+    },
+    {
+      "path": "tiles/N4-38/tile.svg",
+      "type": "file",
+      "size": 5918,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-38/tile.svg"
+    },
+    {
+      "path": "tiles/N4-42e",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-42e"
+    },
+    {
+      "path": "tiles/N4-42e/preview.png",
+      "type": "file",
+      "size": 8359,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-42e/preview.png"
+    },
+    {
+      "path": "tiles/N4-42e/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-42e/tile.json"
+    },
+    {
+      "path": "tiles/N4-42e/tile.svg",
+      "type": "file",
+      "size": 3253,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-42e/tile.svg"
+    },
+    {
+      "path": "tiles/N4-44",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-44"
+    },
+    {
+      "path": "tiles/N4-44/preview.png",
+      "type": "file",
+      "size": 8365,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-44/preview.png"
+    },
+    {
+      "path": "tiles/N4-44/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-44/tile.json"
+    },
+    {
+      "path": "tiles/N4-44/tile.svg",
+      "type": "file",
+      "size": 4351,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-44/tile.svg"
+    },
+    {
+      "path": "tiles/N4-52",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-52"
+    },
+    {
+      "path": "tiles/N4-52/preview.png",
+      "type": "file",
+      "size": 6111,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-52/preview.png"
+    },
+    {
+      "path": "tiles/N4-52/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-52/tile.json"
+    },
+    {
+      "path": "tiles/N4-52/tile.svg",
+      "type": "file",
+      "size": 4340,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-52/tile.svg"
+    },
+    {
+      "path": "tiles/N4-54d",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-54d"
+    },
+    {
+      "path": "tiles/N4-54d/preview.png",
+      "type": "file",
+      "size": 8391,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-54d/preview.png"
+    },
+    {
+      "path": "tiles/N4-54d/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-54d/tile.json"
+    },
+    {
+      "path": "tiles/N4-54d/tile.svg",
+      "type": "file",
+      "size": 4306,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-54d/tile.svg"
+    },
+    {
+      "path": "tiles/N4-5a-2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a-2"
+    },
+    {
+      "path": "tiles/N4-5a-2/preview.png",
+      "type": "file",
+      "size": 7577,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a-2/preview.png"
+    },
+    {
+      "path": "tiles/N4-5a-2/tile.json",
+      "type": "file",
+      "size": 64,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a-2/tile.json"
+    },
+    {
+      "path": "tiles/N4-5a-2/tile.svg",
+      "type": "file",
+      "size": 2657,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a-2/tile.svg"
+    },
+    {
+      "path": "tiles/N4-5a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a"
+    },
+    {
+      "path": "tiles/N4-5a/preview.png",
+      "type": "file",
+      "size": 6881,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a/preview.png"
+    },
+    {
+      "path": "tiles/N4-5a/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a/tile.json"
+    },
+    {
+      "path": "tiles/N4-5a/tile.svg",
+      "type": "file",
+      "size": 3881,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-5a/tile.svg"
+    },
+    {
+      "path": "tiles/N4-82",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-82"
+    },
+    {
+      "path": "tiles/N4-82/preview.png",
+      "type": "file",
+      "size": 6349,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-82/preview.png"
+    },
+    {
+      "path": "tiles/N4-82/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-82/tile.json"
+    },
+    {
+      "path": "tiles/N4-82/tile.svg",
+      "type": "file",
+      "size": 3370,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-82/tile.svg"
+    },
+    {
+      "path": "tiles/N4-85d",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-85d"
+    },
+    {
+      "path": "tiles/N4-85d/preview.png",
+      "type": "file",
+      "size": 8056,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-85d/preview.png"
+    },
+    {
+      "path": "tiles/N4-85d/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-85d/tile.json"
+    },
+    {
+      "path": "tiles/N4-85d/tile.svg",
+      "type": "file",
+      "size": 4685,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N4-85d/tile.svg"
+    },
+    {
+      "path": "tiles/N5-1e1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1e1"
+    },
+    {
+      "path": "tiles/N5-1e1/preview.png",
+      "type": "file",
+      "size": 16003,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1e1/preview.png"
+    },
+    {
+      "path": "tiles/N5-1e1/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1e1/tile.json"
+    },
+    {
+      "path": "tiles/N5-1e1/tile.svg",
+      "type": "file",
+      "size": 3914,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1e1/tile.svg"
+    },
+    {
+      "path": "tiles/N5-1q2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1q2"
+    },
+    {
+      "path": "tiles/N5-1q2/preview.png",
+      "type": "file",
+      "size": 7038,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1q2/preview.png"
+    },
+    {
+      "path": "tiles/N5-1q2/tile.json",
+      "type": "file",
+      "size": 62,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1q2/tile.json"
+    },
+    {
+      "path": "tiles/N5-1q2/tile.svg",
+      "type": "file",
+      "size": 2774,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1q2/tile.svg"
+    },
+    {
+      "path": "tiles/N5-1t",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1t"
+    },
+    {
+      "path": "tiles/N5-1t/preview.png",
+      "type": "file",
+      "size": 6448,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1t/preview.png"
+    },
+    {
+      "path": "tiles/N5-1t/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1t/tile.json"
+    },
+    {
+      "path": "tiles/N5-1t/tile.svg",
+      "type": "file",
+      "size": 2575,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N5-1t/tile.svg"
+    },
+    {
+      "path": "tiles/N6-1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-1"
+    },
+    {
+      "path": "tiles/N6-1/preview.png",
+      "type": "file",
+      "size": 6019,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-1/preview.png"
+    },
+    {
+      "path": "tiles/N6-1/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-1/tile.json"
+    },
+    {
+      "path": "tiles/N6-1/tile.svg",
+      "type": "file",
+      "size": 2394,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-1/tile.svg"
+    },
+    {
+      "path": "tiles/N6-2",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-2"
+    },
+    {
+      "path": "tiles/N6-2/preview.png",
+      "type": "file",
+      "size": 6282,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-2/preview.png"
+    },
+    {
+      "path": "tiles/N6-2/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-2/tile.json"
+    },
+    {
+      "path": "tiles/N6-2/tile.svg",
+      "type": "file",
+      "size": 4684,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-2/tile.svg"
+    },
+    {
+      "path": "tiles/N6-5b",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-5b"
+    },
+    {
+      "path": "tiles/N6-5b/preview.png",
+      "type": "file",
+      "size": 5452,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-5b/preview.png"
+    },
+    {
+      "path": "tiles/N6-5b/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-5b/tile.json"
+    },
+    {
+      "path": "tiles/N6-5b/tile.svg",
+      "type": "file",
+      "size": 6087,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-5b/tile.svg"
+    },
+    {
+      "path": "tiles/N6-6a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6a"
+    },
+    {
+      "path": "tiles/N6-6a/preview.png",
+      "type": "file",
+      "size": 6303,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6a/preview.png"
+    },
+    {
+      "path": "tiles/N6-6a/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6a/tile.json"
+    },
+    {
+      "path": "tiles/N6-6a/tile.svg",
+      "type": "file",
+      "size": 5927,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6a/tile.svg"
+    },
+    {
+      "path": "tiles/N6-6c",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6c"
+    },
+    {
+      "path": "tiles/N6-6c/preview.png",
+      "type": "file",
+      "size": 7071,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6c/preview.png"
+    },
+    {
+      "path": "tiles/N6-6c/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6c/tile.json"
+    },
+    {
+      "path": "tiles/N6-6c/tile.svg",
+      "type": "file",
+      "size": 6292,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/N6-6c/tile.svg"
+    },
+    {
+      "path": "tiles/NC5-11a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-11a"
+    },
+    {
+      "path": "tiles/NC5-11a/preview.png",
+      "type": "file",
+      "size": 6517,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-11a/preview.png"
+    },
+    {
+      "path": "tiles/NC5-11a/tile.json",
+      "type": "file",
+      "size": 64,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-11a/tile.json"
+    },
+    {
+      "path": "tiles/NC5-11a/tile.svg",
+      "type": "file",
+      "size": 3318,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-11a/tile.svg"
+    },
+    {
+      "path": "tiles/NC5-20a",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-20a"
+    },
+    {
+      "path": "tiles/NC5-20a/preview.png",
+      "type": "file",
+      "size": 5944,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-20a/preview.png"
+    },
+    {
+      "path": "tiles/NC5-20a/tile.json",
+      "type": "file",
+      "size": 64,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-20a/tile.json"
+    },
+    {
+      "path": "tiles/NC5-20a/tile.svg",
+      "type": "file",
+      "size": 2863,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/NC5-20a/tile.svg"
+    },
+    {
+      "path": "tiles/P3-1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-1"
+    },
+    {
+      "path": "tiles/P3-1/preview.png",
+      "type": "file",
+      "size": 5356,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-1/preview.png"
+    },
+    {
+      "path": "tiles/P3-1/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-1/tile.json"
+    },
+    {
+      "path": "tiles/P3-1/tile.svg",
+      "type": "file",
+      "size": 2322,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-1/tile.svg"
+    },
+    {
+      "path": "tiles/P3-12",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-12"
+    },
+    {
+      "path": "tiles/P3-12/preview.png",
+      "type": "file",
+      "size": 12430,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-12/preview.png"
+    },
+    {
+      "path": "tiles/P3-12/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-12/tile.json"
+    },
+    {
+      "path": "tiles/P3-12/tile.svg",
+      "type": "file",
+      "size": 2478,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P3-12/tile.svg"
+    },
+    {
+      "path": "tiles/P4-1",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-1"
+    },
+    {
+      "path": "tiles/P4-1/preview.png",
+      "type": "file",
+      "size": 6057,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-1/preview.png"
+    },
+    {
+      "path": "tiles/P4-1/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-1/tile.json"
+    },
+    {
+      "path": "tiles/P4-1/tile.svg",
+      "type": "file",
+      "size": 2270,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-1/tile.svg"
+    },
+    {
+      "path": "tiles/P4-10",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-10"
+    },
+    {
+      "path": "tiles/P4-10/preview.png",
+      "type": "file",
+      "size": 6218,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-10/preview.png"
+    },
+    {
+      "path": "tiles/P4-10/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-10/tile.json"
+    },
+    {
+      "path": "tiles/P4-10/tile.svg",
+      "type": "file",
+      "size": 3581,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-10/tile.svg"
+    },
+    {
+      "path": "tiles/P4-15",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-15"
+    },
+    {
+      "path": "tiles/P4-15/preview.png",
+      "type": "file",
+      "size": 5584,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-15/preview.png"
+    },
+    {
+      "path": "tiles/P4-15/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-15/tile.json"
+    },
+    {
+      "path": "tiles/P4-15/tile.svg",
+      "type": "file",
+      "size": 3197,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-15/tile.svg"
+    },
+    {
+      "path": "tiles/P4-19",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-19"
+    },
+    {
+      "path": "tiles/P4-19/preview.png",
+      "type": "file",
+      "size": 8404,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-19/preview.png"
+    },
+    {
+      "path": "tiles/P4-19/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-19/tile.json"
+    },
+    {
+      "path": "tiles/P4-19/tile.svg",
+      "type": "file",
+      "size": 2380,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-19/tile.svg"
+    },
+    {
+      "path": "tiles/P4-23",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-23"
+    },
+    {
+      "path": "tiles/P4-23/preview.png",
+      "type": "file",
+      "size": 14725,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-23/preview.png"
+    },
+    {
+      "path": "tiles/P4-23/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-23/tile.json"
+    },
+    {
+      "path": "tiles/P4-23/tile.svg",
+      "type": "file",
+      "size": 3759,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-23/tile.svg"
+    },
+    {
+      "path": "tiles/P4-24",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-24"
+    },
+    {
+      "path": "tiles/P4-24/preview.png",
+      "type": "file",
+      "size": 6890,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-24/preview.png"
+    },
+    {
+      "path": "tiles/P4-24/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-24/tile.json"
+    },
+    {
+      "path": "tiles/P4-24/tile.svg",
+      "type": "file",
+      "size": 3721,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-24/tile.svg"
+    },
+    {
+      "path": "tiles/P4-25",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-25"
+    },
+    {
+      "path": "tiles/P4-25/preview.png",
+      "type": "file",
+      "size": 5876,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-25/preview.png"
+    },
+    {
+      "path": "tiles/P4-25/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-25/tile.json"
+    },
+    {
+      "path": "tiles/P4-25/tile.svg",
+      "type": "file",
+      "size": 3754,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-25/tile.svg"
+    },
+    {
+      "path": "tiles/P4-43-modified",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43-modified"
+    },
+    {
+      "path": "tiles/P4-43-modified/preview.png",
+      "type": "file",
+      "size": 7865,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43-modified/preview.png"
+    },
+    {
+      "path": "tiles/P4-43-modified/tile.json",
+      "type": "file",
+      "size": 78,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43-modified/tile.json"
+    },
+    {
+      "path": "tiles/P4-43-modified/tile.svg",
+      "type": "file",
+      "size": 2790,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43-modified/tile.svg"
+    },
+    {
+      "path": "tiles/P4-43",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43"
+    },
+    {
+      "path": "tiles/P4-43/preview.png",
+      "type": "file",
+      "size": 8818,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43/preview.png"
+    },
+    {
+      "path": "tiles/P4-43/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43/tile.json"
+    },
+    {
+      "path": "tiles/P4-43/tile.svg",
+      "type": "file",
+      "size": 1996,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-43/tile.svg"
+    },
+    {
+      "path": "tiles/P4-47",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-47"
+    },
+    {
+      "path": "tiles/P4-47/preview.png",
+      "type": "file",
+      "size": 7918,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-47/preview.png"
+    },
+    {
+      "path": "tiles/P4-47/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-47/tile.json"
+    },
+    {
+      "path": "tiles/P4-47/tile.svg",
+      "type": "file",
+      "size": 2362,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P4-47/tile.svg"
+    },
+    {
+      "path": "tiles/P5-10_11",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-10_11"
+    },
+    {
+      "path": "tiles/P5-10_11/preview.png",
+      "type": "file",
+      "size": 6276,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-10_11/preview.png"
+    },
+    {
+      "path": "tiles/P5-10_11/tile.json",
+      "type": "file",
+      "size": 66,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-10_11/tile.json"
+    },
+    {
+      "path": "tiles/P5-10_11/tile.svg",
+      "type": "file",
+      "size": 2703,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-10_11/tile.svg"
+    },
+    {
+      "path": "tiles/P5-19",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-19"
+    },
+    {
+      "path": "tiles/P5-19/preview.png",
+      "type": "file",
+      "size": 5990,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-19/preview.png"
+    },
+    {
+      "path": "tiles/P5-19/tile.json",
+      "type": "file",
+      "size": 60,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-19/tile.json"
+    },
+    {
+      "path": "tiles/P5-19/tile.svg",
+      "type": "file",
+      "size": 2832,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-19/tile.svg"
+    },
+    {
+      "path": "tiles/P5-23_24",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-23_24"
+    },
+    {
+      "path": "tiles/P5-23_24/preview.png",
+      "type": "file",
+      "size": 7868,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-23_24/preview.png"
+    },
+    {
+      "path": "tiles/P5-23_24/tile.json",
+      "type": "file",
+      "size": 66,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-23_24/tile.json"
+    },
+    {
+      "path": "tiles/P5-23_24/tile.svg",
+      "type": "file",
+      "size": 2445,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-23_24/tile.svg"
+    },
+    {
+      "path": "tiles/P5-4",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-4"
+    },
+    {
+      "path": "tiles/P5-4/preview.png",
+      "type": "file",
+      "size": 5628,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-4/preview.png"
+    },
+    {
+      "path": "tiles/P5-4/tile.json",
+      "type": "file",
+      "size": 58,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-4/tile.json"
+    },
+    {
+      "path": "tiles/P5-4/tile.svg",
+      "type": "file",
+      "size": 2279,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P5-4/tile.svg"
+    },
+    {
+      "path": "tiles/P6-6_11",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P6-6_11"
+    },
+    {
+      "path": "tiles/P6-6_11/preview.png",
+      "type": "file",
+      "size": 18411,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P6-6_11/preview.png"
+    },
+    {
+      "path": "tiles/P6-6_11/tile.json",
+      "type": "file",
+      "size": 64,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P6-6_11/tile.json"
+    },
+    {
+      "path": "tiles/P6-6_11/tile.svg",
+      "type": "file",
+      "size": 2564,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/P6-6_11/tile.svg"
+    },
+    {
+      "path": "tiles/diamond-square",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/diamond-square"
+    },
+    {
+      "path": "tiles/diamond-square/preview.png",
+      "type": "file",
+      "size": 6086,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/diamond-square/preview.png"
+    },
+    {
+      "path": "tiles/diamond-square/tile.json",
+      "type": "file",
+      "size": 84,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/diamond-square/tile.json"
+    },
+    {
+      "path": "tiles/diamond-square/tile.svg",
+      "type": "file",
+      "size": 4767,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/diamond-square/tile.svg"
+    },
+    {
+      "path": "tiles/hexagon",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/hexagon"
+    },
+    {
+      "path": "tiles/hexagon/preview.png",
+      "type": "file",
+      "size": 5156,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/hexagon/preview.png"
+    },
+    {
+      "path": "tiles/hexagon/tile.json",
+      "type": "file",
+      "size": 74,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/hexagon/tile.json"
+    },
+    {
+      "path": "tiles/hexagon/tile.svg",
+      "type": "file",
+      "size": 3956,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/hexagon/tile.svg"
+    },
+    {
+      "path": "tiles/weird-one",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/weird-one"
+    },
+    {
+      "path": "tiles/weird-one/preview.png",
+      "type": "file",
+      "size": 9025,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/weird-one/preview.png"
+    },
+    {
+      "path": "tiles/weird-one/tile.json",
+      "type": "file",
+      "size": 68,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/weird-one/tile.json"
+    },
+    {
+      "path": "tiles/weird-one/tile.svg",
+      "type": "file",
+      "size": 3564,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/tiles/weird-one/tile.svg"
+    },
+    {
+      "path": "translations",
+      "type": "dir",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations"
+    },
+    {
+      "path": "translations/.keep",
+      "type": "file",
+      "size": 0,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/.keep"
+    },
+    {
+      "path": "translations/messages_af_ZA.po",
+      "type": "file",
+      "size": 258697,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_af_ZA.po"
+    },
+    {
+      "path": "translations/messages_ar_SA.po",
+      "type": "file",
+      "size": 258779,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_ar_SA.po"
+    },
+    {
+      "path": "translations/messages_ca_ES.po",
+      "type": "file",
+      "size": 258695,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_ca_ES.po"
+    },
+    {
+      "path": "translations/messages_cs_CZ.po",
+      "type": "file",
+      "size": 343758,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_cs_CZ.po"
+    },
+    {
+      "path": "translations/messages_da_DK.po",
+      "type": "file",
+      "size": 260041,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_da_DK.po"
+    },
+    {
+      "path": "translations/messages_de_DE.po",
+      "type": "file",
+      "size": 366240,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_de_DE.po"
+    },
+    {
+      "path": "translations/messages_el_GR.po",
+      "type": "file",
+      "size": 272823,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_el_GR.po"
+    },
+    {
+      "path": "translations/messages_en_US.po",
+      "type": "file",
+      "size": 258695,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_en_US.po"
+    },
+    {
+      "path": "translations/messages_es_ES.po",
+      "type": "file",
+      "size": 349724,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_es_ES.po"
+    },
+    {
+      "path": "translations/messages_fi_FI.po",
+      "type": "file",
+      "size": 264950,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_fi_FI.po"
+    },
+    {
+      "path": "translations/messages_fr_FR.po",
+      "type": "file",
+      "size": 373859,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_fr_FR.po"
+    },
+    {
+      "path": "translations/messages_he_IL.po",
+      "type": "file",
+      "size": 258744,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_he_IL.po"
+    },
+    {
+      "path": "translations/messages_hu_HU.po",
+      "type": "file",
+      "size": 278307,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_hu_HU.po"
+    },
+    {
+      "path": "translations/messages_it_IT.po",
+      "type": "file",
+      "size": 296523,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_it_IT.po"
+    },
+    {
+      "path": "translations/messages_ja_JP.po",
+      "type": "file",
+      "size": 294011,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_ja_JP.po"
+    },
+    {
+      "path": "translations/messages_ko_KR.po",
+      "type": "file",
+      "size": 258740,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_ko_KR.po"
+    },
+    {
+      "path": "translations/messages_nl_NL.po",
+      "type": "file",
+      "size": 360741,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_nl_NL.po"
+    },
+    {
+      "path": "translations/messages_no_NO.po",
+      "type": "file",
+      "size": 262741,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_no_NO.po"
+    },
+    {
+      "path": "translations/messages_pl_PL.po",
+      "type": "file",
+      "size": 265905,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_pl_PL.po"
+    },
+    {
+      "path": "translations/messages_pt_BR.po",
+      "type": "file",
+      "size": 269854,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_pt_BR.po"
+    },
+    {
+      "path": "translations/messages_pt_PT.po",
+      "type": "file",
+      "size": 260497,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_pt_PT.po"
+    },
+    {
+      "path": "translations/messages_ro_RO.po",
+      "type": "file",
+      "size": 259062,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_ro_RO.po"
+    },
+    {
+      "path": "translations/messages_ru_RU.po",
+      "type": "file",
+      "size": 293900,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_ru_RU.po"
+    },
+    {
+      "path": "translations/messages_sr_SP.po",
+      "type": "file",
+      "size": 258780,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_sr_SP.po"
+    },
+    {
+      "path": "translations/messages_sv_SE.po",
+      "type": "file",
+      "size": 261969,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_sv_SE.po"
+    },
+    {
+      "path": "translations/messages_tr_TR.po",
+      "type": "file",
+      "size": 260393,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_tr_TR.po"
+    },
+    {
+      "path": "translations/messages_uk_UA.po",
+      "type": "file",
+      "size": 283435,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_uk_UA.po"
+    },
+    {
+      "path": "translations/messages_vi_VN.po",
+      "type": "file",
+      "size": 258691,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_vi_VN.po"
+    },
+    {
+      "path": "translations/messages_zh_CN.po",
+      "type": "file",
+      "size": 285757,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_zh_CN.po"
+    },
+    {
+      "path": "translations/messages_zh_TW.po",
+      "type": "file",
+      "size": 258703,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_zh_TW.po"
+    },
+    {
+      "path": "uv.lock",
+      "type": "file",
+      "size": 227071,
+      "url": "https://github.com/inkstitch/inkstitch/blob/main/uv.lock"
+    }
+  ]
+}
