@@ -4,21 +4,24 @@ import { StoreProvider, useStore } from './context/StoreContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
-import { Services } from './pages/Services';
-import { About } from './pages/About';
-import { OpenSourceDesigns } from './pages/OpenSourceDesigns';
-import { Login } from './pages/Login';
-import { AdminLogin } from './pages/AdminLogin';
-import { Catalog } from './pages/Catalog';
-import { ProductDetail } from './pages/ProductDetail';
-import { CustomerProfile } from './pages/CustomerProfile';
-import { Reviews } from './pages/Reviews';
-import { Payment } from './pages/Payment';
-import { AdminDashboard } from './pages/AdminDashboard';
-import { AdminOrders } from './pages/AdminOrders';
-import { AdminInventory } from './pages/AdminInventory';
-import { DSTUpload } from './pages/DSTUpload';
-import { ShoppingBag, Scissors, Twitter, Instagram, Linkedin, Facebook, MapPin } from 'lucide-react';
+
+// Lazy loaded routes for better performance
+const Services = React.lazy(() => import('./pages/Services').then(module => ({ default: module.Services })));
+const About = React.lazy(() => import('./pages/About').then(module => ({ default: module.About })));
+const OpenSourceDesigns = React.lazy(() => import('./pages/OpenSourceDesigns').then(module => ({ default: module.OpenSourceDesigns })));
+const Login = React.lazy(() => import('./pages/Login').then(module => ({ default: module.Login })));
+const AdminLogin = React.lazy(() => import('./pages/AdminLogin').then(module => ({ default: module.AdminLogin })));
+const Catalog = React.lazy(() => import('./pages/Catalog').then(module => ({ default: module.Catalog })));
+const ProductDetail = React.lazy(() => import('./pages/ProductDetail').then(module => ({ default: module.ProductDetail })));
+const CustomerProfile = React.lazy(() => import('./pages/CustomerProfile').then(module => ({ default: module.CustomerProfile })));
+const Reviews = React.lazy(() => import('./pages/Reviews').then(module => ({ default: module.Reviews })));
+const Payment = React.lazy(() => import('./pages/Payment').then(module => ({ default: module.Payment })));
+const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard').then(module => ({ default: module.AdminDashboard })));
+const AdminOrders = React.lazy(() => import('./pages/AdminOrders').then(module => ({ default: module.AdminOrders })));
+const AdminInventory = React.lazy(() => import('./pages/AdminInventory').then(module => ({ default: module.AdminInventory })));
+const DSTUpload = React.lazy(() => import('./pages/DSTUpload').then(module => ({ default: module.DSTUpload })));
+
+import { ShoppingBag, Scissors, Twitter, Instagram, Linkedin, Facebook, MapPin, Loader2 } from 'lucide-react';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRole }: React.PropsWithChildren<{ allowedRole: 'CUSTOMER' | 'ADMIN' }>) => {
@@ -151,7 +154,7 @@ const Footer = () => (
             </div>
             
             <div className="border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400">
-                <p>&copy; 2023 StitchLink. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} StitchLink. All rights reserved.</p>
                 <div className="flex space-x-6 mt-4 md:mt-0">
                     <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">Privacy Policy</a>
                     <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">Terms of Service</a>
@@ -166,8 +169,13 @@ const AppContent = () => {
     <div className="min-h-screen bg-white dark:bg-slate-950 flex flex-col font-sans transition-colors duration-200">
       <Navbar />
       <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <React.Suspense fallback={
+          <div className="flex h-[50vh] items-center justify-center text-rose-500">
+             <Loader2 className="h-8 w-8 animate-spin" />
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/open-source" element={<OpenSourceDesigns />} />
@@ -208,6 +216,7 @@ const AppContent = () => {
             <ProtectedRoute allowedRole="ADMIN"><AdminInventory /></ProtectedRoute>
           } />
         </Routes>
+        </React.Suspense>
       </main>
       <Footer />
     </div>

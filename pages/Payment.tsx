@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 import { CreditCard, Wallet, Truck, Lock, CheckCircle, ArrowLeft, Loader2, ShieldCheck, Calendar, User } from 'lucide-react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-export const Payment = () => {
+const stripePromise = loadStripe('pk_test_51NOexample_dummy_key_1234');
+
+const CheckoutForm = () => {
     const { cart, placeOrder, currentUser } = useStore();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [method, setMethod] = useState('card');
     const [paymentSuccess, setPaymentSuccess] = useState(false);
-
-    // Card State
-    const [cardNumber, setCardNumber] = useState('');
-    const [cardName, setCardName] = useState('');
-    const [cardExpiry, setCardExpiry] = useState('');
-    const [cardCvv, setCardCvv] = useState('');
-    const [cardFocused, setCardFocused] = useState(false);
+    
+    const stripe = useStripe();
+    const elements = useElements();
 
     const subtotal = cart.reduce((sum, item) => sum + (item.priceAtPurchase * item.quantity), 0);
     const tax = subtotal * 0.05; // 5% GST
@@ -28,37 +28,30 @@ export const Payment = () => {
         }
     }, [cart, navigate, paymentSuccess]);
 
-    // Format Card Number
-    const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let val = e.target.value.replace(/\D/g, '');
-        val = val.substring(0, 16);
-        val = val.replace(/(\d{4})/g, '$1 ').trim();
-        setCardNumber(val);
-    };
-
-    const handleExpiryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let val = e.target.value.replace(/\D/g, '');
-        if (val.length >= 2) {
-            val = val.substring(0, 2) + '/' + val.substring(2, 4);
-        }
-        setCardExpiry(val);
-    };
-
-    const handlePayment = (e: React.FormEvent) => {
+    const handlePayment = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        if (method === 'card' && (!stripe || !elements)) {
+            return;
+        }
+
         setLoading(true);
 
-        // Simulate Payment Gateway Delay
-        setTimeout(() => {
-            placeOrder();
-            setLoading(false);
-            setPaymentSuccess(true);
-
-            // Redirect to profile after showing success message
-            setTimeout(() => {
-                navigate('/profile');
-            }, 3000);
-        }, 2500);
+        // Simulate API call for card or direct checkout for others
+        if (method === 'card') {
+            const cardElement = elements?.getElement(CardElement);
+            if (cardElement) {
+                // We're mocking the tokenization since it's a dummy key
+                await new Promise(resolve => setTimeout(resolve, 1500));
+            }
+        } else {
+            await new Promise(resolve => setTimeout(resolve, 1500));
+        }
+        
+        placeOrder();
+        setLoading(false);
+        setPaymentSuccess(true);
+        setTimeout(() => navigate('/profile'), 3000);
     };
 
     if (cart.length === 0 && !paymentSuccess) return null;
@@ -175,106 +168,29 @@ export const Payment = () => {
                                 </div>
                             </div>
 
-                            {/* Visual Card Component & Form */}
+                            {/* Stripe Card Component & Form */}
                             {method === 'card' && (
                                 <div className="animate-fade-in-up space-y-6">
-                                    {/* Visual Card */}
-                                    <div className="relative h-56 w-full max-w-sm mx-auto perspective-1000 transform transition-transform hover:scale-105 duration-500">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-2xl shadow-2xl overflow-hidden text-white p-6 flex flex-col justify-between border border-slate-700/50">
-                                            {/* decorative blob */}
-                                            <div className="absolute -top-24 -right-24 w-60 h-60 bg-rose-500/20 rounded-full blur-3xl"></div>
-                                            <div className="absolute -bottom-24 -left-24 w-60 h-60 bg-violet-500/20 rounded-full blur-3xl"></div>
-
-                                            <div className="flex justify-between items-start relative z-10">
-                                                <div className="w-12 h-8 bg-gradient-to-r from-yellow-200 to-yellow-400 rounded-md opacity-80" /> {/* Chip */}
-                                                <div className="italic font-serif font-bold tracking-widest opacity-50">VISA</div>
-                                            </div>
-
-                                            <div className="relative z-10 space-y-6">
-                                                <div className="font-mono text-2xl tracking-[0.2em] drop-shadow-md py-2">
-                                                    {cardNumber || '•••• •••• •••• ••••'}
-                                                </div>
-
-                                                <div className="flex justify-between items-end font-mono">
-                                                    <div>
-                                                        <div className="text-[10px] uppercase tracking-widest opacity-60 mb-1">Card Holder</div>
-                                                        <div className="tracking-widest uppercase">{cardName || 'YOUR NAME'}</div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-[10px] uppercase tracking-widest opacity-60 mb-1">Expires</div>
-                                                        <div className="tracking-widest">{cardExpiry || 'MM/YY'}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Form Fields */}
                                     <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-xl border border-slate-100 dark:border-slate-800">
-                                        <div className="space-y-5">
-                                            <div>
-                                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Card Number</label>
-                                                <div className="relative">
-                                                    <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                                                    <input
-                                                        type="text"
-                                                        value={cardNumber}
-                                                        onChange={handleCardNumberChange}
-                                                        placeholder="0000 0000 0000 0000"
-                                                        maxLength={19}
-                                                        className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-all font-mono"
-                                                        required
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Cardholder Name</label>
-                                                <div className="relative">
-                                                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                                                    <input
-                                                        type="text"
-                                                        value={cardName}
-                                                        onChange={(e) => setCardName(e.target.value.toUpperCase())}
-                                                        placeholder="JOHN DOE"
-                                                        className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-all"
-                                                        required
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div className="grid grid-cols-2 gap-5">
-                                                <div>
-                                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Expiry Date</label>
-                                                    <div className="relative">
-                                                        <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                                                        <input
-                                                            type="text"
-                                                            value={cardExpiry}
-                                                            onChange={handleExpiryChange}
-                                                            placeholder="MM/YY"
-                                                            maxLength={5}
-                                                            className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-all"
-                                                            required
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">CVV</label>
-                                                    <div className="relative">
-                                                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                                                        <input
-                                                            type="password"
-                                                            value={cardCvv}
-                                                            onChange={(e) => setCardCvv(e.target.value.replace(/\D/g, '').slice(0, 3))}
-                                                            placeholder="123"
-                                                            maxLength={3}
-                                                            className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-all"
-                                                            required
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div className="mb-6">
+                                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Card Details</h3>
+                                            <p className="text-sm text-slate-500">Enter your card information securely below.</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
+                                            <CardElement options={{
+                                                style: {
+                                                    base: {
+                                                        fontSize: '16px',
+                                                        color: '#424770',
+                                                        '::placeholder': {
+                                                            color: '#aab7c4',
+                                                        },
+                                                    },
+                                                    invalid: {
+                                                        color: '#9e2146',
+                                                    },
+                                                },
+                                            }} />
                                         </div>
                                     </div>
                                 </div>
@@ -355,3 +271,9 @@ export const Payment = () => {
         </div>
     );
 };
+
+export const Payment = () => (
+    <Elements stripe={stripePromise}>
+        <CheckoutForm />
+    </Elements>
+);

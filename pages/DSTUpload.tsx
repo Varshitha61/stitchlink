@@ -1,5 +1,23 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { Upload, FileCode2, X, Info, Layers, Zap, CheckCircle2, AlertTriangle, Download } from 'lucide-react';
+import { Upload, FileCode2, X, Info, Layers, Zap, CheckCircle2, AlertTriangle, Download, Sparkles } from 'lucide-react';
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || 'dummy' });
+
+async function generateAIPalette(label: string, stitchCount: number): Promise<string[]> {
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: `Suggest a 5-color hex palette for an embroidery design labeled "${label}" with ${stitchCount} stitches. Return ONLY a comma-separated list of 5 hex codes, e.g., #ff0000,#00ff00,#0000ff,#ffff00,#00ffff.`,
+    });
+    const text = response.text || '';
+    const colors = text.split(',').map(c => c.trim()).filter(c => c.startsWith('#'));
+    return colors.length > 0 ? colors : ['#e11d48', '#0ea5e9', '#16a34a', '#ea580c', '#8b5cf6'];
+  } catch (error) {
+    console.error("AI Palette Generation failed", error);
+    return ['#e11d48', '#0ea5e9', '#16a34a', '#ea580c', '#8b5cf6'];
+  }
+}
 
 // ────────────────────────────────────────────────────────────────────────────────
 // DST Binary Parser
@@ -67,7 +85,7 @@ const THREAD_PALETTE = [
   '#c026d3', '#d97706', '#4f46e5', '#dc2626',
 ];
 
-function parseDST(buffer: ArrayBuffer): DSTInfo {
+export function parseDST(buffer: ArrayBuffer): DSTInfo {
   const bytes = new Uint8Array(buffer);
 
   // ── Header: first 512 bytes (ASCII) ──
@@ -137,6 +155,44 @@ function parseDST(buffer: ArrayBuffer): DSTInfo {
   const heightMm = minY === Infinity ? 0 : (maxY - minY) / 10;
 
   return { label, stitchCount, colorChanges, jumps, widthMm, heightMm, stitches, colors };
+}
+
+// ────────────────────────────────────────────────────────────────────────────────
+// PES and JEF Stub Parsers
+// ────────────────────────────────────────────────────────────────────────────────
+
+export function parsePES(buffer: ArrayBuffer): DSTInfo {
+  const bytes = new Uint8Array(buffer);
+  const decoder = new TextDecoder('ascii', { fatal: false });
+  const headerText = decoder.decode(bytes.slice(0, 16));
+  
+  if (!headerText.startsWith('#PES')) {
+    throw new Error('Invalid PES file');
+  }
+
+  return {
+    label: 'PES Design (Preview Unsupported)',
+    stitchCount: 0,
+    colorChanges: 0,
+    jumps: 0,
+    widthMm: 100,
+    heightMm: 100,
+    stitches: [],
+    colors: []
+  };
+}
+
+function parseJEF(buffer: ArrayBuffer): DSTInfo {
+  return {
+    label: 'JEF Design (Preview Unsupported)',
+    stitchCount: 0,
+    colorChanges: 0,
+    jumps: 0,
+    widthMm: 100,
+    heightMm: 100,
+    stitches: [],
+    colors: []
+  };
 }
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -235,6 +291,7 @@ export const DSTUpload = () => {
   const [dstInfo, setDstInfo] = useState<DSTInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isAILoading, setIsAILoading] = useState(false);
   const [fileName, setFileName] = useState<string>('');
   const [fileSize, setFileSize] = useState<number>(0);
 
@@ -248,8 +305,9 @@ export const DSTUpload = () => {
   }, [dstInfo]);
 
   const processFile = useCallback(async (file: File) => {
-    if (!file.name.toLowerCase().endsWith('.dst')) {
-      setError('Please upload a valid .dst embroidery file.');
+    const ext = file.name.split('.').pop()?.toLowerCase();
+    if (!['dst', 'pes', 'jef'].includes(ext || '')) {
+      setError('Please upload a valid .dst, .pes, or .jef embroidery file.');
       return;
     }
 
@@ -261,10 +319,19 @@ export const DSTUpload = () => {
 
     try {
       const buffer = await file.arrayBuffer();
-      const info = parseDST(buffer);
+      let info: DSTInfo;
+      
+      if (ext === 'pes') {
+        info = parsePES(buffer);
+      } else if (ext === 'jef') {
+        info = parseJEF(buffer);
+      } else {
+        info = parseDST(buffer);
+      }
+      
       setDstInfo(info);
     } catch (e) {
-      setError('Failed to parse DST file. The file may be corrupt or in an unsupported variant.');
+      setError('Failed to parse file. The file may be corrupt or in an unsupported variant.');
     } finally {
       setIsProcessing(false);
     }
@@ -351,10 +418,10 @@ export const DSTUpload = () => {
             Embroidery Machine Code
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-            DST File <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-violet-600">Uploader</span>
+            Machine File <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-violet-600">Uploader</span>
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Upload your Tajima DST embroidery machine file to preview the stitch pattern,
+            Upload your Tajima DST, PES, or JEF embroidery machine file to preview the stitch pattern,
             analyse design statistics, and prepare it for production.
           </p>
         </div>
@@ -390,7 +457,7 @@ export const DSTUpload = () => {
                 <input
                   ref={fileInputRef}
                   type="file"
-                  accept=".dst"
+                  accept=".dst,.pes,.jef"
                   onChange={handleFileChange}
                   className="hidden"
                   id="dst-file-input"
@@ -409,10 +476,10 @@ export const DSTUpload = () => {
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                  {isProcessing ? 'Parsing DST file…' : 'Drop your DST file here'}
+                  {isProcessing ? 'Parsing file…' : 'Drop your machine file here'}
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">
-                  or click to browse — <span className="font-semibold text-rose-500">.dst</span> files only
+                  or click to browse — <span className="font-semibold text-rose-500">.dst, .pes, .jef</span> files only
                 </p>
 
                 {/* Machine format info pills */}
@@ -530,6 +597,21 @@ export const DSTUpload = () => {
                         </div>
                       ))}
                     </div>
+                    <div className="mt-4">
+                      <button
+                        onClick={async () => {
+                          setIsAILoading(true);
+                          const aiColors = await generateAIPalette(dstInfo.label, dstInfo.stitchCount);
+                          setDstInfo({ ...dstInfo, colors: aiColors });
+                          setIsAILoading(false);
+                        }}
+                        disabled={isAILoading}
+                        className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-violet-50 hover:bg-violet-100 dark:bg-violet-900/20 dark:hover:bg-violet-900/40 text-violet-600 dark:text-violet-400 font-bold text-sm transition-colors border border-violet-200 dark:border-violet-800/40"
+                      >
+                        {isAILoading ? <div className="w-4 h-4 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" /> : <Sparkles className="w-4 h-4" />}
+                        {isAILoading ? 'Generating Palette...' : 'Generate AI Match Palette'}
+                      </button>
+                    </div>
                   </div>
                 )}
 
@@ -540,12 +622,12 @@ export const DSTUpload = () => {
                     className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-violet-600 text-white font-bold text-sm hover:from-rose-600 hover:to-violet-700 transition-all shadow-lg shadow-rose-500/20 active:scale-[0.98] flex items-center justify-center gap-2"
                   >
                     <Upload className="w-4 h-4" />
-                    Upload Another DST File
+                    Upload Another File
                   </button>
                   <input
                     ref={fileInputRef}
                     type="file"
-                    accept=".dst"
+                    accept=".dst,.pes,.jef"
                     onChange={handleFileChange}
                     className="hidden"
                   />

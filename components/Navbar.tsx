@@ -72,9 +72,7 @@ export const Navbar = () => {
               About Us
             </Link>
 
-            <Link to="/open-source" className={`text-sm font-medium transition-colors ${isActive('/open-source') ? 'text-rose-500' : 'text-slate-600 dark:text-slate-300 hover:text-rose-400 dark:hover:text-rose-300'}`}>
-              Open Source
-            </Link>
+
 
             {currentUser?.role === 'CUSTOMER' && (
               <>
@@ -204,7 +202,6 @@ export const Navbar = () => {
                   <MobileNavLink to="/" onClick={closeMenu} isActive={isActive('/')}>Home</MobileNavLink>
                   <MobileNavLink to="/services" onClick={closeMenu} isActive={isActive('/services')}>Services</MobileNavLink>
                   <MobileNavLink to="/about" onClick={closeMenu} isActive={isActive('/about')}>About Us</MobileNavLink>
-                  <MobileNavLink to="/open-source" onClick={closeMenu} isActive={isActive('/open-source')}>Open Source</MobileNavLink>
                 </div>
               </div>
 
