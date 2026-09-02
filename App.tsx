@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
 import { About } from './pages/About';
+import { OpenSourceDesigns } from './pages/OpenSourceDesigns';
 import { Login } from './pages/Login';
 import { AdminLogin } from './pages/AdminLogin';
 import { Catalog } from './pages/Catalog';
@@ -169,6 +170,7 @@ const AppContent = () => {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
+          <Route path="/open-source" element={<OpenSourceDesigns />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           

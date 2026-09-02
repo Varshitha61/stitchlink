@@ -1,0 +1,45 @@
+name: Fetch Open Source Embroidery Designs
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Run weekly on Sunday at midnight
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  fetch-and-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./fetcher
+        run: npm ci || npm install
+
+      - name: Fetch Embroidery Repositories
+        working-directory: ./fetcher
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node fetch-embroidery-repos.js
+
+      - name: Sync to Supabase
+        working-directory: ./fetcher
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node sync-to-supabase.js
+        continue-on-error: true # Continue even if Supabase keys are not set
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add fetcher/data/
+          # Only commit if there are changes
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update open source embroidery data" && git push)
