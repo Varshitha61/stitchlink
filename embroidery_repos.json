@@ -1,22 +1,22 @@
 [
   {
-    "fetchedAt": "2026-08-30T04:04:51.923Z",
+    "fetchedAt": "2026-09-06T03:21:00.286Z",
     "sourceUrl": "https://github.com/inkstitch/inkstitch",
     "metadata": {
       "name": "inkstitch",
       "owner": "inkstitch",
       "description": "Ink/Stitch: an Inkscape extension for machine embroidery design",
-      "stars": 1340,
+      "stars": 1343,
       "language": "Python",
-      "lastUpdated": "2026-08-28T22:31:32Z",
+      "lastUpdated": "2026-09-06T03:08:15Z",
       "license": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
         "url": "https://api.github.com/licenses/gpl-3.0"
       },
       "defaultBranch": "main",
-      "forks": 245,
-      "openIssues": 237,
+      "forks": 246,
+      "openIssues": 238,
       "homepage": "https://inkstitch.org"
     },
     "readme": {
@@ -29,7 +29,7 @@
       {
         "path": ".gitignore",
         "type": "file",
-        "size": 411,
+        "size": 495,
         "url": "https://github.com/inkstitch/inkstitch/blob/main/.gitignore"
       },
       {
@@ -5695,23 +5695,17 @@
         "type": "file",
         "size": 260567,
         "url": "https://github.com/inkstitch/inkstitch/blob/main/translations/messages_zh_TW.po"
-      },
-      {
-        "path": "uv.lock",
-        "type": "file",
-        "size": 227071,
-        "url": "https://github.com/inkstitch/inkstitch/blob/main/uv.lock"
       }
     ]
   },
   {
-    "fetchedAt": "2026-08-30T04:04:52.712Z",
+    "fetchedAt": "2026-09-06T03:21:00.956Z",
     "sourceUrl": "https://github.com/Embroidermodder/Embroidermodder",
     "metadata": {
       "name": "Embroidermodder",
       "owner": "Embroidermodder",
       "description": "Free machine embroidery software supporting a variety of formats.",
-      "stars": 630,
+      "stars": 631,
       "language": "C",
       "lastUpdated": "2026-08-03T05:31:39Z",
       "license": {
@@ -8482,7 +8476,7 @@
     ]
   },
   {
-    "fetchedAt": "2026-08-30T04:04:53.517Z",
+    "fetchedAt": "2026-09-06T03:21:01.716Z",
     "sourceUrl": "https://github.com/CreativeInquiry/PEmbroider",
     "metadata": {
       "name": "PEmbroider",
@@ -10125,7 +10119,7 @@
     ]
   },
   {
-    "fetchedAt": "2026-08-30T04:04:54.332Z",
+    "fetchedAt": "2026-09-06T03:21:02.294Z",
     "sourceUrl": "https://github.com/F33RNI/OpenEmbroidery",
     "metadata": {
       "name": "OpenEmbroidery",
