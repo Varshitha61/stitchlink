@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-09-20T03:48:57.937Z",
+  "fetchedAt": "2026-09-27T04:06:22.960Z",
   "sourceUrl": "https://github.com/Embroidermodder/Embroidermodder",
   "metadata": {
     "name": "Embroidermodder",
     "owner": "Embroidermodder",
     "description": "Free machine embroidery software supporting a variety of formats.",
-    "stars": 633,
+    "stars": 632,
     "language": "C",
     "lastUpdated": "2026-08-03T05:31:39Z",
     "license": {
